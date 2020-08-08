@@ -1,5 +1,5 @@
 # ningenme-net-api
-![test](https://github.com/ningenMe/ningenme-net-api/workflows/test/badge.svg)
+![deploy](https://github.com/ningenMe/ningenme-net-api/workflows/deploy/badge.svg)
 
 趣味開発のバックエンド全般
 
