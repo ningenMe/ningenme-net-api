@@ -4,7 +4,7 @@
 name: deploy
 
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
@@ -22,3 +22,12 @@ jobs:
         architecture: x64 
     - name: Build with Gradle
       run: gradle build
+    - name: Deploy
+      env:
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        USER_NAME: ${{ secrets.USER_NAME }}
+        HOST_NAME: ${{ secrets.HOST_NAME }}
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'touch fuga.txt'
+
