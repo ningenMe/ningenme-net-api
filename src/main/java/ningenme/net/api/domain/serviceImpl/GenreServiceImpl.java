@@ -19,4 +19,9 @@ public class GenreServiceImpl implements GenreService {
     public List<Genre> get() {
         return genreRepository.get();
     }
+    @Override
+    public Genre get(String label) {
+        return genreRepository.get(label);
+    }
+
 }

@@ -13,11 +13,11 @@
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
     </resultMap>
-    <select id="select" resultMap="GenreDto">
+    <select id="select" resultMap="GenreDto" parameterType="String">
         SELECT * FROM genre
         <where>
-            <if test="genreId != null">
-                AND genre_id = #{genreId}
+            <if test="label != null">
+                AND label = #{label}
             </if>
             <if test="true">
                 AND deleted_time IS NULL
