@@ -23,4 +23,10 @@ public class GenreRepositoryImpl implements GenreRepository {
         List<GenreDto> genreDtoList = sqlSessionTemplate.getMapper(GenreMapper.class).select(null);
         return genreDtoList.stream().map(genreDto -> genreDto.convertGenre()).collect(Collectors.toList());
     }
+
+    @Override
+    public Genre get(String label) {
+        List<GenreDto> genreDtoList = sqlSessionTemplate.getMapper(GenreMapper.class).select(label);
+        return genreDtoList.get(0).convertGenre();
+    }
 }

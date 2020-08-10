@@ -5,5 +5,6 @@ import java.util.List;
 import ningenme.net.api.domain.entity.Genre;
 
 public interface GenreService {
-    public List<Genre> get();    
+    public List<Genre> get();   
+    public Genre get(String label);   
 }

@@ -6,4 +6,5 @@ import ningenme.net.api.domain.entity.Genre;
 
 public interface GenreRepository {
     public List<Genre> get();
+    public Genre get(String label);
 }
