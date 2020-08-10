@@ -20,7 +20,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-
-jar {
-    baseName = 'ningenme.net.api'
-}
