@@ -20,8 +20,8 @@ dependencies {
 	implementation 'javax.validation:validation-api:2.0.0.Final'
 
 	//lombok
-	compileOnly "org.projectlombok:lombok:1.16.22"
-	annotationProcessor "org.projectlombok:lombok:1.16.22"
+	compileOnly "org.projectlombok:lombok:1.18.12"
+	annotationProcessor "org.projectlombok:lombok:1.18.12"
 
 	//swagger
 
