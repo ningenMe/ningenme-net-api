@@ -1,5 +1,6 @@
 package ningenme.net.api.presentation.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import ningenme.net.api.presentation.response.GetGenreResponse;
 
 @RestController
 @RequestMapping("/compro/category/genres")
+@CrossOrigin
 @RequiredArgsConstructor
 public class GenreController {
     
