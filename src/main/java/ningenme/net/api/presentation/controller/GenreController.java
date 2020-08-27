@@ -1,6 +1,6 @@
 package ningenme.net.api.presentation.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,21 +13,21 @@ import ningenme.net.api.presentation.response.GetGenreResponse;
 
 @RestController
 @RequestMapping("/compro/category/genres")
-@CrossOrigin
 @RequiredArgsConstructor
 public class GenreController {
-    
+    private static final String HEADER_NAME  = "Access-Control-Allow-Origin";
+    private static final String HEADER_VALUE = "*";
     private final GenreService genreService;
 
     @GetMapping("")
-    public GetGenreResponse getGenre() {
-        return GetGenreResponse.of(genreService.get());
+    public ResponseEntity<GetGenreResponse> getGenre() {
+        return ResponseEntity.ok().header(HEADER_NAME, HEADER_VALUE).body(GetGenreResponse.of(genreService.get()));
     }
     @GetMapping("/{label}")
-    public GetGenreOneResponse getGenreOne(
+    public ResponseEntity<GetGenreOneResponse> getGenreOne(
         @PathVariable String label
     ) {
-        return GetGenreOneResponse.of(genreService.get(label));
+        return ResponseEntity.ok().header(HEADER_NAME, HEADER_VALUE).body(GetGenreOneResponse.of(genreService.get(label)));
     }
 
 }
