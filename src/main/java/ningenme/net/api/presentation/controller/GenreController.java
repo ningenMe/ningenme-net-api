@@ -15,19 +15,17 @@ import ningenme.net.api.presentation.response.GetGenreResponse;
 @RequestMapping("/compro/category/genres")
 @RequiredArgsConstructor
 public class GenreController {
-    private static final String HEADER_NAME  = "Access-Control-Allow-Origin";
-    private static final String HEADER_VALUE = "*";
     private final GenreService genreService;
 
     @GetMapping("")
     public ResponseEntity<GetGenreResponse> getGenre() {
-        return ResponseEntity.ok().header(HEADER_NAME, HEADER_VALUE).body(GetGenreResponse.of(genreService.get()));
+        return ResponseEntity.ok().body(GetGenreResponse.of(genreService.get()));
     }
     @GetMapping("/{label}")
     public ResponseEntity<GetGenreOneResponse> getGenreOne(
         @PathVariable String label
     ) {
-        return ResponseEntity.ok().header(HEADER_NAME, HEADER_VALUE).body(GetGenreOneResponse.of(genreService.get(label)));
+        return ResponseEntity.ok().body(GetGenreOneResponse.of(genreService.get(label)));
     }
 
 }
