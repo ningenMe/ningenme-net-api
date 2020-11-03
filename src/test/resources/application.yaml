@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: ${MYSQL_MYBATIS_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
