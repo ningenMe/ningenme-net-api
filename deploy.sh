@@ -1,3 +1,4 @@
+export PATH=$PATH:/usr/local/bin/gradle-6.5.1/bin
 gradle clean
 gradle build
 for key in SLACK_WEBHOOK_URL MYSQL_HOST MYSQL_PORT MYSQL_DB MYSQL_USER MYSQL_PASSWORD MYSQL_MYBATIS_URL
