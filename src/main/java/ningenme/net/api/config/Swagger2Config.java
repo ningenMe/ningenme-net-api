@@ -26,7 +26,7 @@ public class Swagger2Config implements WebMvcConfigurer {
   @Bean
   public Docket swaggerSpringMvcPlugin() {
     return new Docket(DocumentationType.SWAGGER_2)
-            .groupName("https://ningenme.net.api")
+            .groupName("ningenme.net.api")
             .select()
             .apis(RequestHandlerSelectors.any())
             .paths(PathSelectors.regex("/v1/.*"))
