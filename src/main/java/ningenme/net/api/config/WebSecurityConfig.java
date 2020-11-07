@@ -1,6 +1,7 @@
 package ningenme.net.api.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,8 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-            .mvcMatchers("/v1/compro/category/genres").permitAll()
-            .mvcMatchers("/v1/compro/category/genres/**").permitAll()
+            .mvcMatchers(HttpMethod.GET   ,"/v1/compro/category/genres").permitAll()
+            .mvcMatchers(HttpMethod.GET   ,"/v1/compro/category/genres/**").permitAll()
+            .mvcMatchers(HttpMethod.POST  ,"/v1/compro/category/users/**").permitAll()
             .mvcMatchers("/login").permitAll()
             .anyRequest().authenticated()
         .and()
