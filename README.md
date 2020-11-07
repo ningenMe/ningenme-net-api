@@ -10,8 +10,8 @@
 |ci/cd       | github actions |  
 |application | Spring Boot    |  
 
-
 ## api schema
+https://ningenme.github.io/api-document/#/
 
 ## db schema
 

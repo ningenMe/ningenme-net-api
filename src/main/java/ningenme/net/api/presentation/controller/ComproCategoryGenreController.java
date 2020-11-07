@@ -1,5 +1,6 @@
 package ningenme.net.api.presentation.controller;
 
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,29 +16,28 @@ import ningenme.net.api.presentation.response.GetGenreOneResponse;
 import ningenme.net.api.presentation.response.GetGenreResponse;
 
 @RestController
-@RequestMapping("/v1/compro/category/genres")
 @RequiredArgsConstructor
-public class GenreController {
+public class ComproCategoryGenreController {
     private final GenreService genreService;
 
-    @ApiOperation(value = "genreList")
+    @ApiOperation(value = "ComproCategoryGenre 単体参照API")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    @GetMapping("")
-    public ResponseEntity<GetGenreResponse> getGenre() {
+    @GetMapping("/v1/compro/category/genres")
+    public ResponseEntity<GetGenreResponse> getGenres() {
         return ResponseEntity.ok().body(GetGenreResponse.of(genreService.get()));
     }
 
-    @ApiOperation(value = "genre")
+    @ApiOperation(value = "ComproCategoryGenre 複数参照API")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 500, message = "Internal Server Error")
     })
-    @GetMapping("/{label}")
+    @GetMapping("/v1/compro/category/genres/{label}")
     public ResponseEntity<GetGenreOneResponse> getGenreOne(
-        @PathVariable String label
+        @ApiParam("ラベル") @PathVariable String label
     ) {
         return ResponseEntity.ok().body(GetGenreOneResponse.of(genreService.get(label)));
     }
