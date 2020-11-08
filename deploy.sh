@@ -10,5 +10,5 @@ pid=`jps | awk -F: '/api-0.0.1-SNAPSHOT/{print $1}' | awk '{print $1}'`
 if [ $pid != "" ] ; then
     kill -9 $pid
 fi
-java -jar build/libs/api-0.0.1-SNAPSHOT.jar &
+java -jar -Dspring.profiles.active=prod build/libs/api-0.0.1-SNAPSHOT.jar &
 curl -X POST --data-urlencode "payload={\"text\":\"succeeded api-java deploy\",\"channel\":\"#log-info\",}" $SLACK_WEBHOOK_URL

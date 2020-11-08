@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: ${MYSQL_MYBATIS_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+logging:
+  level:
+    root: INFO
+  file:
+    path: log
+ningenme:
+  net:
+    hostname: api.ningenme.net

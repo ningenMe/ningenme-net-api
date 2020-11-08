@@ -12,6 +12,9 @@ spring:
     add-mappings: false
 logging:
   level:
-    root: INFO
+    root: DEBUG
   file:
     path: log
+ningenme:
+  net:
+    hostname: localhost:8081

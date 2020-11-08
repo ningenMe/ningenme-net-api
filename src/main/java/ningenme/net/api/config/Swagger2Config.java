@@ -1,6 +1,7 @@
 package ningenme.net.api.config;
 
 import com.google.common.collect.Sets;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -23,6 +24,9 @@ import java.util.HashSet;
 @EnableSwagger2
 public class Swagger2Config implements WebMvcConfigurer {
 
+  @Value("${ningenme.net.hostname}")
+  private String hostName;
+
   @Bean
   public Docket swaggerSpringMvcPlugin() {
     return new Docket(DocumentationType.SWAGGER_2)
@@ -31,9 +35,9 @@ public class Swagger2Config implements WebMvcConfigurer {
             .apis(RequestHandlerSelectors.any())
             .paths(PathSelectors.regex("/v1/.*"))
             .build()
-            .host("api.ningenme.net")
+            .host(hostName)
             .useDefaultResponseMessages(false)
-            .protocols(Sets.newHashSet("https"))
+            .protocols(Sets.newHashSet("http","https"))
             .apiInfo(apiInfo());
   }
 

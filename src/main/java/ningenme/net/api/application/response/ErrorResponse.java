@@ -1,4 +1,4 @@
-package ningenme.net.api.presentation.response;
+package ningenme.net.api.application.response;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,5 +15,9 @@ public class ErrorResponse {
 
   public static ErrorResponse of(HttpStatus httpStatus, LogCode logCode) {
     return new ErrorResponse(httpStatus.value(), logCode.getCode(), logCode.getMessage());
+  }
+
+  public static ErrorResponse of(HttpStatus httpStatus, LogCode logCode, Exception ex) {
+    return new ErrorResponse(httpStatus.value(), logCode.getCode(), logCode.getMessage() + ": " + ex.toString());
   }
 }

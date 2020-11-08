@@ -1,11 +1,13 @@
 package ningenme.net.api.aspect;
 
 import lombok.extern.slf4j.Slf4j;
+import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.presentation.response.ErrorResponse;
+import ningenme.net.api.application.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -17,6 +19,10 @@ public class NingenmeNetApiControllerAdvice {
 
   private ResponseEntity<ErrorResponse> commonHandle(HttpStatus httpStatus, LogCode logCode, Exception ex) {
     log.error("code={}, message={}",logCode.getCode(),logCode.getMessage(),ex);
+    return new ResponseEntity<>(ErrorResponse.of(httpStatus,logCode,ex), httpStatus);
+  }
+  private ResponseEntity<ErrorResponse> commonHandle(HttpStatus httpStatus, LogCode logCode) {
+    log.error("code={}, message={}",logCode.getCode(),logCode.getMessage());
     return new ResponseEntity<>(ErrorResponse.of(httpStatus,logCode), httpStatus);
   }
 
@@ -31,13 +37,23 @@ public class NingenmeNetApiControllerAdvice {
   }
 
   /**
+   * comproCategoryのinsert時のエラー全般
+   * @param ex exception
+   * @return エラーレスポンス
+   */
+  @ExceptionHandler({InsertComproCategoryUserException.class})
+  public ResponseEntity<ErrorResponse> insertComproCategoryUserExceptionHandle(Exception ex) {
+    return commonHandle(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_502,ex);
+  }
+
+  /**
    * 引数おかしいエラー
    * @param ex exception
    * @return エラーレスポンス
    */
   @ExceptionHandler({IllegalArgumentException.class})
   public ResponseEntity<ErrorResponse> IllegalArgumentExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401,ex);
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
   }
 
   /**
@@ -47,7 +63,7 @@ public class NingenmeNetApiControllerAdvice {
    */
   @ExceptionHandler({MethodArgumentTypeMismatchException.class})
   public ResponseEntity<ErrorResponse> MethodArgumentTypeMismatchExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401,ex);
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
   }
 
   /**
@@ -57,11 +73,27 @@ public class NingenmeNetApiControllerAdvice {
    */
   @ExceptionHandler({NoHandlerFoundException.class})
   public ResponseEntity<ErrorResponse> NoHandlerFoundExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.NOT_FOUND,LogCode.API_INFO_402,ex);
+    return commonHandle(HttpStatus.NOT_FOUND,LogCode.API_INFO_402);
   }
 
+  /**
+   * メソッドがおかしい
+   * @param ex exception
+   * @return エラーレスポンス
+   */
   @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
   public ResponseEntity<ErrorResponse> HttpRequestMethodNotSupportedExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_403,ex);
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_403);
   }
+
+  /**
+   * メソッドがおかしい
+   * @param ex exception
+   * @return エラーレスポンス
+   */
+  @ExceptionHandler({MissingServletRequestParameterException.class})
+  public ResponseEntity<ErrorResponse> MissingServletRequestParameterExceptionHandle(Exception ex) {
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_404);
+  }
+
 }
