@@ -14,9 +14,12 @@ public enum LogCode {
    * 200番台 正常だけど一応ログ残したいやつ
    */
   API_INFO_501("API_INFO_501","No Handle Error"),
+  API_INFO_502("API_INFO_502","Insert Compro Category User Error"),
   API_INFO_401("API_INFO_401","Invalid Args Parameter"),
   API_INFO_402("API_INFO_402","No Such Uri"),
-  API_INFO_403("API_INFO_403","Invalid Http Method");
+  API_INFO_403("API_INFO_403","Invalid Http Method"),
+  API_INFO_404("API_INFO_404","Some Request Parameter Are Not Present"),
+  API_INFO_201("API_INFO_201","New Compro Category User Was Created");
   private final String code;
   private final String message;
 }
