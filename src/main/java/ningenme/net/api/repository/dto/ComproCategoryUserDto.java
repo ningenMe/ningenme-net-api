@@ -2,6 +2,8 @@ package ningenme.net.api.repository.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryUser;
+import ningenme.net.api.domain.value.Email;
+import ningenme.net.api.domain.value.Password;
 
 import java.sql.Timestamp;
 
@@ -12,10 +14,7 @@ public class ComproCategoryUserDto {
   private final Timestamp createdTime;
   private final Timestamp updatedTime;
   private final Timestamp deletedTime;
-  public static ComproCategoryUserDto of(ComproCategoryUser comproCategoryUser) {
-    return new ComproCategoryUserDto(
-            comproCategoryUser.getEmail().toString(),
-            comproCategoryUser.getPassword().toString(),
-            null,null,null);
+  public ComproCategoryUser convertComproCategoryUser() {
+    return ComproCategoryUser.of(Email.of(email), Password.of(password));
   }
 }

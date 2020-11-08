@@ -11,7 +11,10 @@
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
     </resultMap>
-    <select id="insert">
+    <insert id="insert">
         INSERT INTO compro_category_users (email, password) VALUES ( #{email}, #{password} );
+    </insert>
+    <select id="select" resultMap="ComproCategoryUserDto" parameterType="String">
+        SELECT * FROM compro_category_users WHERE email = #{email}
     </select>
 </mapper>

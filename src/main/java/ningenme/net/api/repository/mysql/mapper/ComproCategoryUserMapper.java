@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface ComproCategoryUserMapper {
   void insert(@Param("email") String email, @Param("password") String password);
+  ComproCategoryUserDto select(@Param("email") String email);
 }
