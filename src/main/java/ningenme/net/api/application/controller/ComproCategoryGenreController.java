@@ -1,10 +1,9 @@
-package ningenme.net.api.presentation.controller;
+package ningenme.net.api.application.controller;
 
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
@@ -12,8 +11,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.service.GenreService;
-import ningenme.net.api.presentation.response.GetGenreOneResponse;
-import ningenme.net.api.presentation.response.GetGenreResponse;
+import ningenme.net.api.application.response.GetGenreOneResponse;
+import ningenme.net.api.application.response.GetGenreResponse;
 
 @RestController
 @RequiredArgsConstructor
