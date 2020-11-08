@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.repository.mysql.mapper.ComproCategoryUserMapper">
+    <resultMap id="ComproCategoryUserDto" type="ningenme.net.api.repository.dto.ComproCategoryUserDto">
+        <id property="email" column="email"/>
+        <id property="password" column="password"/>
+        <id property="createdTime" column="created_time"/>
+        <id property="updatedTime" column="updated_time"/>
+        <id property="deletedTime" column="deleted_time"/>
+    </resultMap>
+    <select id="insert">
+        INSERT INTO compro_category_users (email, password) VALUES ( #{email}, #{password} );
+    </select>
+</mapper>
