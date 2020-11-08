@@ -15,13 +15,13 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 @Slf4j
 @RestControllerAdvice
-public class NingenmeNetApiControllerAdvice {
+public class NingenmeNetApiControllerHandler {
 
-  private ResponseEntity<ErrorResponse> commonHandle(HttpStatus httpStatus, LogCode logCode, Exception ex) {
+  private ResponseEntity<ErrorResponse> commonHandler(HttpStatus httpStatus, LogCode logCode, Exception ex) {
     log.error("code={}, message={}",logCode.getCode(),logCode.getMessage(),ex);
     return new ResponseEntity<>(ErrorResponse.of(httpStatus,logCode,ex), httpStatus);
   }
-  private ResponseEntity<ErrorResponse> commonHandle(HttpStatus httpStatus, LogCode logCode) {
+  private ResponseEntity<ErrorResponse> commonHandler(HttpStatus httpStatus, LogCode logCode) {
     log.error("code={}, message={}",logCode.getCode(),logCode.getMessage());
     return new ResponseEntity<>(ErrorResponse.of(httpStatus,logCode), httpStatus);
   }
@@ -32,8 +32,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler
-  public ResponseEntity<ErrorResponse> exceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_501,ex);
+  public ResponseEntity<ErrorResponse> exceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_501,ex);
   }
 
   /**
@@ -42,8 +42,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({InsertComproCategoryUserException.class})
-  public ResponseEntity<ErrorResponse> insertComproCategoryUserExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_502,ex);
+  public ResponseEntity<ErrorResponse> insertComproCategoryUserExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_502,ex);
   }
 
   /**
@@ -52,8 +52,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({IllegalArgumentException.class})
-  public ResponseEntity<ErrorResponse> IllegalArgumentExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
+  public ResponseEntity<ErrorResponse> IllegalArgumentExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
   }
 
   /**
@@ -62,8 +62,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({MethodArgumentTypeMismatchException.class})
-  public ResponseEntity<ErrorResponse> MethodArgumentTypeMismatchExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
+  public ResponseEntity<ErrorResponse> MethodArgumentTypeMismatchExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
   }
 
   /**
@@ -72,8 +72,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({NoHandlerFoundException.class})
-  public ResponseEntity<ErrorResponse> NoHandlerFoundExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.NOT_FOUND,LogCode.API_INFO_402);
+  public ResponseEntity<ErrorResponse> NoHandlerFoundExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.NOT_FOUND,LogCode.API_INFO_402);
   }
 
   /**
@@ -82,8 +82,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
-  public ResponseEntity<ErrorResponse> HttpRequestMethodNotSupportedExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_403);
+  public ResponseEntity<ErrorResponse> HttpRequestMethodNotSupportedExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.BAD_REQUEST,LogCode.API_INFO_403);
   }
 
   /**
@@ -92,8 +92,8 @@ public class NingenmeNetApiControllerAdvice {
    * @return エラーレスポンス
    */
   @ExceptionHandler({MissingServletRequestParameterException.class})
-  public ResponseEntity<ErrorResponse> MissingServletRequestParameterExceptionHandle(Exception ex) {
-    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_404);
+  public ResponseEntity<ErrorResponse> MissingServletRequestParameterExceptionHandler(Exception ex) {
+    return commonHandler(HttpStatus.BAD_REQUEST,LogCode.API_INFO_404);
   }
 
 }
