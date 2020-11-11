@@ -1,8 +1,6 @@
 package ningenme.net.api.config;
 
-import ningenme.net.api.aspect.NingenmeNetApiAuthenticationFailureHandler;
 import ningenme.net.api.aspect.NingenmeNetApiAuthenticationFilter;
-import ningenme.net.api.aspect.NingenmeNetApiAuthenticationSuccessHandler;
 import ningenme.net.api.aspect.NingenmeNetApiAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -79,13 +77,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return urlBasedCorsConfigurationSource;
     }
-
-    AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new NingenmeNetApiAuthenticationSuccessHandler(secret);
-    }
-
-    AuthenticationFailureHandler authenticationFailureHandler() {
-        return new NingenmeNetApiAuthenticationFailureHandler();
-    }
-
 }
