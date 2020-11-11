@@ -1,5 +1,10 @@
 package ningenme.net.api.config;
 
+import ningenme.net.api.aspect.NingenmeNetApiAuthenticationFailureHandler;
+import ningenme.net.api.aspect.NingenmeNetApiAuthenticationFilter;
+import ningenme.net.api.aspect.NingenmeNetApiAuthenticationSuccessHandler;
+import ningenme.net.api.aspect.NingenmeNetApiAuthorizationFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,7 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -20,12 +26,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
       return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    @Value("${ningenme.net.secret}")
+    String secret;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http
               .authorizeRequests()
-              .mvcMatchers(HttpMethod.GET   ,"/v1/**").permitAll()
-              .mvcMatchers("/login").permitAll()
+              .mvcMatchers(HttpMethod.GET ,"/v1/**").permitAll()
+              .mvcMatchers("/v1/login").permitAll()
               .anyRequest().authenticated()
 
               .and()
@@ -33,15 +42,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
               .and()
               .logout()
-              .invalidateHttpSession(true)
-              .deleteCookies("JSESSIONID")
 
               .and()
               .cors().configurationSource(getConfigurationSource())
 
               .and()
               .csrf()
-              .ignoringAntMatchers("/v1/**");
+              .disable()
+
+              .addFilter(new NingenmeNetApiAuthenticationFilter(authenticationManager(),secret))
+              .addFilter(new NingenmeNetApiAuthorizationFilter(authenticationManager(),secret))
+
+              .headers()
+              .cacheControl()
+              .disable();
     }
 
     private static final String[] AUTH_WHITELIST = {
@@ -65,4 +79,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return urlBasedCorsConfigurationSource;
     }
+
+    AuthenticationSuccessHandler authenticationSuccessHandler() {
+        return new NingenmeNetApiAuthenticationSuccessHandler(secret);
+    }
+
+    AuthenticationFailureHandler authenticationFailureHandler() {
+        return new NingenmeNetApiAuthenticationFailureHandler();
+    }
+
 }
