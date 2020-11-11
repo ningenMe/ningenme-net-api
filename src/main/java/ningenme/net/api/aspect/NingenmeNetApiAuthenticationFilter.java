@@ -72,5 +72,6 @@ public class NingenmeNetApiAuthenticationFilter extends UsernamePasswordAuthenti
             .signWith(secretKey)
             .compact();
     httpServletResponse.addHeader(AUTH_HEADER, AUTH_PREFIX + token);
+    log.info("code={},message={}", LogCode.API_INFO_203.getCode(),LogCode.API_INFO_203.getMessage());
   }
 }
