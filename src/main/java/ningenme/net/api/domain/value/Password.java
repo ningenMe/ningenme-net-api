@@ -21,6 +21,16 @@ public class Password {
     return new Password( passwordEncoder.encode(rawPassword.toString()) );
   }
 
+  /**
+   * DTOから戻すときはこっちのofメソッドを使う。
+   * @param encodedPassword
+   * @return
+   * @throws NullPointerException
+   */
+  public static Password of(@NonNull String encodedPassword) throws NullPointerException {
+    return new Password( encodedPassword );
+  }
+
   @Override
   public String toString() {
     return value;
