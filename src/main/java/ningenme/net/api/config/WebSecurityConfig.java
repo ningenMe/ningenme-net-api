@@ -25,6 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Value("${ningenme.net.secret}")
     String secret;
 
+    private static final String AUTH_HEADER = "Authorization";
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http
@@ -40,18 +42,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
               .logout()
 
               .and()
-              .cors().configurationSource(getConfigurationSource())
-
-              .and()
-              .csrf()
-              .disable()
-
               .addFilter(new NingenmeNetApiAuthenticationFilter(authenticationManager(),secret))
               .addFilter(new NingenmeNetApiAuthorizationFilter(authenticationManager(),secret))
 
+              .csrf()
+              .disable()
+
               .headers()
               .cacheControl()
-              .disable();
+              .disable()
+
+              .and()
+              .cors()
+              .configurationSource(getConfigurationSource());
     }
 
     private static final String[] AUTH_WHITELIST = {
@@ -71,8 +74,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         corsConfiguration.addAllowedMethod(CorsConfiguration.ALL);
         corsConfiguration.addAllowedHeader(CorsConfiguration.ALL);
         corsConfiguration.addAllowedOrigin(CorsConfiguration.ALL);
+        corsConfiguration.addExposedHeader(AUTH_HEADER);
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/v1/**", corsConfiguration);
         return urlBasedCorsConfigurationSource;
     }
 }
