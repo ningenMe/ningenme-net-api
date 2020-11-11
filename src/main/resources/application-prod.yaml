@@ -18,3 +18,4 @@ logging:
 ningenme:
   net:
     hostname: api.ningenme.net
+    secret: "${AUTH_SECRET}"
