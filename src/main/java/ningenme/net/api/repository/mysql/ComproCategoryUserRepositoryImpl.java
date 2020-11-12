@@ -3,6 +3,7 @@ package ningenme.net.api.repository.mysql;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryUser;
 import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
+import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryUserRepository;
 import ningenme.net.api.domain.value.Email;
 import ningenme.net.api.domain.value.Password;
@@ -37,7 +38,7 @@ public class ComproCategoryUserRepositoryImpl implements ComproCategoryUserRepos
       return comproCategoryUserDto.convertComproCategoryUser();
     }
     catch (Exception ex) {
-      throw new InsertComproCategoryUserException(ex);
+      throw new SelectMysqlException(ex);
     }
   }
 }

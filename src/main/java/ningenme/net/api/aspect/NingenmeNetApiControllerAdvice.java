@@ -2,6 +2,7 @@ package ningenme.net.api.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
+import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.application.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,16 @@ public class NingenmeNetApiControllerAdvice {
   @ExceptionHandler({InsertComproCategoryUserException.class})
   public ResponseEntity<ErrorResponse> insertComproCategoryUserExceptionHandle(Exception ex) {
     return commonHandle(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_502,ex);
+  }
+
+  /**
+   * Mysqlのselect時のエラー全般
+   * @param ex exception
+   * @return エラーレスポンス
+   */
+  @ExceptionHandler({SelectMysqlException.class})
+  public ResponseEntity<ErrorResponse> selectMysqlExceptionHandle(Exception ex) {
+    return commonHandle(HttpStatus.INTERNAL_SERVER_ERROR,LogCode.API_INFO_503,ex);
   }
 
   /**
