@@ -6,15 +6,15 @@
 <mapper namespace="ningenme.net.api.repository.mysql.mapper.GenreMapper">
     <resultMap id="GenreDto" type="ningenme.net.api.repository.dto.GenreDto">
         <id property="genreId" column="genre_id"/>
-        <id property="name" column="name"/>
+        <id property="name" column="genre_name"/>
         <id property="label" column="label"/>
-        <id property="order" column="order"/>
+        <id property="order" column="genre_order"/>
         <id property="createdTime" column="created_time"/>
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
     </resultMap>
     <select id="select" resultMap="GenreDto" parameterType="String">
-        SELECT * FROM genre
+        SELECT * FROM compro_category_genres
         <where>
             <if test="label != null">
                 AND label = #{label}
