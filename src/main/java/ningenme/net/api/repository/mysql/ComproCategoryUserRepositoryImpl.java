@@ -6,8 +6,6 @@ import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryUserRepository;
 import ningenme.net.api.domain.value.Email;
-import ningenme.net.api.domain.value.Password;
-import ningenme.net.api.domain.value.RawPassword;
 import ningenme.net.api.repository.dto.ComproCategoryUserDto;
 import ningenme.net.api.repository.mysql.mapper.ComproCategoryUserMapper;
 import org.mybatis.spring.SqlSessionTemplate;
