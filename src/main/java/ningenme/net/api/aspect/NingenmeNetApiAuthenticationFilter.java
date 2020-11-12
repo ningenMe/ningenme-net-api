@@ -33,6 +33,7 @@ public class NingenmeNetApiAuthenticationFilter extends UsernamePasswordAuthenti
   private static final String LOGIN_PATH = "/v1/login";
   private static final String USERNAME_PARAMETER = "email";
   private static final String PASSWORD_PARAMETER = "password";
+  private static final String ACCESS_CONTROL_EXPOSE_HEADERS = "Access-Control-Expose-Headers";
   private final String secret;
 
   public NingenmeNetApiAuthenticationFilter(AuthenticationManager authenticationManager, String secret) {
@@ -71,6 +72,7 @@ public class NingenmeNetApiAuthenticationFilter extends UsernamePasswordAuthenti
             .setExpiration(expiresAt)
             .signWith(secretKey)
             .compact();
+    httpServletResponse.addHeader(ACCESS_CONTROL_EXPOSE_HEADERS,AUTH_HEADER);
     httpServletResponse.addHeader(AUTH_HEADER, AUTH_PREFIX + token);
     log.info("code={},message={}", LogCode.API_INFO_203.getCode(),LogCode.API_INFO_203.getMessage());
   }
