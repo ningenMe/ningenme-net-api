@@ -28,12 +28,13 @@ public class NingenmeNetApiAuthenticationFilter extends UsernamePasswordAuthenti
   private AuthenticationManager authenticationManager;
 
   private static final String AUTH_HEADER = "Authorization";
+  private static final String AWS_AUTH_HEADER = "x-amzn-remapped-authorization";
   private static final String AUTH_PREFIX = "Bearer ";
   private static final Long EXPIRATION_TIME = 1000L * 60L * 60L * 12L; // 12 hour (ms)
   private static final String LOGIN_PATH = "/v1/login";
   private static final String USERNAME_PARAMETER = "email";
   private static final String PASSWORD_PARAMETER = "password";
-  private static final String ACCESS_CONTROL_EXPOSE_HEADERS = "Access-Control-Expose-Headers";
+  private static final String ACCESS_CONTROL_EXPOSE_HEADER = "Access-Control-Expose-Headers";
   private final String secret;
 
   public NingenmeNetApiAuthenticationFilter(AuthenticationManager authenticationManager, String secret) {
@@ -72,7 +73,8 @@ public class NingenmeNetApiAuthenticationFilter extends UsernamePasswordAuthenti
             .setExpiration(expiresAt)
             .signWith(secretKey)
             .compact();
-    httpServletResponse.addHeader(ACCESS_CONTROL_EXPOSE_HEADERS,AUTH_HEADER);
+    httpServletResponse.addHeader(ACCESS_CONTROL_EXPOSE_HEADER,AUTH_HEADER);
+    httpServletResponse.addHeader(ACCESS_CONTROL_EXPOSE_HEADER,AWS_AUTH_HEADER);
     httpServletResponse.addHeader(AUTH_HEADER, AUTH_PREFIX + token);
     log.info("code={},message={}", LogCode.API_INFO_203.getCode(),LogCode.API_INFO_203.getMessage());
   }
