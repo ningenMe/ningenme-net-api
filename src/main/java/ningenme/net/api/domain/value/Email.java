@@ -23,12 +23,11 @@ public class Email {
 
     public static Email of(@NonNull String email) throws NullPointerException,IllegalArgumentException {
         
-        if(REGEX_PATTERN.matcher(email).matches() 
-        && email.length() <= MAX_LENGTH) {
-            return new Email(email);
+        if(!REGEX_PATTERN.matcher(email).matches() || email.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException("Illegal email" + email);
         }
-        
-        throw new IllegalArgumentException("Illegal email" + email);
+
+        return new Email(email);
     }
 
     @Override

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.repository.mysql.mapper.ComproCategoryTaskMapper">
+    <resultMap id="ComproCategoryTaskDto" type="ningenme.net.api.repository.dto.ComproCategoryTaskDto">
+        <id property="taskId"      column="task_id"/>
+        <id property="taskName"    column="task_name"/>
+        <id property="url"         column="url"/>
+        <id property="score"       column="score"/>
+        <id property="estimation"  column="estimation"/>
+        <id property="site"        column="site"/>
+        <id property="createdTime" column="created_time"/>
+        <id property="updatedTime" column="updated_time"/>
+        <id property="deletedTime" column="deleted_time"/>
+    </resultMap>
+    <select id="select" resultMap="ComproCategoryTaskDto" parameterType="Integer">
+        SELECT * FROM compro_category_tasks WHERE deleted_time IS NULL ORDER BY created_time DESC limit 100 offset #{offset}
+    </select>
+</mapper>

@@ -19,7 +19,7 @@ import ningenme.net.api.application.response.GetGenreResponse;
 public class ComproCategoryGenreController {
     private final GenreService genreService;
 
-    @ApiOperation(value = "ComproCategoryGenre 単体参照API")
+    @ApiOperation(value = "ComproCategoryGenre 複数参照API")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 500, message = "Internal Server Error")
@@ -29,7 +29,7 @@ public class ComproCategoryGenreController {
         return ResponseEntity.ok().body(GetGenreResponse.of(genreService.get()));
     }
 
-    @ApiOperation(value = "ComproCategoryGenre 複数参照API")
+    @ApiOperation(value = "ComproCategoryGenre 単体参照API")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 500, message = "Internal Server Error")

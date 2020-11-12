@@ -15,6 +15,7 @@ public enum LogCode {
    */
   API_INFO_501("API_INFO_501","No Handle Error"),
   API_INFO_502("API_INFO_502","Insert Compro Category User Error"),
+  API_INFO_503("API_INFO_503","Select Mysql Error"),
   API_INFO_401("API_INFO_401","Invalid Args Parameter"),
   API_INFO_402("API_INFO_402","No Such Uri"),
   API_INFO_403("API_INFO_403","Invalid Http Method"),
