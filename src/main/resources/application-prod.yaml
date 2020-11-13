@@ -11,7 +11,7 @@ spring:
   resources:
     add-mappings: false
   cache:
-    cache-names: comproCategoryGenre
+    cache-names: comproCategoryGenre,comproCategoryTopic
     caffeine:
       spec: expireAfterWrite=3600s
     type: caffeine

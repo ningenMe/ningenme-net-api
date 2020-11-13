@@ -1,4 +1,4 @@
-package ningenme.net.api.repository.dto;
+package ningenme.net.api.infrastructure.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryTask;

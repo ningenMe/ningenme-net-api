@@ -1,4 +1,4 @@
-package ningenme.net.api.repository.mysql;
+package ningenme.net.api.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,8 +7,8 @@ import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
 import ningenme.net.api.domain.value.Label;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.repository.dto.ComproCategoryGenreDto;
-import ningenme.net.api.repository.mysql.mapper.ComproCategoryGenreMapper;
+import ningenme.net.api.infrastructure.dto.ComproCategoryGenreDto;
+import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryGenreMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;

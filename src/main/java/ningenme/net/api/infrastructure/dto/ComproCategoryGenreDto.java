@@ -1,14 +1,9 @@
-package ningenme.net.api.repository.dto;
+package ningenme.net.api.infrastructure.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryGenre;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.value.CategoryOrder;
 import ningenme.net.api.domain.value.Label;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.Url;
-
-import java.sql.Timestamp;
 
 @RequiredArgsConstructor
 public class ComproCategoryGenreDto {
