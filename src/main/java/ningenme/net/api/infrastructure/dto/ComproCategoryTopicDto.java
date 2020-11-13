@@ -1,10 +1,8 @@
-package ningenme.net.api.repository.dto;
+package ningenme.net.api.infrastructure.dto;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
 import ningenme.net.api.domain.value.CategoryOrder;
-import ningenme.net.api.domain.value.Label;
 
 @RequiredArgsConstructor
 public class ComproCategoryTopicDto {

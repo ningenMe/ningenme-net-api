@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="ningenme.net.api.repository.mysql.mapper.ComproCategoryTopicMapper">
-    <resultMap id="ComproCategoryTopicDto" type="ningenme.net.api.repository.dto.ComproCategoryTopicDto">
+<mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTopicMapper">
+    <resultMap id="ComproCategoryTopicDto" type="ningenme.net.api.infrastructure.dto.ComproCategoryTopicDto">
         <id property="topicId"      column="topic_id"/>
         <id property="genreId"      column="genre_id"/>
         <id property="topicName"    column="topic_name"/>
