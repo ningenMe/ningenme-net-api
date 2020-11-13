@@ -11,6 +11,7 @@
         <id property="score"       column="score"/>
         <id property="estimation"  column="estimation"/>
         <id property="site"        column="site"/>
+        <id property="topicIds"    column="topic_ids"/>
         <id property="createdTime" column="created_time"/>
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
