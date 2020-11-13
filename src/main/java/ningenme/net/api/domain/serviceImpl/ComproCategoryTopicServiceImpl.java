@@ -17,13 +17,23 @@ import java.util.List;
 public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicService {
 
   private final ComproCategoryTopicRepository comproCategoryTopicRepository;
+  private final ComproCategoryGenreRepository comproCategoryGenreRepository;
 
   @Override
   public List<ComproCategoryTopic> get() {
-    return comproCategoryTopicRepository.get();
+    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
+    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
+    for (ComproCategoryTopic comproCategoryTopic:comproCategoryTopicList) {
+      comproCategoryTopic.setGenreName(comproCategoryGenreList);
+    }
+    return comproCategoryTopicList;
   }
 
   @Override
-  public ComproCategoryTopic get(Integer topicId) { return comproCategoryTopicRepository.get(topicId);
+  public ComproCategoryTopic get(Integer topicId) {
+    ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
+    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
+    comproCategoryTopic.setGenreName(comproCategoryGenreList);
+    return comproCategoryTopic;
   }
 }

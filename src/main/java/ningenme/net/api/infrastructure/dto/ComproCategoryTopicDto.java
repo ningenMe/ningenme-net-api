@@ -13,9 +13,9 @@ public class ComproCategoryTopicDto {
   public ComproCategoryTopic convertComproCategoryTopic() {
     return ComproCategoryTopic.of(
             topicId,
-            genreId,
             topicName,
-            CategoryOrder.of(topicOrder)
+            CategoryOrder.of(topicOrder),
+            genreId
     );
   }
 }
