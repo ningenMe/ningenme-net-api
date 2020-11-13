@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.response.GetComproCategoryTaskResponse;
+import ningenme.net.api.application.response.GetComproCategoryTaskListResponse;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
 import org.springframework.http.ResponseEntity;
@@ -27,12 +27,12 @@ public class ComproCategoryTaskController {
         @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/tasks")
-    public ResponseEntity<GetComproCategoryTaskResponse> get(
+    public ResponseEntity<GetComproCategoryTaskListResponse> get(
             @ApiParam(value = "offset") @RequestParam(name = "offset", defaultValue = "1") Integer offset
     ) {
         List<ComproCategoryTask> comproCategoryTaskList = comproCategoryTaskService.get(offset);
         return ResponseEntity.ok().body(
-                GetComproCategoryTaskResponse.of(comproCategoryTaskList,offset,offset + comproCategoryTaskList.size()));
+                GetComproCategoryTaskListResponse.of(comproCategoryTaskList,offset,offset + comproCategoryTaskList.size()));
     }
 
 }
