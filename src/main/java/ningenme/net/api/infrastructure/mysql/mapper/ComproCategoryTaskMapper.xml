@@ -16,7 +16,10 @@
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
     </resultMap>
-    <select id="select" resultMap="ComproCategoryTaskDto" parameterType="Integer">
+    <select id="selectList" resultMap="ComproCategoryTaskDto" parameterType="Integer">
         SELECT * FROM compro_category_tasks WHERE deleted_time IS NULL ORDER BY created_time DESC limit 100 offset #{offset}
+    </select>
+    <select id="selectOne" resultMap="ComproCategoryTaskDto" parameterType="Integer">
+        SELECT * FROM compro_category_tasks WHERE task_id = #{taskId} AND deleted_time IS NULL
     </select>
 </mapper>

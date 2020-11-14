@@ -5,5 +5,6 @@ import ningenme.net.api.domain.entity.ComproCategoryTask;
 import java.util.List;
 
 public interface ComproCategoryTaskRepository {
-  public List<ComproCategoryTask> get(Integer offset);
+  public List<ComproCategoryTask> getList(Integer offset);
+  public ComproCategoryTask getOne(Integer taskId);
 }
