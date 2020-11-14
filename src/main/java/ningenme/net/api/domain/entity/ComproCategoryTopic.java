@@ -27,6 +27,8 @@ public class ComproCategoryTopic {
   private final Integer genreId;
   @ApiModelProperty(position = 4)
   private String genreName;
+  @ApiModelProperty(position = 5)
+  private List<ComproCategoryTask> comproCategoryTaskList;
 
   public static ComproCategoryTopic of(
           Integer topicId,
@@ -40,13 +42,14 @@ public class ComproCategoryTopic {
     return topicOrder.getValue();
   }
   public void setGenreName(List<ComproCategoryGenre> comproCategoryGenreList) {
-
     for (ComproCategoryGenre comproCategoryGenre: comproCategoryGenreList) {
       if(comproCategoryGenre.getGenreId().equals(genreId)) {
         genreName = comproCategoryGenre.getGenreName();
         return;
       }
     }
-
+  }
+  public void setComproCategoryTaskList(List<ComproCategoryTask> comproCategoryTaskList) {
+    this.comproCategoryTaskList = comproCategoryTaskList;
   }
 }

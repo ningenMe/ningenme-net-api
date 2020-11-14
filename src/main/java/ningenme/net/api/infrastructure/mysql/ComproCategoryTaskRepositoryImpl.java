@@ -33,6 +33,29 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
 
   @Override
   public ComproCategoryTask getOne(Integer taskId) {
-    return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectOne(taskId).convertComproCategoryTask();
+    try {
+      return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectOne(taskId).convertComproCategoryTask();
+    }
+    catch (Exception ex) {
+      throw new SelectMysqlException(ex);
+    }
+  }
+
+  @Override
+  public List<ComproCategoryTask> getListByTopicId(Integer topicId) {
+    try{
+      List<ComproCategoryTaskDto> comproCategoryTaskDtoList
+              = sqlSessionTemplate
+              .getMapper(ComproCategoryTaskMapper.class)
+              .selectListWithTopicId(topicId);
+
+      return comproCategoryTaskDtoList
+              .stream()
+              .map(comproCategoryTaskDto -> comproCategoryTaskDto.convertComproCategoryTask())
+              .collect(Collectors.toList());
+    }
+    catch (Exception ex) {
+      throw new SelectMysqlException(ex);
+    }
   }
 }
