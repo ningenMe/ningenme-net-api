@@ -1,9 +1,6 @@
 package ningenme.net.api.application.controller;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.application.response.GetComproCategoryTaskCountResponse;
@@ -19,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(tags = {"compro-category"})
 @RestController
 @RequiredArgsConstructor
 @Slf4j

@@ -1,9 +1,6 @@
 package ningenme.net.api.application.controller;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.application.response.GetComproCategoryTopicListResponse;
 import ningenme.net.api.application.response.GetComproCategoryTopicOneResponse;
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api(tags = {"compro-category"})
 @RestController
 @RequiredArgsConstructor
 public class ComproCategoryTopicController {

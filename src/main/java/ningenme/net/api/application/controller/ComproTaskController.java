@@ -1,9 +1,6 @@
 package ningenme.net.api.application.controller;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.application.response.GetComproTaskOneResponse;
@@ -14,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api(tags = {"compro-task"})
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -21,7 +19,7 @@ public class ComproTaskController {
 
   private final ComproTaskService comproTaskService;
 
-  @ApiOperation(value = "コンテストの問題のurlを渡すと情報をjsonで返してくれるAPI")
+  @ApiOperation(value = "問題のurlを渡すと情報をjsonで返してくれるAPI")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")

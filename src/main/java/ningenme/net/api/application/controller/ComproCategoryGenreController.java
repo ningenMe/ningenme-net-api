@@ -1,6 +1,6 @@
 package ningenme.net.api.application.controller;
 
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import ningenme.net.api.application.response.GetComproCategoryGenreListResponse;
 import ningenme.net.api.application.response.GetComproCategoryGenreOneResponse;
 import ningenme.net.api.domain.service.ComproCategoryGenreService;
@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 
+@Api(tags = {"compro-category"})
 @RestController
 @RequiredArgsConstructor
 public class ComproCategoryGenreController {
