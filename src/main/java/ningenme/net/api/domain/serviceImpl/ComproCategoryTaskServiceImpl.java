@@ -16,12 +16,19 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   private final ComproCategoryTaskRepository  comproCategoryTaskRepository;
   private final ComproCategoryTopicRepository comproCategoryTopicRepository;
   @Override
-  public List<ComproCategoryTask> get(Integer offset) {
-    List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.get(offset);
+  public List<ComproCategoryTask> getList(Integer offset) {
+    List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getList(offset);
     List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
     for (ComproCategoryTask comproCategoryTask:comproCategoryTaskList) {
       comproCategoryTask.setTopicList(comproCategoryTopicList);
     }
     return comproCategoryTaskList;
+  }
+  @Override
+  public ComproCategoryTask getOne(Integer taskId) {
+    ComproCategoryTask comproCategoryTask = comproCategoryTaskRepository.getOne(taskId);
+    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
+    comproCategoryTask.setTopicList(comproCategoryTopicList);
+    return comproCategoryTask;
   }
 }

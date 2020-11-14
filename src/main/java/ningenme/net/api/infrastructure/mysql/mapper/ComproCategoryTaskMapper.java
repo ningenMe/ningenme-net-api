@@ -8,5 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface ComproCategoryTaskMapper {
-  List<ComproCategoryTaskDto> select(@Param("offset") Integer offset);
+  List<ComproCategoryTaskDto> selectList(@Param("offset") Integer offset);
+  ComproCategoryTaskDto selectOne(@Param("taskId") Integer taskId);
 }

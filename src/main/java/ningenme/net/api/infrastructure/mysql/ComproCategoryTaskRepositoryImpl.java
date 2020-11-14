@@ -18,9 +18,9 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override
-  public List<ComproCategoryTask> get(Integer offset) {
+  public List<ComproCategoryTask> getList(Integer offset) {
     try{
-      List<ComproCategoryTaskDto> comproCategoryTaskDtoList = sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).select(offset);
+      List<ComproCategoryTaskDto> comproCategoryTaskDtoList = sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectList(offset);
       return comproCategoryTaskDtoList
               .stream()
               .map(comproCategoryTaskDto -> comproCategoryTaskDto.convertComproCategoryTask())
@@ -29,5 +29,10 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
     catch (Exception ex) {
       throw new SelectMysqlException(ex);
     }
+  }
+
+  @Override
+  public ComproCategoryTask getOne(Integer taskId) {
+    return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectOne(taskId).convertComproCategoryTask();
   }
 }
