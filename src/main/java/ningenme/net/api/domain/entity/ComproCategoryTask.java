@@ -1,5 +1,6 @@
 package ningenme.net.api.domain.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -18,19 +19,27 @@ import java.util.Objects;
 @Slf4j
 public class ComproCategoryTask {
   @NonNull
+  @ApiModelProperty(position = 0)
   private final Integer taskId;
   @NonNull
+  @ApiModelProperty(position = 1)
   private final String taskName;
+  @ApiModelProperty(position = 2)
   private final Url url;
   @NonNull
+  @ApiModelProperty(position = 3)
   private final TaskScore score;
   @NonNull
+  @ApiModelProperty(value = "推定難易度", position = 4)
   private final TaskScore estimation;
   @NonNull
+  @ApiModelProperty(value = "親のtopicIdのリスト", position = 5)
   private final List<Integer> topicIdList;
 
+  @ApiModelProperty(position = 6)
   private final Timestamp createdTime;
 
+  @ApiModelProperty(value = "親のtopicのリスト", position = 7)
   private List<ComproCategoryTopic> comproCategoryTopicList;
 
   public static ComproCategoryTask of(

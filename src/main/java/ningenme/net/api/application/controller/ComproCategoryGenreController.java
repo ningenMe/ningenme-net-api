@@ -39,7 +39,26 @@ public class ComproCategoryGenreController {
                 );
     }
 
-    @ApiOperation(value = "ComproCategoryGenre 複数参照API")
+  @ApiOperation(value = "ComproCategoryGenreWithTopic 単体参照API")
+  @ApiResponses(value = {
+          @ApiResponse(code = 200, message = "OK"),
+          @ApiResponse(code = 400, message = "Bad Request"),
+          @ApiResponse(code = 500, message = "Internal Server Error")
+  })
+  @GetMapping("/v1/compro/category/genres/{label}/topics")
+  public ResponseEntity<GetComproCategoryGenreOneResponse> getWithTopics(
+          @ApiParam("ラベル") @PathVariable String label
+  ) {
+    return ResponseEntity
+            .ok()
+            .body(
+                    GetComproCategoryGenreOneResponse.of(
+                            comproCategoryGenreService.getWithTopics(Label.of(label))
+                    )
+            );
+  }
+
+  @ApiOperation(value = "ComproCategoryGenre 複数参照API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Bad Request"),

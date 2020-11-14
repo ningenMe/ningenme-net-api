@@ -1,5 +1,6 @@
 package ningenme.net.api.domain.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -13,13 +14,18 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class ComproCategoryTopic {
   @NonNull
+  @ApiModelProperty(position = 0)
   private final Integer topicId;
   @NonNull
+  @ApiModelProperty(position = 1)
   private final String topicName;
   @NonNull
+  @ApiModelProperty(position = 2)
   private final CategoryOrder topicOrder;
   @NonNull
+  @ApiModelProperty(position = 3)
   private final Integer genreId;
+  @ApiModelProperty(position = 4)
   private String genreName;
 
   public static ComproCategoryTopic of(
