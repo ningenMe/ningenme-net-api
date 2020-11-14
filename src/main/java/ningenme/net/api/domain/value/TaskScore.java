@@ -24,6 +24,10 @@ public class TaskScore {
 
     return new TaskScore(taskScore);
   }
+
+  public static TaskScore of(@NonNull String taskScore) throws NullPointerException,IllegalArgumentException {
+    return TaskScore.of(Integer.parseInt(taskScore));
+  }
 }
 
 

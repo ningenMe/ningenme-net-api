@@ -5,21 +5,23 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.application.response.GetComproCategoryTaskCountResponse;
 import ningenme.net.api.application.response.GetComproCategoryTaskListResponse;
 import ningenme.net.api.application.response.GetComproCategoryTaskOneResponse;
+import ningenme.net.api.application.response.OkResponse;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
+import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.domain.value.Url;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class ComproCategoryTaskController {
 
     private final ComproCategoryTaskService comproCategoryTaskService;
@@ -59,6 +61,19 @@ public class ComproCategoryTaskController {
     public ResponseEntity<GetComproCategoryTaskCountResponse> getTaskCount(
     ) {
         return ResponseEntity.ok().body(GetComproCategoryTaskCountResponse.of(comproCategoryTaskService.getCount()));
+    }
+
+    @ApiOperation(value = "ComproCategoryTask 投稿API")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
+    })
+    @PostMapping("/v1/compro/category/tasks")
+    public OkResponse postTask (
+            @ApiParam("url") @RequestParam(value = "url", required = true) Url url
+            ) {
+        log.info("url={}",url.getValue());
+        return OkResponse.of(LogCode.API_INFO_202);
     }
 
 }
