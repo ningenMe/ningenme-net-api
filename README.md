@@ -3,6 +3,13 @@
 
 趣味開発のバックエンド全般
 
+webアプリのapiを統合して管理している
+
+|name           |url                                 |github                                           |
+|---------------|------------------------------------|-------------------------------------------------|    
+|compro-category|https://compro-category.ningenme.net|https://github.com/ningenMe/compro-category-front|
+|contest-record |https://contest-record.ningenme.net |https://github.com/ningenMe/contest-record-front |
+
 ## architecture
 |            |                |  
 |----------- |--------------- |  
@@ -10,10 +17,8 @@
 |ci/cd       | github actions |  
 |application | Spring Boot    |  
 
-## api schema
+## api swagger
 https://ningenme.github.io/api-document/#/
-
-## db schema
 
 ## appendix
 API使いたい方はご連絡ください  
