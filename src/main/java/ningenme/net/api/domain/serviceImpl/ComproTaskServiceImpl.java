@@ -6,6 +6,7 @@ import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.repository.ComproAtcoderTaskClientRepository;
 import ningenme.net.api.domain.repository.ComproCodeforcesTaskClientRepository;
+import ningenme.net.api.domain.repository.ComproYukicoderTaskClientRepository;
 import ningenme.net.api.domain.service.ComproTaskService;
 import ningenme.net.api.domain.value.Url;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ComproTaskServiceImpl implements ComproTaskService {
 
-  private final ComproAtcoderTaskClientRepository comproAtcoderTaskClientRepository;
+  private final ComproAtcoderTaskClientRepository    comproAtcoderTaskClientRepository;
   private final ComproCodeforcesTaskClientRepository comproCodeforcesTaskClientRepository;
+  private final ComproYukicoderTaskClientRepository  comproYukicoderTaskClientRepository;
 
   @Override
   public ComproTask get(Url url) {
@@ -28,7 +30,7 @@ public class ComproTaskServiceImpl implements ComproTaskService {
       return comproCodeforcesTaskClientRepository.get(url);
     }
     if(comproSite.equals(ComproSite.YUKICODER)) {
-
+      return comproYukicoderTaskClientRepository.get(url);
     }
     if(comproSite.equals(ComproSite.AOJ)) {
 
