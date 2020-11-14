@@ -58,4 +58,14 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
       throw new SelectMysqlException(ex);
     }
   }
+
+  @Override
+  public Integer getCount() {
+    try {
+      return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectCount().getCount();
+    }
+    catch (Exception ex) {
+      throw new SelectMysqlException(ex);
+    }
+  }
 }

@@ -31,4 +31,8 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
     comproCategoryTask.setTopicList(comproCategoryTopicList);
     return comproCategoryTask;
   }
+  @Override
+  public Integer getCount() {
+    return comproCategoryTaskRepository.getCount();
+  }
 }

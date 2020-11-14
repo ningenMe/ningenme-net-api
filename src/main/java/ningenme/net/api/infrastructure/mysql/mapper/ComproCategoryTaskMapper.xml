@@ -16,6 +16,9 @@
         <id property="updatedTime" column="updated_time"/>
         <id property="deletedTime" column="deleted_time"/>
     </resultMap>
+    <resultMap id="CountDto" type="ningenme.net.api.infrastructure.dto.CountDto">
+        <id property="count"      column="count"/>
+    </resultMap>
     <select id="selectList" resultMap="ComproCategoryTaskDto" parameterType="Integer">
         SELECT * FROM compro_category_tasks WHERE deleted_time IS NULL ORDER BY created_time DESC limit 100 offset #{offset}
     </select>
@@ -25,5 +28,8 @@
     <select id="selectListWithTopicId" resultMap="ComproCategoryTaskDto" parameterType="Integer">
         SELECT tasks.task_id as task_id, task_name, url, score, estimation, site, topic_ids, created_time, updated_time, deleted_time
         FROM compro_category_tags AS tags JOIN compro_category_tasks AS tasks ON tags.task_id=tasks.task_id AND tags.topic_id = #{topicId};
+    </select>
+    <select id="selectCount" resultMap="CountDto">
+        SELECT count(*) as count FROM compro_category_tasks WHERE deleted_time IS NULL
     </select>
 </mapper>

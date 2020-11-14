@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import ningenme.net.api.application.response.GetComproCategoryTaskCountResponse;
 import ningenme.net.api.application.response.GetComproCategoryTaskListResponse;
 import ningenme.net.api.application.response.GetComproCategoryTaskOneResponse;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
@@ -47,6 +48,17 @@ public class ComproCategoryTaskController {
             @ApiParam(value = "taskId") @PathVariable(name = "task_id") Integer taskId
     ) {
         return ResponseEntity.ok().body(GetComproCategoryTaskOneResponse.of(comproCategoryTaskService.getOne(taskId)));
+    }
+
+    @ApiOperation(value = "ComproCategoryTaskCount 参照API")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
+    })
+    @GetMapping("/v1/compro/category/tasks/count")
+    public ResponseEntity<GetComproCategoryTaskCountResponse> getTaskCount(
+    ) {
+        return ResponseEntity.ok().body(GetComproCategoryTaskCountResponse.of(comproCategoryTaskService.getCount()));
     }
 
 }
