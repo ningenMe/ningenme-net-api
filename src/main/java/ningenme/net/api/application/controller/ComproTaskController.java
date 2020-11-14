@@ -19,14 +19,14 @@ public class ComproTaskController {
 
   private final ComproTaskService comproTaskService;
 
-  @ApiOperation(value = "問題のurlを渡すと情報をjsonで返してくれるAPI")
+  @ApiOperation(value = "問題のurlを渡すと情報を返してくれるAPI")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
   @GetMapping("/v1/compro/tasks")
   public ResponseEntity<GetComproTaskOneResponse> getTask(
-          @ApiParam("url") @RequestParam(value = "url", required = true) Url url
+          @ApiParam(name = "url",value = "AtCoder,Codeforces,yukicoder,旧aojに対応") @RequestParam(value = "url", required = true) Url url
   ) {
     log.info("url={}",url.getValue());
     return ResponseEntity.ok().body(GetComproTaskOneResponse.of(

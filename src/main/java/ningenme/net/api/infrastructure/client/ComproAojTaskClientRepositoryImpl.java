@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
+import ningenme.net.api.domain.repository.ComproAojTaskClientRepository;
 import ningenme.net.api.domain.repository.ComproYukicoderTaskClientRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
@@ -15,19 +16,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Slf4j
-public class ComproYukicoderTaskClientRepositoryImpl implements ComproYukicoderTaskClientRepository {
+public class ComproAojTaskClientRepositoryImpl implements ComproAojTaskClientRepository {
 
   @Override
   public ComproTask get(Url url) {
     try {
       Document document = Jsoup.connect(url.getValue()).get();
-      Elements taskNameElements  = document.select("title");
-      Integer taskScoreOneStarCount  = document.select("[class=fas fa-star]").size();
-      Integer taskScoreHalfStarCount = document.select("[class=fas fa-star-half]").size();
-
+      Elements taskNameElements  = document.select("[id=page]").select("H1");
       String taskName   = taskNameElements.text();
-      Integer taskScore = taskScoreOneStarCount*100 + taskScoreHalfStarCount*50;
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, TaskScore.of(taskScore), ComproSite.ATCODER);
+      return ComproTask.of( TaskUniqueId.of(), taskName, url, null, ComproSite.ATCODER);
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);
