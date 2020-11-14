@@ -22,4 +22,8 @@
     <select id="selectOne" resultMap="ComproCategoryTaskDto" parameterType="Integer">
         SELECT * FROM compro_category_tasks WHERE task_id = #{taskId} AND deleted_time IS NULL
     </select>
+    <select id="selectListWithTopicId" resultMap="ComproCategoryTaskDto" parameterType="Integer">
+        SELECT tasks.task_id as task_id, task_name, url, score, estimation, site, topic_ids, created_time, updated_time, deleted_time
+        FROM compro_category_tags AS tags JOIN compro_category_tasks AS tasks ON tags.task_id=tasks.task_id AND tags.topic_id = #{topicId};
+    </select>
 </mapper>

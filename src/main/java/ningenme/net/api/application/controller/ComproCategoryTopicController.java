@@ -37,7 +37,26 @@ public class ComproCategoryTopicController {
                 );
     }
 
-    @ApiOperation(value = "ComproCategoryTopic 複数参照API")
+  @ApiOperation(value = "ComproCategoryTopicWithTask 単体参照API")
+  @ApiResponses(value = {
+          @ApiResponse(code = 200, message = "OK"),
+          @ApiResponse(code = 400, message = "Bad Request"),
+          @ApiResponse(code = 500, message = "Internal Server Error")
+  })
+  @GetMapping("/v1/compro/category/topics/{topic_id}/tasks")
+  public ResponseEntity<GetComproCategoryTopicOneResponse> getWithTask(
+          @ApiParam("ラベル") @PathVariable("topic_id") Integer topicId
+  ) {
+    return ResponseEntity
+            .ok()
+            .body(
+                    GetComproCategoryTopicOneResponse.of(
+                            comproCategoryTopicService.getWithTask(topicId)
+                    )
+            );
+  }
+
+  @ApiOperation(value = "ComproCategoryTopic 複数参照API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Bad Request"),

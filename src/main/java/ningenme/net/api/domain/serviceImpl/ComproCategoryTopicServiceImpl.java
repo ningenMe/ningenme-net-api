@@ -2,12 +2,12 @@ package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryGenre;
+import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
 import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
+import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
-import ningenme.net.api.domain.service.ComproCategoryGenreService;
 import ningenme.net.api.domain.service.ComproCategoryTopicService;
-import ningenme.net.api.domain.value.Label;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,7 @@ public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicServic
 
   private final ComproCategoryTopicRepository comproCategoryTopicRepository;
   private final ComproCategoryGenreRepository comproCategoryGenreRepository;
+  private final ComproCategoryTaskRepository  comproCategoryTaskRepository;
 
   @Override
   public List<ComproCategoryTopic> get() {
@@ -34,6 +35,16 @@ public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicServic
     ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
     List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
     comproCategoryTopic.setGenreName(comproCategoryGenreList);
+    return comproCategoryTopic;
+  }
+
+  @Override
+  public ComproCategoryTopic getWithTask(Integer topicId) {
+    ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
+    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
+    List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getListByTopicId(topicId);
+    comproCategoryTopic.setGenreName(comproCategoryGenreList);
+    comproCategoryTopic.setComproCategoryTaskList(comproCategoryTaskList);
     return comproCategoryTopic;
   }
 }

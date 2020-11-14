@@ -9,4 +9,5 @@ import java.util.List;
 public interface ComproCategoryTopicService {
     public List<ComproCategoryTopic> get();
     public ComproCategoryTopic get(Integer topicId);
+    public ComproCategoryTopic getWithTask(Integer topicId);
 }
