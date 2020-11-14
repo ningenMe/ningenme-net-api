@@ -24,7 +24,7 @@ public class ComproAojTaskClientRepositoryImpl implements ComproAojTaskClientRep
       Document document = Jsoup.connect(url.getValue()).get();
       Elements taskNameElements  = document.select("[id=page]").select("H1");
       String taskName   = taskNameElements.text();
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, null, ComproSite.ATCODER);
+      return ComproTask.of( TaskUniqueId.of(), taskName, url, null, ComproSite.AOJ);
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);

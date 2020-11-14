@@ -28,6 +28,9 @@ public class Swagger2Config implements WebMvcConfigurer {
   @Value("${ningenme.net.hostname}")
   private String hostName;
 
+  @Value("${ningenme.net.protocol}")
+  private String protocol;
+
   @Bean
   public Docket swaggerSpringMvcPlugin() {
     return new Docket(DocumentationType.SWAGGER_2)
@@ -38,7 +41,7 @@ public class Swagger2Config implements WebMvcConfigurer {
             .build()
             .host(hostName)
             .useDefaultResponseMessages(false)
-            .protocols(Sets.newHashSet("http","https"))
+            .protocols(Sets.newHashSet(protocol))
             .apiInfo(apiInfo());
   }
 

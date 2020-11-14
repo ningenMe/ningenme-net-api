@@ -24,3 +24,4 @@ ningenme:
   net:
     hostname: localhost:8081
     secret: "${AUTH_SECRET}"
+    protocol: http
