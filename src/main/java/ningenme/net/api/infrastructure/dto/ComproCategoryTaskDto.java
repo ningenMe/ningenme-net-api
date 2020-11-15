@@ -36,9 +36,9 @@ public class ComproCategoryTaskDto {
     return new ComproCategoryTaskDto(
             comproCategoryTask.getTaskId(),
             comproCategoryTask.getTaskName(),
-            comproCategoryTask.getUrl(),
-            comproCategoryTask.getScore(),
-            comproCategoryTask.getEstimation(),
+            comproCategoryTask.getUrl().getValue(),
+            comproCategoryTask.getScore().getValue(),
+            comproCategoryTask.getEstimation().getValue(),
             null,
             String.join(",", comproCategoryTask.getTopicIdList()),
             null,

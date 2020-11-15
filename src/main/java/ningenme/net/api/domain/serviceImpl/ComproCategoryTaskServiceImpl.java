@@ -49,17 +49,17 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   public void post(ComproCategoryTask comproCategoryTask) {
     //名前が空ならデータ取得
     if(Objects.equals(comproCategoryTask.getTaskName(),"")) {
-      ComproTask comproTask = comproTaskService.get(comproCategoryTask.getValueUrl());
+      ComproTask comproTask = comproTaskService.get(comproCategoryTask.getUrl());
 
       if (Objects.nonNull(comproCategoryTask)) {
         comproCategoryTask = ComproCategoryTask.of(
                 comproCategoryTask.getTaskId(),
                 comproTask.getTaskName(),
-                comproTask.getValueUrl(),
-                comproTask.getValueTaskScore(),
-                comproCategoryTask.getValueEstimation(),
+                comproTask.getUrl(),
+                comproTask.getTaskScore(),
+                comproCategoryTask.getEstimation(),
                 comproCategoryTask.getTopicIdList(),
-                comproCategoryTask.getValueCreatedTime()
+                comproCategoryTask.getCreatedTime()
         );
       }
 

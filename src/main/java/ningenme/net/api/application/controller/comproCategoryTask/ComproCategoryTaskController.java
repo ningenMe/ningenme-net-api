@@ -1,18 +1,17 @@
-package ningenme.net.api.application.controller;
+package ningenme.net.api.application.controller.comproCategoryTask;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.application.request.PostComproCategoryTaskRequest;
-import ningenme.net.api.application.response.GetComproCategoryTaskCountResponse;
-import ningenme.net.api.application.response.GetComproCategoryTaskListResponse;
-import ningenme.net.api.application.response.GetComproCategoryTaskOneResponse;
-import ningenme.net.api.application.response.OkResponse;
+import ningenme.net.api.application.controller.comproCategoryTask.post.PostRequest;
+import ningenme.net.api.application.controller.comproCategoryTask.getCount.GetCountResponse;
+import ningenme.net.api.application.controller.comproCategoryTask.getList.GetListResponse;
+import ningenme.net.api.application.controller.comproCategoryTask.getOne.GetOneResponse;
+import ningenme.net.api.application.controller.util.OkResponse;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -37,12 +36,12 @@ public class ComproCategoryTaskController {
         @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/tasks")
-    public ResponseEntity<GetComproCategoryTaskListResponse> getTaskList(
+    public ResponseEntity<GetListResponse> getList(
             @ApiParam(value = "offset") @RequestParam(name = "offset", defaultValue = "0") Integer offset
     ) {
         List<ComproCategoryTask> comproCategoryTaskList = comproCategoryTaskService.getList(offset);
         return ResponseEntity.ok().body(
-                GetComproCategoryTaskListResponse.of(comproCategoryTaskList,offset,offset + comproCategoryTaskList.size()));
+                GetListResponse.of(comproCategoryTaskList));
     }
 
     @ApiOperation(value = "ComproCategoryTask 単体参照API")
@@ -51,10 +50,10 @@ public class ComproCategoryTaskController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/tasks/{taskId}")
-    public ResponseEntity<GetComproCategoryTaskOneResponse> getTaskOne(
+    public ResponseEntity<GetOneResponse> getOne(
             @ApiParam(value = "taskId") @PathVariable(name = "taskId") String taskId
     ) {
-        return ResponseEntity.ok().body(GetComproCategoryTaskOneResponse.of(comproCategoryTaskService.getOne(taskId)));
+        return ResponseEntity.ok().body(GetOneResponse.of(comproCategoryTaskService.getOne(taskId)));
     }
 
     @ApiOperation(value = "ComproCategoryTaskCount 参照API")
@@ -63,9 +62,9 @@ public class ComproCategoryTaskController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/tasks/count")
-    public ResponseEntity<GetComproCategoryTaskCountResponse> getTaskCount(
+    public ResponseEntity<GetCountResponse> getCount(
     ) {
-        return ResponseEntity.ok().body(GetComproCategoryTaskCountResponse.of(comproCategoryTaskService.getCount()));
+        return ResponseEntity.ok().body(GetCountResponse.of(comproCategoryTaskService.getCount()));
     }
 
     @ApiOperation(value = "ComproCategoryTask 投稿API")
@@ -75,7 +74,7 @@ public class ComproCategoryTaskController {
     })
     @PostMapping(path = "/v1/compro/category/tasks" , consumes = MediaType.APPLICATION_JSON_VALUE)
     public OkResponse post (
-            @Validated @RequestBody PostComproCategoryTaskRequest request
+            @Validated @RequestBody PostRequest request
             ) {
         ComproCategoryTask comproCategoryTask = ComproCategoryTask.of(
                 UUID.randomUUID().toString(),

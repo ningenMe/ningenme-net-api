@@ -1,5 +1,6 @@
-package ningenme.net.api.application.request;
+package ningenme.net.api.application.controller.comproCategoryTask.post;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,8 @@ import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
-public class PostComproCategoryTaskRequest implements Serializable {
+@ApiModel(value = "ComproCategoryTaskPost")
+public class PostRequest implements Serializable {
   @NotNull
   private final String url;
   private final String taskName;

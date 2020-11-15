@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @ApiModel(description = "カテゴリーの順序の値オブジェクト")
 @Getter
-public class CategoryOrder {
+public class CategoryOrder implements Comparable<CategoryOrder> {
   @ApiModelProperty(value = "CategoryOrder", example = "100")
   @NonNull
   private final Integer value;
@@ -21,5 +21,10 @@ public class CategoryOrder {
     }
 
     return new CategoryOrder(categoryOrder);
+  }
+
+  @Override
+  public int compareTo(CategoryOrder categoryOrder) {
+    return value.compareTo(categoryOrder.value);
   }
 }

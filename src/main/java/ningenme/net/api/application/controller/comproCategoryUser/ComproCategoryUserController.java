@@ -1,15 +1,13 @@
-package ningenme.net.api.application.controller;
+package ningenme.net.api.application.controller.comproCategoryUser;
 
 import io.swagger.annotations.*;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.entity.ComproCategoryUser;
 import ningenme.net.api.domain.service.ComproCategoryUserService;
 import ningenme.net.api.domain.value.Email;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.domain.value.Password;
 import ningenme.net.api.domain.value.RawPassword;
-import ningenme.net.api.application.response.OkResponse;
+import ningenme.net.api.application.controller.util.OkResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
