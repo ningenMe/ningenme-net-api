@@ -38,9 +38,6 @@ public class ComproCategoryTopic {
   ) {
     return new ComproCategoryTopic(topicId, topicName,topicOrder,genreId);
   }
-  public Integer getTopicOrder() {
-    return topicOrder.getValue();
-  }
   public void setGenreName(List<ComproCategoryGenre> comproCategoryGenreList) {
     for (ComproCategoryGenre comproCategoryGenre: comproCategoryGenreList) {
       if(comproCategoryGenre.getGenreId().equals(genreId)) {

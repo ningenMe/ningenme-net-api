@@ -9,13 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.Url;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -77,27 +75,6 @@ public class ComproCategoryTask {
             createdTime);
   }
 
-  public String getUrl() {
-    return url.getValue();
-  }
-  public Url getValueUrl() {
-    return url;
-  }
-  public Integer getScore() {
-    return score.getValue();
-  }
-  public Integer getEstimation() {
-    return estimation.getValue();
-  }
-  public TaskScore getValueEstimation() {
-    return estimation;
-  }
-  public String getCreatedTime() {
-    return createdTime.toString();
-  }
-  public Timestamp getValueCreatedTime() {
-    return createdTime;
-  }
   public void setTopicList(List<ComproCategoryTopic> masterComproCategoryTopicList) {
     //TODO 計算量が悪い そのうちlogに直しましょう
     List<ComproCategoryTopic> tmpComproCategoryTopicList = new ArrayList<>();
@@ -112,6 +89,7 @@ public class ComproCategoryTask {
     }
     comproCategoryTopicList = tmpComproCategoryTopicList;
   }
+
   public List<ComproCategoryTopicTask> getComproCategoryTopicTaskList() {
     List<ComproCategoryTopicTask> comproCategoryTopicTaskList = new ArrayList<>();
     for (String topicId: topicIdList) {

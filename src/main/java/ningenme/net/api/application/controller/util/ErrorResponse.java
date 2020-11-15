@@ -1,4 +1,4 @@
-package ningenme.net.api.application.response;
+package ningenme.net.api.application.controller.util;
 
 import lombok.AccessLevel;
 import lombok.Getter;

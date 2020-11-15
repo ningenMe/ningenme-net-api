@@ -1,9 +1,10 @@
-package ningenme.net.api.application.controller;
+package ningenme.net.api.application.controller.comproCategoryTopic;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.response.GetComproCategoryTopicListResponse;
-import ningenme.net.api.application.response.GetComproCategoryTopicOneResponse;
+import ningenme.net.api.application.controller.comproCategoryTopic.getList.GetListResponse;
+import ningenme.net.api.application.controller.comproCategoryTopic.getOne.GetOneResponse;
+import ningenme.net.api.application.controller.comproCategoryTopic.getOneWithTask.GetOneWithTaskResponse;
 import ningenme.net.api.domain.service.ComproCategoryTopicService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +24,13 @@ public class ComproCategoryTopicController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/topics/{topic_id}")
-    public ResponseEntity<GetComproCategoryTopicOneResponse> get(
+    public ResponseEntity<GetOneResponse> get(
         @ApiParam("ラベル") @PathVariable("topic_id") String topicId
     ) {
         return ResponseEntity
                 .ok()
                 .body(
-                        GetComproCategoryTopicOneResponse.of(
+                        GetOneResponse.of(
                                 comproCategoryTopicService.get(topicId)
                         )
                 );
@@ -42,13 +43,13 @@ public class ComproCategoryTopicController {
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
   @GetMapping("/v1/compro/category/topics/{topic_id}/tasks")
-  public ResponseEntity<GetComproCategoryTopicOneResponse> getWithTask(
+  public ResponseEntity<GetOneWithTaskResponse> getWithTask(
           @ApiParam("ラベル") @PathVariable("topic_id") String topicId
   ) {
     return ResponseEntity
             .ok()
             .body(
-                    GetComproCategoryTopicOneResponse.of(
+                    GetOneWithTaskResponse.of(
                             comproCategoryTopicService.getWithTask(topicId)
                     )
             );
@@ -61,11 +62,11 @@ public class ComproCategoryTopicController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/topics")
-    public ResponseEntity<GetComproCategoryTopicListResponse> get() {
+    public ResponseEntity<GetListResponse> get() {
         return ResponseEntity
                 .ok()
                 .body(
-                        GetComproCategoryTopicListResponse.of(
+                        GetListResponse.of(
                                 comproCategoryTopicService.get()
                         )
                 );

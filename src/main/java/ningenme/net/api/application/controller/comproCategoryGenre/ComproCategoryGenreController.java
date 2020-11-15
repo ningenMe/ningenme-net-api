@@ -1,8 +1,9 @@
-package ningenme.net.api.application.controller;
+package ningenme.net.api.application.controller.comproCategoryGenre;
 
 import io.swagger.annotations.*;
-import ningenme.net.api.application.response.GetComproCategoryGenreListResponse;
-import ningenme.net.api.application.response.GetComproCategoryGenreOneResponse;
+import ningenme.net.api.application.controller.comproCategoryGenre.getList.GetListResponse;
+import ningenme.net.api.application.controller.comproCategoryGenre.getOne.GetOneResponse;
+import ningenme.net.api.application.controller.comproCategoryGenre.getOneWithTopic.GetOneWithTopicResponse;
 import ningenme.net.api.domain.service.ComproCategoryGenreService;
 import ningenme.net.api.domain.value.Label;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +26,13 @@ public class ComproCategoryGenreController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/genres/{label}")
-    public ResponseEntity<GetComproCategoryGenreOneResponse> get(
+    public ResponseEntity<GetOneResponse> getOne(
         @ApiParam("ラベル") @PathVariable String label
     ) {
         return ResponseEntity
                 .ok()
                 .body(
-                        GetComproCategoryGenreOneResponse.of(
+                        GetOneResponse.of(
                                 comproCategoryGenreService.get(Label.of(label))
                         )
                 );
@@ -44,13 +45,13 @@ public class ComproCategoryGenreController {
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
   @GetMapping("/v1/compro/category/genres/{label}/topics")
-  public ResponseEntity<GetComproCategoryGenreOneResponse> getWithTopics(
+  public ResponseEntity<GetOneWithTopicResponse> getOneWithTopic(
           @ApiParam("ラベル") @PathVariable String label
   ) {
     return ResponseEntity
             .ok()
             .body(
-                    GetComproCategoryGenreOneResponse.of(
+                    GetOneWithTopicResponse.of(
                             comproCategoryGenreService.getWithTopics(Label.of(label))
                     )
             );
@@ -63,11 +64,11 @@ public class ComproCategoryGenreController {
             @ApiResponse(code = 500, message = "Internal Server Error")
     })
     @GetMapping("/v1/compro/category/genres")
-    public ResponseEntity<GetComproCategoryGenreListResponse> get() {
+    public ResponseEntity<GetListResponse> getList() {
         return ResponseEntity
                 .ok()
                 .body(
-                        GetComproCategoryGenreListResponse.of(
+                        GetListResponse.of(
                                 comproCategoryGenreService.get()
                         )
                 );

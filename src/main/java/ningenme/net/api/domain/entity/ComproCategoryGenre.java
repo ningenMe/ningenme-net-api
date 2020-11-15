@@ -42,12 +42,6 @@ public class ComproCategoryGenre {
   ) {
     return new ComproCategoryGenre(genreId,genreName,label,genreOrder);
   }
-  public String getLabel() {
-    return label.getValue();
-  }
-  public Integer getGenreOrder() {
-    return genreOrder.getValue();
-  }
   public void setComproCategoryTopicList(List<ComproCategoryTopic> masterComproCategoryTopicList) {
     List<ComproCategoryTopic> tmpComproCategoryTopicList = new ArrayList<>();
     for (ComproCategoryTopic comproCategoryTopic:masterComproCategoryTopicList) {

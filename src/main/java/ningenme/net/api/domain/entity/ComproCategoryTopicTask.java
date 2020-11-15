@@ -12,4 +12,5 @@ public class ComproCategoryTopicTask {
   public static ComproCategoryTopicTask of(String topicId,String taskId) {
     return new ComproCategoryTopicTask(topicId,taskId);
   }
+
 }

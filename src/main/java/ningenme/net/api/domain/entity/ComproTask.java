@@ -39,23 +39,4 @@ public class ComproTask {
             Optional.ofNullable(taskScore).orElse(TaskScore.of(0)),
             comproSite);
   }
-
-  public String getTaskUniqueId() {
-    return Objects.isNull(taskUniqueId) ? null : taskUniqueId.getValue().toString();
-  }
-  public String getUrl() {
-    return url.getValue();
-  }
-  public Url getValueUrl() {
-    return url;
-  }
-  public Integer getTaskScore() {
-    return taskScore.getValue();
-  }
-  public TaskScore getValueTaskScore() {
-    return taskScore;
-  }
-  public String getComproSite() {
-    return comproSite.getContestName();
-  }
 }
