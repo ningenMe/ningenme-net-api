@@ -20,7 +20,7 @@ public class ComproCategoryGenre {
 
   @NonNull
   @ApiModelProperty(position = 0)
-  private final Integer genreId;
+  private final String genreId;
   @NonNull
   @ApiModelProperty(position = 1)
   private final String genreName;
@@ -35,7 +35,7 @@ public class ComproCategoryGenre {
   private List<ComproCategoryTopic> comproCategoryTopicList;
 
   public static ComproCategoryGenre of(
-          Integer genreId,
+          String genreId,
           String genreName,
           Label label,
           CategoryOrder genreOrder

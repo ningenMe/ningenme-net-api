@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class ComproCategoryTaskDto {
-  private final Integer taskId;
+  private final String taskId;
   private final String taskName;
   private final String url;
   private final Integer score;
@@ -23,16 +23,27 @@ public class ComproCategoryTaskDto {
   private final Timestamp deletedTime;
   public ComproCategoryTask convertComproCategoryTask() {
     return ComproCategoryTask.of(
-            taskId,taskName,
+            taskId,
+            taskName,
             Url.of(url),
             TaskScore.of(score),
             TaskScore.of(estimation),
-            Arrays.asList(topicIds.split(","))
-                    .stream()
-                    .map(topicId -> Integer.parseInt(topicId))
-                    .collect(Collectors.toList())
-            ,
+            topicIds,
             createdTime
+    );
+  }
+  public static ComproCategoryTaskDto of(ComproCategoryTask comproCategoryTask) {
+    return new ComproCategoryTaskDto(
+            comproCategoryTask.getTaskId(),
+            comproCategoryTask.getTaskName(),
+            comproCategoryTask.getUrl(),
+            comproCategoryTask.getScore(),
+            comproCategoryTask.getEstimation(),
+            null,
+            String.join(",", comproCategoryTask.getTopicIdList()),
+            null,
+            null,
+            null
     );
   }
 }

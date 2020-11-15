@@ -15,7 +15,7 @@ import java.util.List;
 public class ComproCategoryTopic {
   @NonNull
   @ApiModelProperty(position = 0)
-  private final Integer topicId;
+  private final String topicId;
   @NonNull
   @ApiModelProperty(position = 1)
   private final String topicName;
@@ -24,17 +24,17 @@ public class ComproCategoryTopic {
   private final CategoryOrder topicOrder;
   @NonNull
   @ApiModelProperty(position = 3)
-  private final Integer genreId;
+  private final String genreId;
   @ApiModelProperty(position = 4)
   private String genreName;
   @ApiModelProperty(position = 5)
   private List<ComproCategoryTask> comproCategoryTaskList;
 
   public static ComproCategoryTopic of(
-          Integer topicId,
+          String topicId,
           String topicName,
           CategoryOrder topicOrder,
-          Integer genreId
+          String genreId
   ) {
     return new ComproCategoryTopic(topicId, topicName,topicOrder,genreId);
   }

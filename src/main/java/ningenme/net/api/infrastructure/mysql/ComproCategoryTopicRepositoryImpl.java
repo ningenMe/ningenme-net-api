@@ -12,6 +12,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,7 +46,7 @@ public class ComproCategoryTopicRepositoryImpl implements ComproCategoryTopicRep
     }
 
     @Override
-    public ComproCategoryTopic get(Integer topicId) throws IllegalArgumentException {
+    public ComproCategoryTopic get(String topicId) throws IllegalArgumentException {
         List<ComproCategoryTopicDto> comproCategoryTopicDtoList = new ArrayList<>();
         try {
             comproCategoryTopicDtoList

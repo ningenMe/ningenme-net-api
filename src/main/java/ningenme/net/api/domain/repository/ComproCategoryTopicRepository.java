@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ComproCategoryTopicRepository {
   public List<ComproCategoryTopic> get();
-  public ComproCategoryTopic get(Integer topicId);
+  public ComproCategoryTopic get(String topicId);
 }

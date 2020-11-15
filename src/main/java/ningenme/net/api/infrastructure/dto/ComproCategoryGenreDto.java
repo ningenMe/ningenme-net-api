@@ -7,7 +7,7 @@ import ningenme.net.api.domain.value.Label;
 
 @RequiredArgsConstructor
 public class ComproCategoryGenreDto {
-  private final Integer genreId;
+  private final String genreId;
   private final String genreName;
   private final String label;
   private final Integer genreOrder;

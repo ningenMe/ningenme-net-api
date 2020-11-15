@@ -10,7 +10,8 @@ import java.util.List;
 @Mapper
 public interface ComproCategoryTaskMapper {
   List<ComproCategoryTaskDto> selectList(@Param("offset") Integer offset);
-  List<ComproCategoryTaskDto> selectListWithTopicId(@Param("topicId") Integer topicId);
-  ComproCategoryTaskDto selectOne(@Param("taskId") Integer taskId);
+  List<ComproCategoryTaskDto> selectListWithTopicId(@Param("topicId") String topicId);
+  ComproCategoryTaskDto selectOne(@Param("taskId") String taskId);
   CountDto selectCount();
+  void insert(ComproCategoryTaskDto comproCategoryTaskDto);
 }

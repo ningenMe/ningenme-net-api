@@ -24,7 +24,7 @@ public class ComproCategoryTopicController {
     })
     @GetMapping("/v1/compro/category/topics/{topic_id}")
     public ResponseEntity<GetComproCategoryTopicOneResponse> get(
-        @ApiParam("ラベル") @PathVariable("topic_id") Integer topicId
+        @ApiParam("ラベル") @PathVariable("topic_id") String topicId
     ) {
         return ResponseEntity
                 .ok()
@@ -43,7 +43,7 @@ public class ComproCategoryTopicController {
   })
   @GetMapping("/v1/compro/category/topics/{topic_id}/tasks")
   public ResponseEntity<GetComproCategoryTopicOneResponse> getWithTask(
-          @ApiParam("ラベル") @PathVariable("topic_id") Integer topicId
+          @ApiParam("ラベル") @PathVariable("topic_id") String topicId
   ) {
     return ResponseEntity
             .ok()

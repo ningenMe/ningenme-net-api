@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ComproCategoryTaskRepository {
   public List<ComproCategoryTask> getList(Integer offset);
-  public List<ComproCategoryTask> getListByTopicId(Integer topicId);
-  public ComproCategoryTask getOne(Integer taskId);
+  public List<ComproCategoryTask> getListByTopicId(String topicId);
+  public ComproCategoryTask getOne(String taskId);
   public Integer getCount();
+  public void post(ComproCategoryTask comproCategoryTask);
 }
