@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface ComproCategoryTopicMapper {
-  List<ComproCategoryTopicDto> select(@Param("topicId") Integer topicId);
+  List<ComproCategoryTopicDto> select(@Param("topicId") String topicId);
 }

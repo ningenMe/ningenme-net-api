@@ -6,8 +6,8 @@ import ningenme.net.api.domain.value.CategoryOrder;
 
 @RequiredArgsConstructor
 public class ComproCategoryTopicDto {
-  private final Integer topicId;
-  private final Integer genreId;
+  private final String topicId;
+  private final String genreId;
   private final String topicName;
   private final Integer topicOrder;
   public ComproCategoryTopic convertComproCategoryTopic() {

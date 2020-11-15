@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ComproCategoryTopicService {
     public List<ComproCategoryTopic> get();
-    public ComproCategoryTopic get(Integer topicId);
-    public ComproCategoryTopic getWithTask(Integer topicId);
+    public ComproCategoryTopic get(String topicId);
+    public ComproCategoryTopic getWithTask(String topicId);
 }

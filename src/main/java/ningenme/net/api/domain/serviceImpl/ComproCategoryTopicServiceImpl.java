@@ -31,7 +31,7 @@ public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicServic
   }
 
   @Override
-  public ComproCategoryTopic get(Integer topicId) {
+  public ComproCategoryTopic get(String topicId) {
     ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
     List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
     comproCategoryTopic.setGenreName(comproCategoryGenreList);
@@ -39,7 +39,7 @@ public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicServic
   }
 
   @Override
-  public ComproCategoryTopic getWithTask(Integer topicId) {
+  public ComproCategoryTopic getWithTask(String topicId) {
     ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
     List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
     List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getListByTopicId(topicId);

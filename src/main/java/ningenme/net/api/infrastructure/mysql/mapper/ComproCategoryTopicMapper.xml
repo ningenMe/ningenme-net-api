@@ -10,7 +10,7 @@
         <id property="topicName"    column="topic_name"/>
         <id property="topicOrder"   column="topic_order"/>
     </resultMap>
-    <select id="select" resultMap="ComproCategoryTopicDto" parameterType="Integer">
+    <select id="select" resultMap="ComproCategoryTopicDto" parameterType="String">
         SELECT * FROM compro_category_topics
         <where>
             <if test="topicId != null">

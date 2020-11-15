@@ -25,7 +25,8 @@ public enum LogCode {
   API_INFO_202("API_INFO_202","OK"),
   API_INFO_203("API_INFO_203","Login OK"),
   API_INFO_204("API_INFO_204","No ComproCategoryGenre Cached"),
-  API_INFO_205("API_INFO_205","No ComproCategoryTopic Cached");
+  API_INFO_205("API_INFO_205","No ComproCategoryTopic Cached"),
+  API_INFO_206("API_INFO_206","Failed Insert Relation Between Topic And Task");
   private final String code;
   private final String message;
 }

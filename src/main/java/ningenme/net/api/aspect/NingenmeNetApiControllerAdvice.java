@@ -8,6 +8,7 @@ import ningenme.net.api.application.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -107,4 +108,13 @@ public class NingenmeNetApiControllerAdvice {
     return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_404);
   }
 
+  /**
+   * リクエストパラメータがおかしい(Bean Validationで引っかかるとこれ)
+   * @param ex exception
+   * @return エラーレスポンス
+   */
+  @ExceptionHandler({MethodArgumentNotValidException.class})
+  public ResponseEntity<ErrorResponse> MethodArgumentNotValidExceptionHandle(Exception ex) {
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_401);
+  }
 }

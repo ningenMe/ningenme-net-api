@@ -2,6 +2,7 @@ package ningenme.net.api.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
+import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.infrastructure.dto.ComproCategoryTaskDto;
@@ -32,7 +33,7 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
   }
 
   @Override
-  public ComproCategoryTask getOne(Integer taskId) {
+  public ComproCategoryTask getOne(String taskId) {
     try {
       return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectOne(taskId).convertComproCategoryTask();
     }
@@ -42,7 +43,7 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
   }
 
   @Override
-  public List<ComproCategoryTask> getListByTopicId(Integer topicId) {
+  public List<ComproCategoryTask> getListByTopicId(String topicId) {
     try{
       List<ComproCategoryTaskDto> comproCategoryTaskDtoList
               = sqlSessionTemplate
@@ -66,6 +67,18 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
     }
     catch (Exception ex) {
       throw new SelectMysqlException(ex);
+    }
+  }
+
+  @Override
+  public void post(ComproCategoryTask comproCategoryTask) {
+    try {
+      sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).insert(
+              ComproCategoryTaskDto.of(comproCategoryTask)
+      );
+    }
+    catch (Exception ex) {
+      throw new InsertMysqlException(ex);
     }
   }
 }
