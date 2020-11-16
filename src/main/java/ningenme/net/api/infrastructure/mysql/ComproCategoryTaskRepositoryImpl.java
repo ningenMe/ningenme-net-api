@@ -5,6 +5,7 @@ import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
+import ningenme.net.api.domain.value.Url;
 import ningenme.net.api.infrastructure.dto.ComproCategoryTaskDto;
 import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTaskMapper;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -79,6 +80,16 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);
+    }
+  }
+
+  @Override
+  public Integer getCountByUrl(Url url) {
+    try {
+      return sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).selectCountByUrl(url.getValue()).getCount();
+    }
+    catch (Exception ex) {
+      throw new SelectMysqlException(ex);
     }
   }
 }

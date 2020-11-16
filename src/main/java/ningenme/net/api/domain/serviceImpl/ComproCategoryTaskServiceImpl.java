@@ -6,6 +6,7 @@ import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
 import ningenme.net.api.domain.entity.ComproCategoryTopicTask;
 import ningenme.net.api.domain.entity.ComproTask;
+import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicTaskRepository;
@@ -47,6 +48,13 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
 
   @Override
   public void post(ComproCategoryTask comproCategoryTask) {
+
+    Integer alreadyPostedCount = comproCategoryTaskRepository.getCountByUrl(comproCategoryTask.getUrl());
+    //urlで既出判定を行う
+    if(alreadyPostedCount > 0) {
+      throw new ComproCategoryTaskUrlDuplicatedException(new Exception());
+    }
+
     //名前が空ならデータ取得
     if(Objects.equals(comproCategoryTask.getTaskName(),"")) {
       ComproTask comproTask = comproTaskService.get(comproCategoryTask.getUrl());
