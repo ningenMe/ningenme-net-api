@@ -32,6 +32,9 @@
     <select id="selectCount" resultMap="CountDto">
         SELECT count(*) as count FROM compro_category_tasks WHERE deleted_time IS NULL
     </select>
+    <select id="selectCountByUrl" resultMap="CountDto">
+        SELECT count(*) as count FROM compro_category_tasks WHERE url = #{url} AND deleted_time IS NULL
+    </select>
     <insert id="insert">
         INSERT INTO compro_category_tasks
         (task_id, task_name, url, score, estimation, topic_ids) VALUES

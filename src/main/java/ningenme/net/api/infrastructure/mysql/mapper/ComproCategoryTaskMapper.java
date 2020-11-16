@@ -12,6 +12,7 @@ public interface ComproCategoryTaskMapper {
   List<ComproCategoryTaskDto> selectList(@Param("offset") Integer offset);
   List<ComproCategoryTaskDto> selectListWithTopicId(@Param("topicId") String topicId);
   ComproCategoryTaskDto selectOne(@Param("taskId") String taskId);
+  CountDto selectCountByUrl(@Param("url") String url);
   CountDto selectCount();
   void insert(ComproCategoryTaskDto comproCategoryTaskDto);
 }
