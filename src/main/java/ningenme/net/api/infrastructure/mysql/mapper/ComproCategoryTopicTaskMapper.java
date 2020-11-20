@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ComproCategoryTopicTaskMapper {
   void insert(ComproCategoryTopicTaskDto comproCategoryTopicTaskDto);
+  void deleteByTaskId(String taskId);
 }

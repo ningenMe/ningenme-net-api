@@ -40,4 +40,13 @@
         (task_id, task_name, url, score, estimation, topic_ids) VALUES
         (#{taskId}, #{taskName},#{url},#{score},#{estimation},#{topicIds})
     </insert>
+    <update id="update">
+        UPDATE compro_category_tasks SET
+        task_name = #{taskName},
+        url = #{url},
+        score = #{score},
+        estimation = #{estimation},
+        topic_ids = #{topicIds}
+        WHERE task_id = #{taskId}
+    </update>
 </mapper>

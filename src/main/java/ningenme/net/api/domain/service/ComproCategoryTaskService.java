@@ -9,4 +9,5 @@ public interface ComproCategoryTaskService {
   public ComproCategoryTask getOne(String taskId);
   public Integer getCount();
   public void post(ComproCategoryTask comproCategoryTask);
+  public void put(ComproCategoryTask comproCategoryTask);
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ComproCategoryTopicTaskRepository {
   public void postList(List<ComproCategoryTopicTask> comproCategoryTopicTaskList);
+  public void deleteByTaskId(String taskId);
 }
