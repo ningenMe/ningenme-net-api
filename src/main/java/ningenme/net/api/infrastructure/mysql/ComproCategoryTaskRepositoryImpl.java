@@ -72,6 +72,18 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
   }
 
   @Override
+  public void put(ComproCategoryTask comproCategoryTask) {
+    try {
+      sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).update(
+              ComproCategoryTaskDto.of(comproCategoryTask)
+      );
+    }
+    catch (Exception ex) {
+      throw new InsertMysqlException(ex);
+    }
+  }
+
+  @Override
   public void post(ComproCategoryTask comproCategoryTask) {
     try {
       sqlSessionTemplate.getMapper(ComproCategoryTaskMapper.class).insert(
@@ -83,6 +95,7 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
     }
   }
 
+
   @Override
   public Integer getCountByUrl(Url url) {
     try {
@@ -92,4 +105,6 @@ public class ComproCategoryTaskRepositoryImpl implements ComproCategoryTaskRepos
       throw new SelectMysqlException(ex);
     }
   }
+
+
 }

@@ -7,6 +7,7 @@ import ningenme.net.api.application.controller.comproCategoryTask.post.PostReque
 import ningenme.net.api.application.controller.comproCategoryTask.getCount.GetCountResponse;
 import ningenme.net.api.application.controller.comproCategoryTask.getList.GetListResponse;
 import ningenme.net.api.application.controller.comproCategoryTask.getOne.GetOneResponse;
+import ningenme.net.api.application.controller.comproCategoryTask.put.PutRequest;
 import ningenme.net.api.application.controller.util.OkResponse;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
@@ -88,4 +89,28 @@ public class ComproCategoryTaskController {
         comproCategoryTaskService.post(comproCategoryTask);
         return OkResponse.of(LogCode.API_INFO_202);
     }
+
+    @ApiOperation(value = "ComproCategoryTask 更新API")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "Internal Server Error")
+    })
+    @PutMapping(path = "/v1/compro/category/tasks/{taskId}" , consumes = MediaType.APPLICATION_JSON_VALUE)
+    public OkResponse put (
+            @ApiParam(value = "taskId") @PathVariable(name = "taskId") String taskId,
+            @Validated @RequestBody PutRequest request
+    ) {
+        ComproCategoryTask comproCategoryTask = ComproCategoryTask.of(
+                taskId,
+                request.getTaskName(),
+                Url.of(request.getUrl()),
+                TaskScore.of(request.getScore()),
+                TaskScore.of(request.getEstimation()),
+                request.getTopicIdList(),
+                null
+        );
+        comproCategoryTaskService.put(comproCategoryTask);
+        return OkResponse.of(LogCode.API_INFO_202);
+    }
+
 }

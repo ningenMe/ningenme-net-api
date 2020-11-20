@@ -12,4 +12,5 @@ public interface ComproCategoryTaskRepository {
   public Integer getCountByUrl(Url url);
   public Integer getCount();
   public void post(ComproCategoryTask comproCategoryTask);
+  public void put(ComproCategoryTask comproCategoryTask);
 }

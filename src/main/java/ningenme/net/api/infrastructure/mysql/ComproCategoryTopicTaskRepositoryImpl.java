@@ -33,4 +33,13 @@ public class ComproCategoryTopicTaskRepositoryImpl implements ComproCategoryTopi
     }
   }
 
+  @Override
+  public void deleteByTaskId(String taskId) {
+    try {
+      sqlSessionTemplate.getMapper(ComproCategoryTopicTaskMapper.class).deleteByTaskId(taskId);
+    }
+    catch (Exception ex) {
+      log.info("code={}, message={}", LogCode.API_INFO_206.getCode(),LogCode.API_INFO_206.getMessage());
+    }
+  }
 }

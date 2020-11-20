@@ -77,4 +77,17 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
     comproCategoryTaskRepository.post(comproCategoryTask);
     comproCategoryTopicTaskRepository.postList(comproCategoryTask.getComproCategoryTopicTaskList());
   }
+
+  @Override
+  public void put(ComproCategoryTask comproCategoryTask) {
+
+    //未投稿データの場合ここでexceptionを吐く
+    ComproCategoryTask alreadyPostedComproCategoryTask = comproCategoryTaskRepository.getOne(comproCategoryTask.getTaskId());
+
+    log.info("taskId={}, url={} , name={}",comproCategoryTask.getTaskId(), comproCategoryTask.getUrl(),comproCategoryTask.getTaskName());
+    comproCategoryTaskRepository.put(comproCategoryTask);
+    comproCategoryTopicTaskRepository.deleteByTaskId(comproCategoryTask.getTaskId());
+    comproCategoryTopicTaskRepository.postList(comproCategoryTask.getComproCategoryTopicTaskList());
+  }
+
 }

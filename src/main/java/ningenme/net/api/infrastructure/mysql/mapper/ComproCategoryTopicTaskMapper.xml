@@ -7,4 +7,7 @@
     <insert id="insert">
         INSERT INTO compro_category_topics_tasks (topic_id, task_id) VALUES ( #{topicId}, #{taskId} );
     </insert>
+    <delete id="deleteByTaskId" parameterType="String">
+        DELETE FROM compro_category_topics_tasks WHERE task_id = #{taskId}
+    </delete>
 </mapper>

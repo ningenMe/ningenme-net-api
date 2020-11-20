@@ -15,4 +15,5 @@ public interface ComproCategoryTaskMapper {
   CountDto selectCountByUrl(@Param("url") String url);
   CountDto selectCount();
   void insert(ComproCategoryTaskDto comproCategoryTaskDto);
+  void update(ComproCategoryTaskDto comproCategoryTaskDto);
 }
