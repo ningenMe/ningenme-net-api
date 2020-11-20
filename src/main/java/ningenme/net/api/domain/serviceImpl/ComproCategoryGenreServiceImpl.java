@@ -36,4 +36,14 @@ public class ComproCategoryGenreServiceImpl implements ComproCategoryGenreServic
     }
     return comproCategoryGenre;
   }
+
+  @Override
+  public List<ComproCategoryGenre> getWithTopic() {
+    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
+    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
+    for (ComproCategoryGenre comproCategoryGenre: comproCategoryGenreList) {
+      comproCategoryGenre.setComproCategoryTopicList(comproCategoryTopicList);
+    }
+    return comproCategoryGenreList;
+  }
 }

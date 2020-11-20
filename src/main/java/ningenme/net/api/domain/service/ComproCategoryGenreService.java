@@ -9,4 +9,5 @@ public interface ComproCategoryGenreService {
     public List<ComproCategoryGenre> get();
     public ComproCategoryGenre get(Label label);
     public ComproCategoryGenre getWithTopics(Label label);
+    public List<ComproCategoryGenre> getWithTopic();
 }
