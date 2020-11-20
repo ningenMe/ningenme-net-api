@@ -22,6 +22,7 @@ public class ComproCategoryTaskResponseDto {
   private final String url;
   private final Integer score;
   private final Integer estimation;
+  private final List<String> topicIdList;
   private final List<ComproCategoryTopicResponseDto> comproCategoryTopicList;
 
   public static ComproCategoryTaskResponseDto of(ComproCategoryTask comproCategoryTask) {
@@ -31,6 +32,7 @@ public class ComproCategoryTaskResponseDto {
             comproCategoryTask.getUrl().getValue(),
             comproCategoryTask.getScore().getValue(),
             comproCategoryTask.getEstimation().getValue(),
+            comproCategoryTask.getTopicIdList(),
             comproCategoryTask
                     .getComproCategoryTopicList()
                     .stream()
