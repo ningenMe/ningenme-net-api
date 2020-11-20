@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetList")
+@ApiModel(value = "ComproCategoryGenreGetListWithTopicList")
 public class GetListWithTopicResponse {
   private final List<ComproCategoryGenreResponseDto> comproCategoryGenreList;
   public static GetListWithTopicResponse of(@NonNull List<ComproCategoryGenre> argComproCategoryGenreList) {
