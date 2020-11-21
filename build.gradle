@@ -30,6 +30,7 @@ sourceSets {
 dependencies {
 	//main
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.commons:commons-lang3:3.0'
 	//aop
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	//validation
