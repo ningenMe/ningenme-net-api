@@ -23,10 +23,19 @@ public enum ComproSite {
   private final String contestName;
   private final String prefix;
 
-  public static ComproSite getComproSiteByUrl(Url url) {
+  public static ComproSite of(Url url) {
     String urlString = url.getValue();
     for (ComproSite comproSite: ComproSite.values()) {
       if(comproSite.prefix.length() <= urlString.length() && comproSite.prefix.equals(urlString.substring(0,comproSite.prefix.length()))) {
+        return comproSite;
+      }
+    }
+    return UNKNOWN;
+  }
+
+  public static ComproSite of(String site) {
+    for (ComproSite comproSite: ComproSite.values()) {
+      if(comproSite.contestName.equals(site)) {
         return comproSite;
       }
     }

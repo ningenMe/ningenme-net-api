@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserMapper">
+    <insert id="replaceOnlyId">
+        INSERT INTO atcoder_user (atcoder_id) VALUES (#{atcoderId}) ON DUPLICATE KEY UPDATE updated_time = NOW();
+    </insert>
+</mapper>

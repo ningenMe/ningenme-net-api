@@ -22,7 +22,7 @@ public class ComproTaskServiceImpl implements ComproTaskService {
 
   @Override
   public ComproTask get(Url url) {
-    ComproSite comproSite = ComproSite.getComproSiteByUrl(url);
+    ComproSite comproSite = ComproSite.of(url);
     if(comproSite.equals(ComproSite.ATCODER)) {
       return comproAtcoderTaskClientRepository.get(url);
     }
