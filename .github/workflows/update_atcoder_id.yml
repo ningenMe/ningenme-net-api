@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: job
-        run: cron/update_atcoder_id.sh
+        run: sh cron/update_atcoder_id.sh
         env:
           email: ${{ secrets.EMAIL }}
           password: ${{ secrets.PASSWORD }}
