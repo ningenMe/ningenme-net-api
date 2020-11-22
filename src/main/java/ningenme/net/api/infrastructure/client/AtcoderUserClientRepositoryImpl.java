@@ -40,11 +40,6 @@ public class AtcoderUserClientRepositoryImpl implements AtcoderUserClientReposit
   }
 
   @Override
-  public AtcoderUser getOne(AtcoderId atcoderId) {
-    return null;
-  }
-
-  @Override
   public Integer getAllPageNum() {
     Integer allPageNum = 0;
     try {

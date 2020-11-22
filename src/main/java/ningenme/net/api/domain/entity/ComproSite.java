@@ -20,7 +20,7 @@ public enum ComproSite {
   AOJ_BETA("AOJ","https://onlinejudge.u-aizu.ac.jp"),
   UNKNOWN("Unknown","");
 
-  private final String contestName;
+  private final String siteId;
   private final String prefix;
 
   public static ComproSite of(Url url) {
@@ -35,7 +35,7 @@ public enum ComproSite {
 
   public static ComproSite of(String site) {
     for (ComproSite comproSite: ComproSite.values()) {
-      if(comproSite.contestName.equals(site)) {
+      if(comproSite.siteId.equals(site)) {
         return comproSite;
       }
     }

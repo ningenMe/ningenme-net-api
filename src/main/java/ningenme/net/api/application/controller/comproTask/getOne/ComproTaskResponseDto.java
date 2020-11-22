@@ -25,7 +25,7 @@ public class ComproTaskResponseDto {
             comproTask.getTaskName(),
             comproTask.getTaskScore().getValue(),
             comproTask.getUrl().getValue(),
-            comproTask.getComproSite().getContestName()
+            comproTask.getComproSite().getSiteId()
     );
   }
 }
