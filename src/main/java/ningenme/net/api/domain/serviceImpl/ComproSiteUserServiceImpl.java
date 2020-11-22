@@ -14,6 +14,17 @@ public class ComproSiteUserServiceImpl implements ComproSiteUserService {
 
   @Override
   @Async
+  public void putId(ComproSite comproSite) {
+    if(comproSite.equals(ComproSite.UNKNOWN)) {
+      return;
+    }
+    if(comproSite.equals(ComproSite.ATCODER)) {
+      atcoderUserService.putId();
+    }
+  }
+
+  @Override
+  @Async
   public void put(ComproSite comproSite) {
     if(comproSite.equals(ComproSite.UNKNOWN)) {
       return;
