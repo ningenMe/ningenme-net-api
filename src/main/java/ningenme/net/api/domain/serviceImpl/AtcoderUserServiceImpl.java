@@ -20,9 +20,11 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   private final BatchMysqlRepository batchMysqlRepository;
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
   private final static String CURRENT_ATCODER_USER_LIST_PAGE = "current_atcoder_user_list_page";
+  private final static Integer ONE_PROCESS_USER_LIST_SIZE = 100;
 
+  //TODO ロジック肥大化しすぎ
   @Override
-  public void put() {
+  public void putId() {
     //最大ページ数をatcoder側から取得
     Integer allPageNum = atcoderUserClientRepository.getAllPageNum();
     batchMysqlRepository.put(ALL_ATCODER_USER_LIST_PAGE, allPageNum.toString());
@@ -32,7 +34,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     List<AtcoderUser> atcoderUserList = atcoderUserClientRepository.get(currentPageNum);
     //ユーザIDを更新
     for (AtcoderUser atcoderUser: atcoderUserList) {
-      atcoderUserMysqlRepository.put(atcoderUser);
+      atcoderUserMysqlRepository.putId(atcoderUser);
     }
     //現在ページ数を加算
     if(currentPageNum.equals(allPageNum)) {
@@ -43,5 +45,10 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     }
     //現在ページ数を更新
     batchMysqlRepository.put(CURRENT_ATCODER_USER_LIST_PAGE,String.valueOf(currentPageNum));
+  }
+
+  @Override
+  public void put() {
+
   }
 }

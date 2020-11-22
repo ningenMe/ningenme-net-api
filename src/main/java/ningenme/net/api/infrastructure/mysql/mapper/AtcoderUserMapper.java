@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AtcoderUserMapper {
   public void replaceOnlyId(AtcoderUserMysqlDto atcoderUserMysqlDto);
+  public AtcoderUserMysqlDto selectLatestOne();
 }

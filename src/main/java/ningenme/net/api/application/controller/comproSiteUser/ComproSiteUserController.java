@@ -19,7 +19,20 @@ public class ComproSiteUserController {
 
   private final ComproSiteUserService comproSiteUserService;
 
-  @ApiOperation(value = "userのリストを更新するAPI")
+  @ApiOperation(value = "userのidリストを更新をkickするbatch用エンドポイント")
+  @ApiResponses(value = {
+          @ApiResponse(code = 200, message = "OK"),
+          @ApiResponse(code = 500, message = "Internal Server Error")
+  })
+  @PutMapping("/v1/compro/sites/{site}/users/id")
+  public OkResponse putId(
+          @ApiParam(name = "site",value = "") @PathVariable(value = "site", required = true) String site)
+  {
+    comproSiteUserService.putId(ComproSite.of(site));
+    return OkResponse.of(LogCode.API_INFO_202);
+  }
+
+  @ApiOperation(value = "userを更新をkickするbatch用エンドポイント")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")
@@ -28,8 +41,8 @@ public class ComproSiteUserController {
   public OkResponse put(
           @ApiParam(name = "site",value = "") @PathVariable(value = "site", required = true) String site)
   {
-    comproSiteUserService.put(ComproSite.of(site));
-    log.info("site={}",site);
+//    comproSiteUserService.put(ComproSite.of(site));
     return OkResponse.of(LogCode.API_INFO_202);
   }
+
 }
