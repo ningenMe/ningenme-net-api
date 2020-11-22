@@ -1,4 +1,4 @@
-name: update_atcoder_id
+name: update_atcoder_user_history
 
 on:
   schedule: # execute every 24 hours
