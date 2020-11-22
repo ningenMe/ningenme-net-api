@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTopicMapper">
-    <resultMap id="ComproCategoryTopicDto" type="ningenme.net.api.infrastructure.dto.ComproCategoryTopicDto">
+    <resultMap id="ComproCategoryTopicDto" type="ningenme.net.api.infrastructure.mysql.dto.ComproCategoryTopicDto">
         <id property="topicId"      column="topic_id"/>
         <id property="genreId"      column="genre_id"/>
         <id property="topicName"    column="topic_name"/>

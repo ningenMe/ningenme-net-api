@@ -1,6 +1,6 @@
 package ningenme.net.api.infrastructure.mysql.mapper;
 
-import ningenme.net.api.infrastructure.dto.BatchMysqlDto;
+import ningenme.net.api.infrastructure.mysql.dto.BatchMysqlDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

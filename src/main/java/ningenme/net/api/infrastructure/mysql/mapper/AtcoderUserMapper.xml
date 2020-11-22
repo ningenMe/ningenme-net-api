@@ -4,7 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserMapper">
+    <resultMap id="AtcoderUserMysqlDto" type="ningenme.net.api.infrastructure.mysql.dto.AtcoderUserMysqlDto">
+        <id property="atcoderId"            column="atcoder_id"/>
+        <id property="topcoderId"           column="topcoder_id"/>
+        <id property="codeforcesId"         column="codeforces_id"/>
+        <id property="yukicoderId"          column="yukicoder_id"/>
+        <id property="rank"                 column="rank"/>
+        <id property="country"              column="country"/>
+        <id property="affiliation"          column="affiliation"/>
+        <id property="currentRate"          column="current_rate"/>
+        <id property="highestRate"          column="highest_rate"/>
+        <id property="currentPerformance"   column="current_performance"/>
+        <id property="highestPerformance"   column="highest_performance"/>
+        <id property="firstParticipateTime" column="first_participate_time"/>
+        <id property="lastParticipateTime"  column="last_participate_time"/>
+        <id property="firstParticipateTime" column="first_participate_time"/>
+        <id property="deletedTime"          column="deleted_time"/>
+        <id property="createdTime"          column="created_time"/>
+        <id property="updatedTime"          column="updated_time"/>
+    </resultMap>
     <insert id="replaceOnlyId">
         INSERT INTO atcoder_users (atcoder_id) VALUES (#{atcoderId}) ON DUPLICATE KEY UPDATE updated_time = NOW();
     </insert>
+    <select id="selectOldestOne" resultMap="AtcoderUserMysqlDto">
+        SELECT * FROM atcoder_users WHERE deleted_time IS NULL ORDER BY updated_time ASC LIMIT 1;
+    </select>
 </mapper>

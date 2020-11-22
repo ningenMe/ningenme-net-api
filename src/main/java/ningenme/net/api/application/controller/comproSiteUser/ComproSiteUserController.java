@@ -41,7 +41,7 @@ public class ComproSiteUserController {
   public OkResponse put(
           @ApiParam(name = "site",value = "") @PathVariable(value = "site", required = true) String site)
   {
-//    comproSiteUserService.put(ComproSite.of(site));
+    comproSiteUserService.put(ComproSite.of(site));
     return OkResponse.of(LogCode.API_INFO_202);
   }
 

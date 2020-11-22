@@ -6,7 +6,7 @@ import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.value.Url;
-import ningenme.net.api.infrastructure.dto.ComproCategoryTaskDto;
+import ningenme.net.api.infrastructure.mysql.dto.ComproCategoryTaskDto;
 import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTaskMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;

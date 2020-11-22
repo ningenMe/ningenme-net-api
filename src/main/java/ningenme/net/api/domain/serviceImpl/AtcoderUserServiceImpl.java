@@ -49,6 +49,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
 
   @Override
   public void put() {
-
+    AtcoderUser atcoderUser       = atcoderUserMysqlRepository.getOldestOne();
+    AtcoderUser latestAtcoderUser = atcoderUserClientRepository.getOne(atcoderUser.getAtcoderId());
   }
 }

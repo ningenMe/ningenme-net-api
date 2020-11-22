@@ -7,7 +7,7 @@ import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
 import ningenme.net.api.domain.value.Label;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.infrastructure.dto.ComproCategoryGenreDto;
+import ningenme.net.api.infrastructure.mysql.dto.ComproCategoryGenreDto;
 import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryGenreMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.cache.annotation.Cacheable;
