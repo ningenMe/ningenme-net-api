@@ -7,6 +7,7 @@ import ningenme.net.api.application.controller.util.OkResponse;
 import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.service.ComproSiteUserService;
 import ningenme.net.api.domain.value.LogCode;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,29 +20,43 @@ public class ComproSiteUserController {
 
   private final ComproSiteUserService comproSiteUserService;
 
-  @ApiOperation(value = "userのidリストを更新をkickするbatch用エンドポイント")
+  @ApiOperation(value = "userのidリスト更新をkickするbatch用エンドポイント")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
-  @PutMapping("/v1/compro/sites/{site}/users/id")
+  @PutMapping("/v1/compro/sites/{site_id}/users/id")
   public OkResponse putId(
-          @ApiParam(name = "site",value = "") @PathVariable(value = "site", required = true) String site)
+          @ApiParam(name = "site_id",value = "") @PathVariable(value = "site_id", required = true) String siteId)
   {
-    comproSiteUserService.putId(ComproSite.of(site));
+    comproSiteUserService.putId(ComproSite.of(siteId));
     return OkResponse.of(LogCode.API_INFO_202);
   }
 
-  @ApiOperation(value = "userを更新をkickするbatch用エンドポイント")
+  @ApiOperation(value = "userの更新をkickするbatch用エンドポイント")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
-  @PutMapping("/v1/compro/sites/{site}/users")
+  @PutMapping("/v1/compro/sites/{site_id}/users")
   public OkResponse put(
-          @ApiParam(name = "site",value = "") @PathVariable(value = "site", required = true) String site)
+          @ApiParam(name = "site_id",value = "") @PathVariable(value = "site_id", required = true) String siteId)
   {
-    comproSiteUserService.put(ComproSite.of(site));
+    comproSiteUserService.put(ComproSite.of(siteId));
+    return OkResponse.of(LogCode.API_INFO_202);
+  }
+
+  @ApiOperation(value = "userの順位ビンゴを返すapi")
+  @ApiResponses(value = {
+          @ApiResponse(code = 200, message = "OK"),
+          @ApiResponse(code = 500, message = "Internal Server Error")
+  })
+  @GetMapping("/v1/compro/sites/{site_id}/users/{user_id}/bingo")
+  public OkResponse get(
+          @ApiParam(name = "site_id",value = "") @PathVariable(value = "site_id", required = true) String siteId,
+          @ApiParam(name = "user_id",value = "") @PathVariable(value = "user_id", required = true) String userId
+  )
+  {
     return OkResponse.of(LogCode.API_INFO_202);
   }
 
