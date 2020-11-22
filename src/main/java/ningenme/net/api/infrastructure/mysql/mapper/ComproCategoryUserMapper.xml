@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryUserMapper">
-    <resultMap id="ComproCategoryUserDto" type="ningenme.net.api.infrastructure.dto.ComproCategoryUserDto">
+    <resultMap id="ComproCategoryUserDto" type="ningenme.net.api.infrastructure.mysql.dto.ComproCategoryUserDto">
         <id property="email" column="email"/>
         <id property="password" column="password"/>
         <id property="createdTime" column="created_time"/>

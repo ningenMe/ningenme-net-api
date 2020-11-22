@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserMapper">
-    <resultMap id="AtcoderUserMysqlDto" type="ningenme.net.api.infrastructure.dto.AtcoderUserMysqlDto">
+    <resultMap id="AtcoderUserMysqlDto" type="ningenme.net.api.infrastructure.mysql.dto.AtcoderUserMysqlDto">
         <id property="atcoderId"            column="atcoder_id"/>
         <id property="topcoderId"           column="topcoder_id"/>
         <id property="codeforcesId"         column="codeforces_id"/>

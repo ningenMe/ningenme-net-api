@@ -1,4 +1,4 @@
-package ningenme.net.api.infrastructure.dto;
+package ningenme.net.api.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
@@ -6,8 +6,6 @@ import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.Url;
 
 import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class ComproCategoryTaskDto {

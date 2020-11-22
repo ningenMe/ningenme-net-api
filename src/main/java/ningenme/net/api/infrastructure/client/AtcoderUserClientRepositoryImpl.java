@@ -2,17 +2,9 @@ package ningenme.net.api.infrastructure.client;
 
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
-import ningenme.net.api.domain.entity.ComproSite;
-import ningenme.net.api.domain.entity.ComproTask;
-import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.AtcoderUserClientRepository;
 import ningenme.net.api.domain.value.AtcoderId;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.TaskUniqueId;
-import ningenme.net.api.infrastructure.dto.ComproCategoryTaskDto;
-import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTaskMapper;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -45,6 +37,11 @@ public class AtcoderUserClientRepositoryImpl implements AtcoderUserClientReposit
     catch (Exception ex) {
       throw new ScrapeException(ex);
     }
+  }
+
+  @Override
+  public AtcoderUser getOne(AtcoderId atcoderId) {
+    return null;
   }
 
   @Override

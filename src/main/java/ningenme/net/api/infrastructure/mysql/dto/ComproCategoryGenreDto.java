@@ -1,4 +1,4 @@
-package ningenme.net.api.infrastructure.dto;
+package ningenme.net.api.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.ComproCategoryGenre;

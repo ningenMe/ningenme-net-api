@@ -6,13 +6,12 @@ import ningenme.net.api.domain.entity.ComproCategoryTopic;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.infrastructure.dto.ComproCategoryTopicDto;
+import ningenme.net.api.infrastructure.mysql.dto.ComproCategoryTopicDto;
 import ningenme.net.api.infrastructure.mysql.mapper.ComproCategoryTopicMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
