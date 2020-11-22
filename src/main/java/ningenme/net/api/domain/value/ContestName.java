@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class Rate {
-  private final Integer value;
-  public static Rate of(Integer rate) {
-    return new Rate(rate);
+public class ContestName {
+  private final String value;
+  public static ContestName of(String contestName) {
+    return new ContestName(contestName);
   }
 }

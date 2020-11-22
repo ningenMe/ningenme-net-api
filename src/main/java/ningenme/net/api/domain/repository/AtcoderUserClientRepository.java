@@ -8,5 +8,4 @@ import java.util.List;
 public interface AtcoderUserClientRepository {
   public List<AtcoderUser> get(Integer pageNum);
   public Integer getAllPageNum();
-  public AtcoderUser getOne(AtcoderId atcoderId);
 }

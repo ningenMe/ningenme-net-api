@@ -18,9 +18,29 @@ public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepositor
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override
+  public void put(AtcoderUser atcoderUser) {
+    try {
+      sqlSessionTemplate.getMapper(AtcoderUserMapper.class).updateForLatest(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
+    }
+    catch (Exception ex) {
+      throw new InsertMysqlException(ex);
+    }
+  }
+
+  @Override
   public void putId(AtcoderUser atcoderUser) {
     try {
       sqlSessionTemplate.getMapper(AtcoderUserMapper.class).replaceOnlyId(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
+    }
+    catch (Exception ex) {
+      throw new InsertMysqlException(ex);
+    }
+  }
+
+  @Override
+  public void delete(AtcoderUser atcoderUser) {
+    try {
+      sqlSessionTemplate.getMapper(AtcoderUserMapper.class).delete(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);

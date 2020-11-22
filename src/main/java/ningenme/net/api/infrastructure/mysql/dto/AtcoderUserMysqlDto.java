@@ -51,7 +51,8 @@ public class AtcoderUserMysqlDto {
             Country.of(country),
             null,
             null,
-            null
+            null,
+            updatedTime
     );
   }
 }

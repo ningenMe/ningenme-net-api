@@ -54,6 +54,8 @@ dependencies {
 	implementation 'com.github.ben-manes.caffeine:caffeine:2.8.6'
 	//dto
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//gson
+	implementation 'com.google.code.gson:gson:2.8.6'
 	//http
 	implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 	//mysql	
