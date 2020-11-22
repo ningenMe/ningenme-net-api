@@ -6,6 +6,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.value.*;
 
+import java.sql.Timestamp;
+
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -17,13 +19,15 @@ public class AtcoderUser {
   private final Affiliation affiliation;
   private final Rate currentRate;
   private final Rate highestRate;
+  private final Timestamp updatedTime;
   public static AtcoderUser of(
           AtcoderId atcoderId,
           Rank rank,
           Country country,
           Affiliation affiliation,
           Rate currentRate,
-          Rate highestRate
+          Rate highestRate,
+          Timestamp updatedTime
   ){
     return new AtcoderUser(
             atcoderId,
@@ -31,12 +35,14 @@ public class AtcoderUser {
             country,
             affiliation,
             currentRate,
-            highestRate);
+            highestRate,
+            updatedTime
+    );
   }
   public static AtcoderUser of(
           AtcoderId atcoderId
   ){
     return new AtcoderUser(
-            atcoderId, null,null,null,null,null);
+            atcoderId, null,null,null,null,null, null);
   }
 }

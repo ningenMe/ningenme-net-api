@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ComproSiteUserServiceImpl implements ComproSiteUserService {
+  private final static Integer ONE_PROCESS_ATCODER_USER_NUM = 100;
+  private final static Long ONE_SEC = 1000L;
   private final AtcoderUserService atcoderUserService;
 
   @Override
@@ -30,7 +32,15 @@ public class ComproSiteUserServiceImpl implements ComproSiteUserService {
       return;
     }
     if(comproSite.equals(ComproSite.ATCODER)) {
-      atcoderUserService.put();
+      for (int i = 0; i < ONE_PROCESS_ATCODER_USER_NUM; i++) {
+        try{
+          atcoderUserService.put();
+          Thread.sleep(ONE_SEC);
+        }
+        catch (Exception ex) {
+          continue;
+        }
+      }
     }
   }
 }
