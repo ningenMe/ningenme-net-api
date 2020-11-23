@@ -2,7 +2,7 @@ name: update_atcoder_id
 
 on:
   schedule: # execute every 24 hours
-    - cron: '*/5 * * * 1-5'
+    - cron: '*/10 * * * 1-5'
   workflow_dispatch:
 
 jobs:
