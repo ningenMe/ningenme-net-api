@@ -59,7 +59,7 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
     if(Objects.equals(comproCategoryTask.getTaskName(),"")) {
       ComproTask comproTask = comproTaskService.get(comproCategoryTask.getUrl());
 
-      if (Objects.nonNull(comproCategoryTask)) {
+      if (Objects.nonNull(comproTask)) {
         comproCategoryTask = ComproCategoryTask.of(
                 comproCategoryTask.getTaskId(),
                 comproTask.getTaskName(),
@@ -84,7 +84,7 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
     //未投稿データの場合ここでexceptionを吐く
     ComproCategoryTask alreadyPostedComproCategoryTask = comproCategoryTaskRepository.getOne(comproCategoryTask.getTaskId());
 
-    log.info("taskId={}, url={} , name={}",comproCategoryTask.getTaskId(), comproCategoryTask.getUrl(),comproCategoryTask.getTaskName());
+    log.info("taskId={}, url={} , name={}",comproCategoryTask.getTaskId(), comproCategoryTask.getUrl().getValue(),comproCategoryTask.getTaskName());
     comproCategoryTaskRepository.put(comproCategoryTask);
     comproCategoryTopicTaskRepository.deleteByTaskId(comproCategoryTask.getTaskId());
     comproCategoryTopicTaskRepository.postList(comproCategoryTask.getComproCategoryTopicTaskList());
