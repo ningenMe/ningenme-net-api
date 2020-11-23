@@ -4,12 +4,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.exception.InsertMysqlException;
+import ningenme.net.api.domain.exception.NoResourceException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.AtcoderUserMysqlRepository;
+import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.infrastructure.mysql.dto.AtcoderUserMysqlDto;
 import ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.Objects;
 
 @Repository
 @RequiredArgsConstructor
@@ -56,4 +60,22 @@ public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepositor
       throw new SelectMysqlException(ex);
     }
   }
+
+  @Override
+  public AtcoderUser getOne(AtcoderId atcoderId) {
+    AtcoderUserMysqlDto atcoderUserMysqlDto;
+    try {
+      atcoderUserMysqlDto = sqlSessionTemplate.getMapper(AtcoderUserMapper.class).selectOne(atcoderId.getValue());
+    }
+    catch (Exception ex) {
+      throw new SelectMysqlException(ex);
+    }
+    try {
+      return atcoderUserMysqlDto.convertAtcoderUser();
+    }
+    catch (Exception ex) {
+      throw new NoResourceException(ex);
+    }
+  }
+
 }

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor
 public class Country {
   private final String value;
-  public static Country of(@NotNull String country) {
+  public static Country of(String country) {
     return new Country(country);
   }
 }

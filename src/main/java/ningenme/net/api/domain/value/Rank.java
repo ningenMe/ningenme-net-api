@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Rank {
   private final Integer value;
-  public static Rank of(@NotNull Integer rank) {
+  public static Rank of(Integer rank) {
     return new Rank(rank);
   }
 }

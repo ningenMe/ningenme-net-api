@@ -22,6 +22,7 @@ public enum LogCode {
   API_INFO_404("API_INFO_404","Some Request Parameter Are Not Present"),
   API_INFO_405("API_INFO_405","Authenticaiton Failed"),
   API_INFO_406("API_INFO_406","Url Dupulicated"),
+  API_INFO_407("API_INFO_407","No Resource"),
   API_INFO_201("API_INFO_201","New Compro Category User Was Created"),
   API_INFO_202("API_INFO_202","OK"),
   API_INFO_203("API_INFO_203","Login OK"),

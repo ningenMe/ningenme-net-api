@@ -35,4 +35,7 @@
     <select id="selectOldestOne" resultMap="AtcoderUserMysqlDto">
         SELECT * FROM atcoder_users WHERE deleted_time IS NULL ORDER BY updated_time ASC LIMIT 1;
     </select>
+    <select id="selectOne" resultMap="AtcoderUserMysqlDto" parameterType="String">
+        SELECT * FROM atcoder_users WHERE atcoder_id = #{atcoderId} AND deleted_time IS NULL;
+    </select>
 </mapper>
