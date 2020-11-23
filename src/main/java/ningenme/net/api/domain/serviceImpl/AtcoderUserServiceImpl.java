@@ -6,6 +6,7 @@ import ningenme.net.api.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.repository.*;
 import ningenme.net.api.domain.service.AtcoderUserService;
+import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.domain.value.LogCode;
 import org.springframework.stereotype.Service;
 
@@ -64,5 +65,10 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     //ユーザデータを最新まで繰越し
     atcoderUserMysqlRepository.put(atcoderUser);
     //TODO ここでコンテストのテーブル更新もやっといたほうが良さそう
+  }
+
+  @Override
+  public AtcoderUser getOne(AtcoderId atcoderId) {
+    return atcoderUserMysqlRepository.getOne(atcoderId);
   }
 }

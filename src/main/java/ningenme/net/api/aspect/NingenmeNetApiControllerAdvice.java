@@ -3,6 +3,7 @@ package ningenme.net.api.aspect;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
 import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
+import ningenme.net.api.domain.exception.NoResourceException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.application.controller.util.ErrorResponse;
@@ -127,6 +128,16 @@ public class NingenmeNetApiControllerAdvice {
   @ExceptionHandler({ComproCategoryTaskUrlDuplicatedException.class})
   public ResponseEntity<ErrorResponse> ComproCategoryTaskUrlDuplicatedExceptionHandle(Exception ex) {
     return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_406);
+  }
+
+  /**
+   * url重複エラー
+   * @param ex exception
+   * @return エラーレスポンス
+   */
+  @ExceptionHandler({NoResourceException.class})
+  public ResponseEntity<ErrorResponse> NoResourceExceptionHandle(Exception ex) {
+    return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_407);
   }
 
 }

@@ -31,6 +31,7 @@ public class ComproSiteUserServiceImpl implements ComproSiteUserService {
     if(comproSite.equals(ComproSite.UNKNOWN)) {
       return;
     }
+    //ATCODER
     if(comproSite.equals(ComproSite.ATCODER)) {
       for (int i = 0; i < ONE_PROCESS_ATCODER_USER_NUM; i++) {
         try{
@@ -42,5 +43,6 @@ public class ComproSiteUserServiceImpl implements ComproSiteUserService {
         }
       }
     }
+    //TODO そのうちほかも書く
   }
 }

@@ -1,11 +1,13 @@
 package ningenme.net.api.infrastructure.mysql.dto;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.value.*;
 
 import java.sql.Timestamp;
 
+@Getter
 @RequiredArgsConstructor
 public class AtcoderUserMysqlDto {
   private final String atcoderId;
@@ -48,7 +50,7 @@ public class AtcoderUserMysqlDto {
     return AtcoderUser.of(
             AtcoderId.of(atcoderId),
             null,
-            Country.of(country),
+            null,
             null,
             null,
             null,
