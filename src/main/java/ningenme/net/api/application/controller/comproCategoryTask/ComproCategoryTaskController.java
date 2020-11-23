@@ -79,7 +79,7 @@ public class ComproCategoryTaskController {
             ) {
         ComproCategoryTask comproCategoryTask = ComproCategoryTask.of(
                 UUID.randomUUID().toString(),
-                Optional.ofNullable(request.getTaskName()).orElse(""),
+                Optional.ofNullable(request.getTaskName()).orElse("."),
                 Url.of(request.getUrl()),
                 TaskScore.of(Optional.ofNullable(request.getScore()).orElse(0)),
                 TaskScore.of(Optional.ofNullable(request.getEstimation()).orElse(0)),

@@ -26,7 +26,10 @@ public class Url {
     if(!REGEX_PATTERN.matcher(url).matches()) {
       throw new IllegalArgumentException("Illegal url" + url);
     }
-
+    //aoj以外はhttpsに変換
+    if(!url.startsWith("https") && !url.startsWith("http://judge.u-aizu.ac.jp")) {
+      url = url.replaceFirst("http","https");
+    }
     return new Url(url);
   }
 }

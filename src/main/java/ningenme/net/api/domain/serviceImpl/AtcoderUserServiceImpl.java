@@ -31,6 +31,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   public void putId() {
     //最大ページ数をatcoder側から取得
     Integer allPageNum = atcoderUserClientRepository.getAllPageNum();
+    //最大ページ数を更新
     batchMysqlRepository.put(ALL_ATCODER_USER_LIST_PAGE, allPageNum.toString());
     //現在ページ数をdbから取得
     Integer currentPageNum = Integer.valueOf(batchMysqlRepository.get(CURRENT_ATCODER_USER_LIST_PAGE));
@@ -39,7 +40,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     //ユーザIDを更新
     for (AtcoderUser atcoderUser: atcoderUserList) {atcoderUserMysqlRepository.putId(atcoderUser);}
     //現在ページ数を加算
-    if(currentPageNum.equals(allPageNum)) { currentPageNum = 0; }
+    if(currentPageNum.equals(allPageNum)) { currentPageNum = 1; }
     else { currentPageNum += 1; }
     //現在ページ数を更新
     batchMysqlRepository.put(CURRENT_ATCODER_USER_LIST_PAGE,String.valueOf(currentPageNum));
