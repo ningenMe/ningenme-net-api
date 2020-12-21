@@ -27,7 +27,7 @@
     </select>
     <select id="selectListWithTopicId" resultMap="ComproCategoryTaskDto" parameterType="String">
         SELECT tasks.task_id as task_id, task_name, url, score, estimation, site, topic_ids, created_time, updated_time, deleted_time
-        FROM compro_category_topics_tasks AS tags JOIN compro_category_tasks AS tasks ON tags.task_id=tasks.task_id AND tags.topic_id = #{topicId};
+        FROM compro_category_topics_tasks AS tags JOIN compro_category_tasks AS tasks ON tags.task_id=tasks.task_id AND tags.topic_id = #{topicId} WHERE deleted_time IS NULL;
     </select>
     <select id="selectCount" resultMap="CountDto">
         SELECT count(*) as count FROM compro_category_tasks WHERE deleted_time IS NULL
