@@ -48,21 +48,6 @@ public class ComproSiteUserController {
     return OkResponse.of(LogCode.API_INFO_202);
   }
 
-  @ApiOperation(value = "userの順位ビンゴを返すapi")
-  @ApiResponses(value = {
-          @ApiResponse(code = 200, message = "OK"),
-          @ApiResponse(code = 500, message = "Internal Server Error")
-  })
-  @GetMapping("/v1/compro/sites/{site_id}/users/{user_id}/bingo")
-  public OkResponse getBingo(
-          @ApiParam(name = "site_id",value = "") @PathVariable(value = "site_id", required = true) String siteId,
-          @ApiParam(name = "user_id",value = "") @PathVariable(value = "user_id", required = true) String userId
-  )
-  {
-    ComproSite comproSite = ComproSite.of(siteId);
-    return OkResponse.of(LogCode.API_INFO_202);
-  }
-
   @ApiOperation(value = "atcoder userを返すapi")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
