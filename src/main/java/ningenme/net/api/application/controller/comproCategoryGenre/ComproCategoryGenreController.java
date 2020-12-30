@@ -1,7 +1,7 @@
 package ningenme.net.api.application.controller.comproCategoryGenre;
 
 import io.swagger.annotations.*;
-import ningenme.net.api.application.controller.comproCategoryGenre.getList.GetListResponse;
+import ningenme.net.api.application.controller.comproCategoryGenreListGet.ComproCategoryGenreListGetResponse;
 import ningenme.net.api.application.controller.comproCategoryGenre.getListWithTopic.getList.GetListWithTopicResponse;
 import ningenme.net.api.application.controller.comproCategoryGenre.getOne.GetOneResponse;
 import ningenme.net.api.application.controller.comproCategoryGenre.getOneWithTopic.GetOneWithTopicResponse;
@@ -54,23 +54,6 @@ public class ComproCategoryGenreController {
             .body(
                     GetOneWithTopicResponse.of(
                             comproCategoryGenreService.getWithTopics(Label.of(label))
-                    )
-            );
-  }
-
-  @ApiOperation(value = "ComproCategoryGenre 複数参照API")
-  @ApiResponses(value = {
-          @ApiResponse(code = 200, message = "OK"),
-          @ApiResponse(code = 400, message = "Bad Request"),
-          @ApiResponse(code = 500, message = "Internal Server Error")
-  })
-  @GetMapping("/v1/compro/category/genres")
-  public ResponseEntity<GetListResponse> getList() {
-    return ResponseEntity
-            .ok()
-            .body(
-                    GetListResponse.of(
-                            comproCategoryGenreService.get()
                     )
             );
   }
