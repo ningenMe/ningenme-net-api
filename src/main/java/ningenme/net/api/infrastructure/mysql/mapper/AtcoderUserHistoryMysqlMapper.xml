@@ -9,4 +9,8 @@
         (atcoder_id, contest_id, is_rated, place, old_rating, new_rating, performance) VALUES
         (#{atcoderId}, #{contestId}, #{isRated}, #{place}, #{oldRating}, #{newRating}, #{performance});
     </insert>
+
+    <select id="select" resultType="ningenme.net.api.infrastructure.mysql.dto.AtcoderUserHistoryMysqlDto">
+        SELECT * FROM atcoder_user_histories WHERE atcoder_id = #{atcoderId} AND deleted_time IS NULL;
+    </select>
 </mapper>

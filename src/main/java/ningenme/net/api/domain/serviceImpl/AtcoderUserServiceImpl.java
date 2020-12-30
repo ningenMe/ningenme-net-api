@@ -10,9 +10,10 @@ import ningenme.net.api.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.domain.value.Place;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -27,6 +28,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
 
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
   private final static String CURRENT_ATCODER_USER_LIST_PAGE = "current_atcoder_user_list_page";
+  private final static Integer BINGO_MAX_RUNK = 25;
 
   @Override
   public void putId() {
@@ -72,5 +74,22 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   @Override
   public AtcoderUser getOne(AtcoderId atcoderId) {
     return atcoderUserMysqlRepository.getOne(atcoderId);
+  }
+
+  @Override
+  public List<AtcoderUserHistory> getBingo(AtcoderId atcoderId) {
+    //history一覧取得
+    List<AtcoderUserHistory> atcoderUserHistories = atcoderUserHistoryMysqlRepository.get(atcoderId);
+
+    //BINGO_MAX_RUNK以下のものをfiltering
+    Map<Integer,AtcoderUserHistory> map = new HashMap<>();
+    for (AtcoderUserHistory atcoderUserHistory: atcoderUserHistories) {
+      if(Optional.ofNullable(atcoderUserHistory.getPlace()).map(place -> place.getValue() > BINGO_MAX_RUNK).orElse(true)) {
+        continue;
+      }
+      map.put(atcoderUserHistory.getPlace().getValue(),atcoderUserHistory);
+    }
+
+    return new ArrayList<>(map.values());
   }
 }
