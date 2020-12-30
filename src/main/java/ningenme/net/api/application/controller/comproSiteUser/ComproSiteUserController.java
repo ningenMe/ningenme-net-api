@@ -59,6 +59,7 @@ public class ComproSiteUserController {
           @ApiParam(name = "user_id",value = "") @PathVariable(value = "user_id", required = true) String userId
   )
   {
+    ComproSite comproSite = ComproSite.of(siteId);
     return OkResponse.of(LogCode.API_INFO_202);
   }
 
