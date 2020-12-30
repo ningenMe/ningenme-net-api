@@ -1,7 +1,6 @@
 package ningenme.net.api.infrastructure.client;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.repository.AtcoderUserHistoryClientRepository;
 import ningenme.net.api.domain.value.*;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class AtcoderUserHistoryClientRepositoryImpl implements AtcoderUserHistoryClientRepository {

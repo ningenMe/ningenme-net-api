@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.entity.ComproSite;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

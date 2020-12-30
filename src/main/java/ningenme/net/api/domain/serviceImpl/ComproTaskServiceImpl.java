@@ -1,7 +1,6 @@
 package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.repository.*;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class ComproTaskServiceImpl implements ComproTaskService {
 
   private final ComproAtcoderTaskClientRepository    comproAtcoderTaskClientRepository;

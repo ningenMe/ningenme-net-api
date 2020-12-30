@@ -25,8 +25,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Value("${ningenme.net.secret}")
     String secret;
 
-    private static final String AUTH_HEADER = "Authorization";
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
       http

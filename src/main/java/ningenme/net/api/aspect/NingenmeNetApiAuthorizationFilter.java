@@ -1,7 +1,6 @@
 package ningenme.net.api.aspect;
 
 import io.jsonwebtoken.Jwts;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,10 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-@Slf4j
 public class NingenmeNetApiAuthorizationFilter extends BasicAuthenticationFilter {
-
-  private AuthenticationManager authenticationManager;
 
   private static final String AUTH_HEADER = "Authorization";
   private static final String AUTH_PREFIX = "Bearer ";

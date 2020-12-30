@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.value.CategoryOrder;
 import ningenme.net.api.domain.value.Label;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

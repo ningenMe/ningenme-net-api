@@ -8,7 +8,6 @@ import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Getter

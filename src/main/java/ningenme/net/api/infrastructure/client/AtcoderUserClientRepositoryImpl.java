@@ -14,13 +14,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 @Repository
 @Slf4j
 public class AtcoderUserClientRepositoryImpl implements AtcoderUserClientRepository {
   private final static String URL_RANKING_PAGE = "https://atcoder.jp/ranking";
-  private static final Pattern PAGE_NUM_REGEX_PATTERN = Pattern.compile(".*ranking\\?page=.*");
   @Override
   public List<AtcoderUser> get(Integer pageNum) {
     try {

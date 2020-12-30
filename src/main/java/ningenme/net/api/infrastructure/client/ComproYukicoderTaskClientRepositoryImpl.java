@@ -1,6 +1,5 @@
 package ningenme.net.api.infrastructure.client;
 
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
@@ -14,7 +13,6 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Slf4j
 public class ComproYukicoderTaskClientRepositoryImpl implements ComproYukicoderTaskClientRepository {
 
   @Override
