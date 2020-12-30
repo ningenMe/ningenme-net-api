@@ -1,9 +1,9 @@
-package ningenme.net.api.application.controller.comproSiteUser.bingoGet;
+package ningenme.net.api.application.controller.comproSiteUserBingoGet;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.controller.comproSiteUser.bingoGet.view.AtcoderUserHistoryView;
+import ningenme.net.api.application.controller.comproSiteUserBingoGet.view.AtcoderUserHistoryView;
 import ningenme.net.api.domain.entity.AtcoderUserHistory;
 
 import java.util.List;

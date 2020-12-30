@@ -32,7 +32,7 @@ public class AtcoderUserMysqlDto {
     return AtcoderUser
             .builder()
             .atcoderId(AtcoderId.of(atcoderId))
-            .updatedTime(updatedTime)
+            .updatedTime(UpdatedTime.of(updatedTime))
             .build();
   }
 }
