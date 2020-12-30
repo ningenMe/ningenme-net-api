@@ -20,7 +20,16 @@ public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepositor
   @Override
   public void put(AtcoderUser atcoderUser) {
     try {
-      sqlSessionTemplate.getMapper(AtcoderUserMapper.class).updateForLatest(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
+      sqlSessionTemplate
+              .getMapper(AtcoderUserMapper.class)
+              .updateForLatest(
+                      AtcoderUserMysqlDto
+                              .builder()
+                              .atcoderId(
+                                      atcoderUser.getAtcoderId().getValue()
+                              )
+                              .build()
+              );
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);
@@ -30,7 +39,16 @@ public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepositor
   @Override
   public void putId(AtcoderUser atcoderUser) {
     try {
-      sqlSessionTemplate.getMapper(AtcoderUserMapper.class).replaceOnlyId(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
+      sqlSessionTemplate
+              .getMapper(AtcoderUserMapper.class)
+              .replaceOnlyId(
+                      AtcoderUserMysqlDto
+                              .builder()
+                              .atcoderId(
+                                      atcoderUser.getAtcoderId().getValue()
+                              )
+                              .build()
+              );
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);
@@ -40,7 +58,16 @@ public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepositor
   @Override
   public void delete(AtcoderUser atcoderUser) {
     try {
-      sqlSessionTemplate.getMapper(AtcoderUserMapper.class).delete(AtcoderUserMysqlDto.of(atcoderUser.getAtcoderId()));
+      sqlSessionTemplate
+              .getMapper(AtcoderUserMapper.class)
+              .delete(
+                      AtcoderUserMysqlDto
+                              .builder()
+                              .atcoderId(
+                                      atcoderUser.getAtcoderId().getValue()
+                              )
+                              .build()
+      );
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);

@@ -2,16 +2,11 @@ package ningenme.net.api.application.controller.comproSiteUser.bingoGet;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.controller.comproSiteUser.getAtcoderOne.GetAtcoderOneResponse;
-import ningenme.net.api.application.controller.util.OkResponse;
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.service.ComproSiteUserService;
-import ningenme.net.api.domain.value.AtcoderId;
-import ningenme.net.api.domain.value.LogCode;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;

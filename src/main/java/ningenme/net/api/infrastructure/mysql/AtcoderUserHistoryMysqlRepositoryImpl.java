@@ -18,7 +18,18 @@ public class AtcoderUserHistoryMysqlRepositoryImpl implements AtcoderUserHistory
   @Override
   public void put(AtcoderUserHistory atcoderUserHistory) {
     try {
-      sqlSessionTemplate.getMapper(AtcoderUserHistoryMysqlMapper.class).put(AtcoderUserHistoryMysqlDto.of(atcoderUserHistory));
+      sqlSessionTemplate.getMapper(AtcoderUserHistoryMysqlMapper.class).put(
+              AtcoderUserHistoryMysqlDto
+                      .builder()
+                      .atcoderId(atcoderUserHistory.getAtcoderId().getValue())
+                      .contestId(atcoderUserHistory.getContestId().getValue())
+                      .isRated(atcoderUserHistory.getIsRated())
+                      .place(atcoderUserHistory.getPlace().getValue())
+                      .oldRating(atcoderUserHistory.getOldRate().getValue())
+                      .newRating(atcoderUserHistory.getNewRate().getValue())
+                      .performance(atcoderUserHistory.getPerformance().getValue())
+                      .build()
+      );
     }
     catch (Exception ex) {
       throw new InsertMysqlException(ex);

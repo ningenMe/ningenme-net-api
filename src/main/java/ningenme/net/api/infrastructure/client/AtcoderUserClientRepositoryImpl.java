@@ -27,7 +27,12 @@ public class AtcoderUserClientRepositoryImpl implements AtcoderUserClientReposit
       List<AtcoderUser> atcoderUserList = new ArrayList<>();
       for (Element element: elements) {
         AtcoderId atcoderId = AtcoderId.of(element.text());
-        atcoderUserList.add(AtcoderUser.of(atcoderId));
+        atcoderUserList.add(
+                AtcoderUser
+                        .builder()
+                        .atcoderId(atcoderId)
+                        .build()
+        );
         log.info(atcoderId.getValue());
       }
       return atcoderUserList;

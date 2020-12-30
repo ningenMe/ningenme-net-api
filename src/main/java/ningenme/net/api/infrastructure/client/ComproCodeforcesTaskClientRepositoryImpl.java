@@ -1,6 +1,6 @@
 package ningenme.net.api.infrastructure.client;
 
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproCodeforcesTaskClientRepository;

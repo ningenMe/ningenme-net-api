@@ -4,7 +4,7 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.application.controller.comproSiteUser.getAtcoderOne.GetAtcoderOneResponse;
 import ningenme.net.api.application.controller.util.OkResponse;
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.service.ComproSiteUserService;
 import ningenme.net.api.domain.value.AtcoderId;
