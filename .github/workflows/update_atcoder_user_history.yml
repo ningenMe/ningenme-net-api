@@ -2,7 +2,7 @@ name: update_atcoder_user_history
 
 on:
   schedule: # execute every 24 hours
-    - cron: '*/10 * * * 1-5'
+    - cron: '*/20 * * * 1-5'
   workflow_dispatch:
 
 jobs:

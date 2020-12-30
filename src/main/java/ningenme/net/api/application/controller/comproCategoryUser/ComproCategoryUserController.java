@@ -2,7 +2,6 @@ package ningenme.net.api.application.controller.comproCategoryUser;
 
 import io.swagger.annotations.*;
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.service.ComproCategoryUserService;
 import ningenme.net.api.domain.value.Email;
 import ningenme.net.api.domain.value.LogCode;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 
 @Api(tags = {"compro-category"})
-@Slf4j
 @RestController
 @RequestMapping("/v1/compro/category/users")
 @RequiredArgsConstructor

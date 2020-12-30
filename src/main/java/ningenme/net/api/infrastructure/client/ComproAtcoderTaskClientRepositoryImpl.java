@@ -1,6 +1,5 @@
 package ningenme.net.api.infrastructure.client;
 
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
@@ -16,11 +15,9 @@ import org.springframework.stereotype.Repository;
 import java.util.regex.Pattern;
 
 @Repository
-@Slf4j
 public class ComproAtcoderTaskClientRepositoryImpl implements ComproAtcoderTaskClientRepository {
 
   private static final Pattern TASK_SCORE_REGEX_PATTERN = Pattern.compile(".*配点 : .*");
-
 
   @Override
   public ComproTask get(Url url) {

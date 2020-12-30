@@ -1,7 +1,6 @@
 package ningenme.net.api.application.controller.comproCategoryTask.post;
 
 import io.swagger.annotations.ApiModel;
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

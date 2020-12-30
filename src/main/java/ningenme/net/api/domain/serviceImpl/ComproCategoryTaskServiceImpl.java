@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
-import ningenme.net.api.domain.entity.ComproCategoryTopicTask;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;

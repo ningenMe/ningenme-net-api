@@ -2,7 +2,6 @@ package ningenme.net.api.infrastructure.client.mapper;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.exception.ClientException;
 import ningenme.net.api.infrastructure.client.dto.AtcoderUserHistoryClientDto;
 import okhttp3.OkHttpClient;
@@ -14,7 +13,6 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 @Component
-@Slf4j
 public class AtcoderUserHistoryClientMapper {
   private final static String HISTORY_URL = "https://atcoder.jp/users/%s/history/json";
 

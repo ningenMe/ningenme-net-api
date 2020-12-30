@@ -2,7 +2,6 @@ package ningenme.net.api.application.controller.comproSiteUser;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.application.controller.comproSiteUser.getAtcoderOne.GetAtcoderOneResponse;
 import ningenme.net.api.application.controller.util.OkResponse;
 import ningenme.net.api.domain.entity.ComproSite;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = {"compro-user"})
 @RestController
 @RequiredArgsConstructor
-@Slf4j
 public class ComproSiteUserController {
 
   private final ComproSiteUserService comproSiteUserService;

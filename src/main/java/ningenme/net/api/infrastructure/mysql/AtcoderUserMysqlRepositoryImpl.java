@@ -1,7 +1,6 @@
 package ningenme.net.api.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.NoResourceException;
@@ -13,11 +12,8 @@ import ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserMapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Objects;
-
 @Repository
 @RequiredArgsConstructor
-@Slf4j
 public class AtcoderUserMysqlRepositoryImpl implements AtcoderUserMysqlRepository {
   private final SqlSessionTemplate sqlSessionTemplate;
 

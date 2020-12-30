@@ -2,7 +2,6 @@ package ningenme.net.api.application.controller.comproCategoryTask;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.application.controller.comproCategoryTask.post.PostRequest;
 import ningenme.net.api.application.controller.comproCategoryTask.getCount.GetCountResponse;
 import ningenme.net.api.application.controller.comproCategoryTask.getList.GetListResponse;
@@ -26,7 +25,6 @@ import java.util.UUID;
 @Api(tags = {"compro-category"})
 @RestController
 @RequiredArgsConstructor
-@Slf4j
 public class ComproCategoryTaskController {
 
     private final ComproCategoryTaskService comproCategoryTaskService;

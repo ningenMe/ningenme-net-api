@@ -21,11 +21,9 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   private final AtcoderUserMysqlRepository atcoderUserMysqlRepository;
   private final AtcoderUserHistoryClientRepository atcoderUserHistoryClientRepository;
   private final AtcoderUserHistoryMysqlRepository atcoderUserHistoryMysqlRepository;
-  private final ComproContestMysqlRepository comproContestMysqlRepository;
 
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
   private final static String CURRENT_ATCODER_USER_LIST_PAGE = "current_atcoder_user_list_page";
-  private final static Integer ONE_PROCESS_USER_LIST_SIZE = 100;
 
   @Override
   public void putId() {

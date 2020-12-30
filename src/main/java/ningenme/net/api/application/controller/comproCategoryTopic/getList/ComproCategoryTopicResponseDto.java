@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
 
 /**

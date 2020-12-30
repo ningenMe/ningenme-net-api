@@ -4,11 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.controller.comproCategoryGenre.getOneWithTopic.ComproCategoryTaskResponseDto;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * レスポンス時のDTO, プリミティブ型のメンバのみで構成する

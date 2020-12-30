@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.Url;
 
@@ -17,7 +16,6 @@ import java.util.Objects;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@Slf4j
 public class ComproCategoryTask {
   @NonNull
   @ApiModelProperty(position = 0)

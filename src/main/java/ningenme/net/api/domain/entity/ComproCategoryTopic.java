@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.value.CategoryOrder;
-import ningenme.net.api.domain.value.Label;
 
 import java.util.List;
 

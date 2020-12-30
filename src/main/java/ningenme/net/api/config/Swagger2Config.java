@@ -1,7 +1,6 @@
 package ningenme.net.api.config;
 
 import com.google.common.collect.Sets;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,8 +17,6 @@ import springfox.documentation.swagger.web.DocExpansion;
 import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger.web.UiConfigurationBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import java.util.HashSet;
 
 @Configuration
 @EnableSwagger2
