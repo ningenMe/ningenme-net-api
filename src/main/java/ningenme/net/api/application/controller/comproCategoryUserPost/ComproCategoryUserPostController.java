@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproCategoryUser;
+package ningenme.net.api.application.controller.comproCategoryUserPost;
 
 import io.swagger.annotations.*;
 import lombok.NonNull;
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/v1/compro/category/users")
 @RequiredArgsConstructor
-public class ComproCategoryUserController {
+public class ComproCategoryUserPostController {
 
   @Autowired
   private final PasswordEncoder passwordEncoder;

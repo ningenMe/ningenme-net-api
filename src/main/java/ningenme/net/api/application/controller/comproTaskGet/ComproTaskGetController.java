@@ -1,9 +1,8 @@
-package ningenme.net.api.application.controller.comproTask;
+package ningenme.net.api.application.controller.comproTaskGet;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.application.controller.comproTask.getOne.GetOneResponse;
 import ningenme.net.api.domain.service.ComproTaskService;
 import ningenme.net.api.domain.value.Url;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-public class ComproTaskController {
+public class ComproTaskGetController {
 
   private final ComproTaskService comproTaskService;
 
@@ -25,11 +24,11 @@ public class ComproTaskController {
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
   @GetMapping("/v1/compro/tasks")
-  public ResponseEntity<GetOneResponse> getTask(
+  public ResponseEntity<ComproTaskGetResponse> get(
           @ApiParam(name = "url",value = "AtCoder,Codeforces,yukicoder,旧aojに対応") @RequestParam(value = "url", required = true) Url url
   ) {
     log.info("url={}",url.getValue());
-    return ResponseEntity.ok().body(GetOneResponse.of(
+    return ResponseEntity.ok().body(ComproTaskGetResponse.of(
             comproTaskService.get(url)
     ));
   }
