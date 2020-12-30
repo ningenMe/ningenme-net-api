@@ -25,7 +25,13 @@ public class ComproYukicoderTaskClientRepositoryImpl implements ComproYukicoderT
 
       String taskName   = taskNameElements.text();
       Integer taskScore = taskScoreOneStarCount*100 + taskScoreHalfStarCount*50;
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, TaskScore.of(taskScore), ComproSite.YUKICODER);
+      return ComproTask.builder()
+              .taskUniqueId(TaskUniqueId.of())
+              .taskName(taskName)
+              .url(url)
+              .taskScore(TaskScore.of(taskScore))
+              .comproSite(ComproSite.YUKICODER)
+              .build();
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);

@@ -28,7 +28,13 @@ public class ComproAtcoderTaskClientRepositoryImpl implements ComproAtcoderTaskC
 
       String taskName   = taskNameElements.text();
       String taskScore = taskScoreElements.text();
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, TaskScore.of(taskScore), ComproSite.ATCODER);
+      return ComproTask.builder()
+              .taskUniqueId(TaskUniqueId.of())
+              .taskName(taskName)
+              .url(url)
+              .taskScore(TaskScore.of(taskScore))
+              .comproSite(ComproSite.ATCODER)
+              .build();
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);
