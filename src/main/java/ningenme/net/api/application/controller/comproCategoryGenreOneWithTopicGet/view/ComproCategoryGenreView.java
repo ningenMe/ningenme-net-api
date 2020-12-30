@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproCategoryGenre.getListWithTopic.getList;
+package ningenme.net.api.application.controller.comproCategoryGenreOneWithTopicGet.view;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
@@ -14,22 +14,22 @@ import java.util.stream.Collectors;
  */
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetListComproCategoryGenreResponseDto")
-public class ComproCategoryGenreResponseDto {
+@ApiModel(value = "ComproCategoryGenreGetOneWithTopicComproCategoryGenreResponseDto")
+public class ComproCategoryGenreView {
   private final String genreId;
   private final String genreName;
   private final String label;
   private final Integer genreOrder;
-  private final List<ComproCategoryTopicResponseDto> comproCategoryTopicList;
-  public static ComproCategoryGenreResponseDto of(ComproCategoryGenre comproCategoryGenre) {
-    return new ComproCategoryGenreResponseDto(
+  private final List<ComproCategoryTopicView> comproCategoryTopicList;
+  public static ComproCategoryGenreView of(ComproCategoryGenre comproCategoryGenre) {
+    return new ComproCategoryGenreView(
             comproCategoryGenre.getGenreId(),
             comproCategoryGenre.getGenreName(),
             comproCategoryGenre.getLabel().getValue(),
             comproCategoryGenre.getGenreOrder().getValue(),
             comproCategoryGenre.getComproCategoryTopicList()
                     .stream()
-                    .map(comproCategoryTopic -> ComproCategoryTopicResponseDto.of(comproCategoryTopic))
+                    .map(comproCategoryTopic -> ComproCategoryTopicView.of(comproCategoryTopic))
                     .collect(Collectors.toList())
     );
   }

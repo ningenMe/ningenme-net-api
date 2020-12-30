@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproCategoryGenre.getOneWithTopic;
+package ningenme.net.api.application.controller.comproCategoryGenreOneWithTopicGet.view;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
@@ -12,15 +12,15 @@ import ningenme.net.api.domain.entity.ComproCategoryTask;
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @ApiModel(value = "ComproCategoryGenreGetOneWithTopicComproCategoryTaskResponseDto")
-public class ComproCategoryTaskResponseDto {
+public class ComproCategoryTaskView {
   private final String taskId;
   private final String taskName;
   private final String url;
   private final Integer score;
   private final Integer estimation;
 
-  public static ComproCategoryTaskResponseDto of(ComproCategoryTask comproCategoryTask) {
-    return new ComproCategoryTaskResponseDto(
+  public static ComproCategoryTaskView of(ComproCategoryTask comproCategoryTask) {
+    return new ComproCategoryTaskView(
             comproCategoryTask.getTaskId(),
             comproCategoryTask.getTaskName(),
             comproCategoryTask.getUrl().getValue(),

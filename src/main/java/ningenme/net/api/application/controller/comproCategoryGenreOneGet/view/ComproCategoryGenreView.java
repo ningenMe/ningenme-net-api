@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproCategoryGenre.getOne;
+package ningenme.net.api.application.controller.comproCategoryGenreOneGet.view;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
@@ -12,13 +12,13 @@ import ningenme.net.api.domain.entity.ComproCategoryGenre;
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @ApiModel(value = "ComproCategoryGenreGetOneComproCategoryGenreResponseDto")
-public class ComproCategoryGenreResponseDto {
+public class ComproCategoryGenreView {
   private final String genreId;
   private final String genreName;
   private final String label;
   private final Integer genreOrder;
-  public static ComproCategoryGenreResponseDto of(ComproCategoryGenre comproCategoryGenre) {
-    return new ComproCategoryGenreResponseDto(
+  public static ComproCategoryGenreView of(ComproCategoryGenre comproCategoryGenre) {
+    return new ComproCategoryGenreView(
             comproCategoryGenre.getGenreId(),
             comproCategoryGenre.getGenreName(),
             comproCategoryGenre.getLabel().getValue(),
