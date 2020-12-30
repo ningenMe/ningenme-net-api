@@ -20,15 +20,17 @@ public class AtcoderUserHistoryClientRepositoryImpl implements AtcoderUserHistor
     List<AtcoderUserHistoryClientDto> atcoderUserHistoryClientDtoList = atcoderUserHistoryMapper.get(atcoderId.getValue());
     return atcoderUserHistoryClientDtoList
             .stream()
-            .map(atcoderUserHistoryClientDto -> AtcoderUserHistory.of(
-                    atcoderId,
-                    ContestId.of(atcoderUserHistoryClientDto.getContestScreenName()),
-                    atcoderUserHistoryClientDto.getIsRated(),
-                    Place.of(atcoderUserHistoryClientDto.getPlace()),
-                    Rate.of(atcoderUserHistoryClientDto.getOldRating()),
-                    Rate.of(atcoderUserHistoryClientDto.getNewRating()),
-                    Performance.of(atcoderUserHistoryClientDto.getPerformance())
-            ))
+            .map(atcoderUserHistoryClientDto -> AtcoderUserHistory
+                            .builder()
+                            .atcoderId(atcoderId)
+                            .contestId(ContestId.of(atcoderUserHistoryClientDto.getContestScreenName()))
+                            .isRated(atcoderUserHistoryClientDto.getIsRated())
+                            .place(Place.of(atcoderUserHistoryClientDto.getPlace()))
+                            .oldRate(Rate.of(atcoderUserHistoryClientDto.getOldRating()))
+                            .newRate(Rate.of(atcoderUserHistoryClientDto.getNewRating()))
+                            .performance(Performance.of(atcoderUserHistoryClientDto.getPerformance()))
+                            .build()
+            )
             .collect(Collectors.toList());
   }
 }

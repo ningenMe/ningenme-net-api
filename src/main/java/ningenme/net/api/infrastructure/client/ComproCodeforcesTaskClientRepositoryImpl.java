@@ -1,9 +1,10 @@
 package ningenme.net.api.infrastructure.client;
 
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproCodeforcesTaskClientRepository;
+import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
 import org.jsoup.Jsoup;
@@ -21,7 +22,13 @@ public class ComproCodeforcesTaskClientRepositoryImpl implements ComproCodeforce
       Elements taskNameElements  = document.select("[class=header]").select("[class=title]");
 
       String taskName   = taskNameElements.text();
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, null, ComproSite.CODEFORCES);
+      return ComproTask.builder()
+              .taskUniqueId(TaskUniqueId.of())
+              .taskName(taskName)
+              .url(url)
+              .taskScore(TaskScore.of(0))
+              .comproSite(ComproSite.CODEFORCES)
+              .build();
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);

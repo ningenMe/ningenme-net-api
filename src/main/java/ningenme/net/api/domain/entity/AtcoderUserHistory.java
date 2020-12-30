@@ -1,12 +1,12 @@
 package ningenme.net.api.domain.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.value.*;
 
 @Getter
-@RequiredArgsConstructor
+@Builder
 public class AtcoderUserHistory {
   @NonNull
   private final AtcoderId atcoderId;
@@ -18,15 +18,4 @@ public class AtcoderUserHistory {
   private final Rate oldRate;
   private final Rate newRate;
   private final Performance performance;
-  public static AtcoderUserHistory of(
-          AtcoderId atcoderId,
-          ContestId contestId,
-          Boolean isRated,
-          Place place,
-          Rate oldRate,
-          Rate newRate,
-          Performance performance
-  ) {
-    return new AtcoderUserHistory(atcoderId,contestId,isRated,place,oldRate,newRate,performance);
-  }
 }

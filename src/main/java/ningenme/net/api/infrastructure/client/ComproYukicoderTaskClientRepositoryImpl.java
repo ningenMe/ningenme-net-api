@@ -1,6 +1,6 @@
 package ningenme.net.api.infrastructure.client;
 
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproYukicoderTaskClientRepository;
@@ -25,7 +25,13 @@ public class ComproYukicoderTaskClientRepositoryImpl implements ComproYukicoderT
 
       String taskName   = taskNameElements.text();
       Integer taskScore = taskScoreOneStarCount*100 + taskScoreHalfStarCount*50;
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, TaskScore.of(taskScore), ComproSite.YUKICODER);
+      return ComproTask.builder()
+              .taskUniqueId(TaskUniqueId.of())
+              .taskName(taskName)
+              .url(url)
+              .taskScore(TaskScore.of(taskScore))
+              .comproSite(ComproSite.YUKICODER)
+              .build();
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);

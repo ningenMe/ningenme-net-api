@@ -1,5 +1,6 @@
 package ningenme.net.api.infrastructure.mysql.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.entity.AtcoderUser;
@@ -8,7 +9,7 @@ import ningenme.net.api.domain.value.*;
 import java.sql.Timestamp;
 
 @Getter
-@RequiredArgsConstructor
+@Builder
 public class AtcoderUserMysqlDto {
   private final String atcoderId;
   private final String topcoderId;
@@ -27,34 +28,11 @@ public class AtcoderUserMysqlDto {
   private final Timestamp createdTime;
   private final Timestamp updatedTime;
 
-  public static AtcoderUserMysqlDto of(AtcoderId atcoderId) {
-    return new AtcoderUserMysqlDto(atcoderId.getValue(),
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null);
-  }
-
   public AtcoderUser convertAtcoderUser() {
-    return AtcoderUser.of(
-            AtcoderId.of(atcoderId),
-            null,
-            null,
-            null,
-            null,
-            null,
-            updatedTime
-    );
+    return AtcoderUser
+            .builder()
+            .atcoderId(AtcoderId.of(atcoderId))
+            .updatedTime(updatedTime)
+            .build();
   }
 }

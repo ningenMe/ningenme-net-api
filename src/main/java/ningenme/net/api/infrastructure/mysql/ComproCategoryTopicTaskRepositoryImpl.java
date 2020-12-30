@@ -23,7 +23,11 @@ public class ComproCategoryTopicTaskRepositoryImpl implements ComproCategoryTopi
     for (ComproCategoryTopicTask comproCategoryTopicTask: comproCategoryTopicTaskList) {
       try {
         sqlSessionTemplate.getMapper(ComproCategoryTopicTaskMapper.class).insert(
-                ComproCategoryTopicTaskDto.of(comproCategoryTopicTask)
+                ComproCategoryTopicTaskDto
+                        .builder()
+                        .topicId(comproCategoryTopicTask.getTopicId())
+                        .taskId(comproCategoryTopicTask.getTaskId())
+                        .build()
         );
       }
       catch (Exception ex) {

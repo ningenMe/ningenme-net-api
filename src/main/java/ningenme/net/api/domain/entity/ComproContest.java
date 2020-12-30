@@ -1,9 +1,7 @@
 package ningenme.net.api.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.value.ContestId;
 import ningenme.net.api.domain.value.ContestName;
 import ningenme.net.api.domain.value.Url;
@@ -11,7 +9,7 @@ import ningenme.net.api.domain.value.Url;
 import java.sql.Timestamp;
 
 @Getter
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class ComproContest {
   @NonNull
   private final ComproSite comproSite;
@@ -22,17 +20,4 @@ public class ComproContest {
   private final Url url;
   private final Timestamp startTime;
   private final Timestamp endTime;
-
-  public static ComproContest of(
-    ComproSite comproSite,
-    ContestId contestId,
-    ContestName contestName,
-    Url url,
-    Timestamp startTime,
-    Timestamp endTime
-  ){
-    return new ComproContest(
-            comproSite,contestId,contestName,url,startTime,endTime
-    );
-  }
 }

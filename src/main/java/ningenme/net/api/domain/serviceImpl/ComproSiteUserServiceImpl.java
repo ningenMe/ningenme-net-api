@@ -1,7 +1,7 @@
 package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.service.ComproSiteUserService;
 import org.springframework.scheduling.annotation.Async;

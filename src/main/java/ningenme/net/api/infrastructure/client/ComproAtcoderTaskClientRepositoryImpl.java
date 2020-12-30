@@ -1,6 +1,6 @@
 package ningenme.net.api.infrastructure.client;
 
-import ningenme.net.api.domain.entity.ComproSite;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.entity.ComproTask;
 import ningenme.net.api.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproAtcoderTaskClientRepository;
@@ -28,7 +28,13 @@ public class ComproAtcoderTaskClientRepositoryImpl implements ComproAtcoderTaskC
 
       String taskName   = taskNameElements.text();
       String taskScore = taskScoreElements.text();
-      return ComproTask.of( TaskUniqueId.of(), taskName, url, TaskScore.of(taskScore), ComproSite.ATCODER);
+      return ComproTask.builder()
+              .taskUniqueId(TaskUniqueId.of())
+              .taskName(taskName)
+              .url(url)
+              .taskScore(TaskScore.of(taskScore))
+              .comproSite(ComproSite.ATCODER)
+              .build();
     }
     catch (Exception ex) {
       throw new ScrapeException(ex);
