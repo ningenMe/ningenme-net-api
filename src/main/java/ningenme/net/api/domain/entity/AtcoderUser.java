@@ -3,8 +3,6 @@ package ningenme.net.api.domain.entity;
 import lombok.*;
 import ningenme.net.api.domain.value.*;
 
-import java.sql.Timestamp;
-
 @Getter
 @Builder
 public class AtcoderUser {
@@ -15,5 +13,5 @@ public class AtcoderUser {
   private final Affiliation affiliation;
   private final Rate currentRate;
   private final Rate highestRate;
-  private final Timestamp updatedTime;
+  private final UpdatedTime updatedTime;
 }

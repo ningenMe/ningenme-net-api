@@ -4,13 +4,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.entity.AtcoderUserHistory;
+import ningenme.net.api.domain.entity.ComproContest;
 import ningenme.net.api.domain.repository.*;
 import ningenme.net.api.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.value.AtcoderId;
+import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.domain.value.LogCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -63,7 +66,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     }
     //ユーザデータを最新まで繰越し
     atcoderUserMysqlRepository.put(atcoderUser);
-    //TODO ここでコンテストのテーブル更新もやっといたほうが良さそう
+    //TODO ここでコンテストのテーブル更新もやっといたほうが良さそう？(コンテストデータ自体は別のクローラー立てても良さそう)
   }
 
   @Override
