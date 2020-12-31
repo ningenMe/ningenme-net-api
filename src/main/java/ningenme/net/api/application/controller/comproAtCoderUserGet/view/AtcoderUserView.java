@@ -17,7 +17,7 @@ public class AtcoderUserView {
     return new AtcoderUserView(
             atcoderUser.getAtcoderId().getValue(),
 //            atcoderUser.getCurrentRate().getValue(),
-            atcoderUser.getUpdatedTime().toString()
+            atcoderUser.getUpdatedTime().getValue().toString()
     );
   }
 }
