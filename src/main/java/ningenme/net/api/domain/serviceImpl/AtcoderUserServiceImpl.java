@@ -7,10 +7,7 @@ import ningenme.net.api.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.entity.ComproContest;
 import ningenme.net.api.domain.repository.*;
 import ningenme.net.api.domain.service.AtcoderUserService;
-import ningenme.net.api.domain.value.AtcoderId;
-import ningenme.net.api.domain.value.ComproSite;
-import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.domain.value.Place;
+import ningenme.net.api.domain.value.*;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -29,6 +26,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
   private final static String CURRENT_ATCODER_USER_LIST_PAGE = "current_atcoder_user_list_page";
   private final static Integer BINGO_MAX_RUNK = 25;
+  private final static ContestId UNKNOWN_CONTEST_ID = ContestId.of("UNKNOWN");
 
   @Override
   public void putId() {
@@ -77,7 +75,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   }
 
   @Override
-  public List<AtcoderUserHistory> getBingo(AtcoderId atcoderId) {
+  public List<AtcoderUserHistory> getBingo(AtcoderId atcoderId, BingoType bingoType) {
     //history一覧取得
     List<AtcoderUserHistory> atcoderUserHistories = atcoderUserHistoryMysqlRepository.get(atcoderId);
 
@@ -87,9 +85,29 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
       if(Optional.ofNullable(atcoderUserHistory.getPlace()).map(place -> place.getValue() > BINGO_MAX_RUNK).orElse(true)) {
         continue;
       }
+      if(!bingoType.isOwnType(atcoderUserHistory.getContestId())) {
+        continue;
+      }
       map.put(atcoderUserHistory.getPlace().getValue(),atcoderUserHistory);
     }
 
-    return new ArrayList<>(map.values());
+    //レスポンスを作成
+    List<AtcoderUserHistory> bingos = new ArrayList<>();
+    for(Integer place = 1; place <= BINGO_MAX_RUNK; place += 1) {
+      if (map.containsKey(place)) {
+        bingos.add(map.get(place));
+      }
+      else {
+        bingos.add(AtcoderUserHistory
+                .builder()
+                .atcoderId(atcoderId)
+                .contestId(UNKNOWN_CONTEST_ID)
+                .place(Place.of(place))
+                .build()
+        );
+      }
+    }
+
+    return bingos;
   }
 }
