@@ -103,6 +103,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
                 .atcoderId(atcoderId)
                 .contestId(UNKNOWN_CONTEST_ID)
                 .place(Place.of(place))
+                .performance(Performance.of(0))
                 .build()
         );
       }

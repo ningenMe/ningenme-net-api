@@ -7,6 +7,7 @@ import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.AtcoderUserHistoryMysqlRepository;
 import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.domain.value.ContestId;
+import ningenme.net.api.domain.value.Performance;
 import ningenme.net.api.domain.value.Place;
 import ningenme.net.api.infrastructure.mysql.dto.AtcoderUserHistoryMysqlDto;
 import ningenme.net.api.infrastructure.mysql.mapper.AtcoderUserHistoryMysqlMapper;
@@ -55,6 +56,7 @@ public class AtcoderUserHistoryMysqlRepositoryImpl implements AtcoderUserHistory
                       .atcoderId(AtcoderId.of(atcoderUserHistoryMysqlDto.getAtcoderId()))
                       .contestId(ContestId.of(atcoderUserHistoryMysqlDto.getContestId()))
                       .place(Place.of(atcoderUserHistoryMysqlDto.getPlace()))
+                      .performance(Performance.of(atcoderUserHistoryMysqlDto.getPerformance()))
                       .build()
               )
               .collect(Collectors.toList());
