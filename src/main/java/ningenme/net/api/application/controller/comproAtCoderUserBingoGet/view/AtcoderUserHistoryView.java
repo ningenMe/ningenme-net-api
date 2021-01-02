@@ -13,6 +13,7 @@ public class AtcoderUserHistoryView {
   private final String contestName;
   private final String url;
   private final Integer place;
+  private final Integer performance;
 
   public static AtcoderUserHistoryView of(AtcoderUserHistory atcoderUserHistory) {
     return new AtcoderUserHistoryView(
@@ -20,7 +21,8 @@ public class AtcoderUserHistoryView {
             atcoderUserHistory.getContestId().getValue(),
             "",
             atcoderUserHistory.getUrl().getValue(),
-            atcoderUserHistory.getPlace().getValue()
+            atcoderUserHistory.getPlace().getValue(),
+            atcoderUserHistory.getPerformance().getValue()
     );
   }
 }
