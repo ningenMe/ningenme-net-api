@@ -25,7 +25,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
 
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
   private final static String CURRENT_ATCODER_USER_LIST_PAGE = "current_atcoder_user_list_page";
-  private final static Integer BINGO_MAX_RUNK = 25;
+  private final static Integer BINGO_MAX_RUNK = 100;
   private final static ContestId UNKNOWN_CONTEST_ID = ContestId.of("UNKNOWN");
 
   @Override
