@@ -2,8 +2,8 @@ package ningenme.net.api.util.application.controller.userpost;
 
 import io.swagger.annotations.*;
 import lombok.NonNull;
+import ningenme.net.api.util.domain.service.NingenmeNetUserService;
 import ningenme.net.api.util.application.OkResponse;
-import ningenme.net.api.domain.service.ComproCategoryUserService;
 import ningenme.net.api.domain.value.Email;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.domain.value.RawPassword;
@@ -22,7 +22,7 @@ public class UserPostController {
   @Autowired
   private final PasswordEncoder passwordEncoder;
 
-  private final ComproCategoryUserService comproCategoryUserService;
+  private final NingenmeNetUserService ningenmeNetUserService;
 
   @ApiOperation(value = "NingenmeNetUser 投稿API")
   @ApiResponses(value = {
@@ -35,7 +35,7 @@ public class UserPostController {
           @ApiParam(required = true, value="パスワード") @RequestParam("rawPassword") @NonNull RawPassword rawPassword
   ) {
     //そもそも自分しかユーザーは作れないんだな
-    //comproCategoryUserService.insert(NingenmeNetUser.of(email,Password.of( rawPassword, passwordEncoder)));
+    //ningenmeNetUserService.insert(NingenmeNetUser.of(email,Password.of( rawPassword, passwordEncoder)));
     return OkResponse.of(LogCode.API_INFO_201);
   }
 }

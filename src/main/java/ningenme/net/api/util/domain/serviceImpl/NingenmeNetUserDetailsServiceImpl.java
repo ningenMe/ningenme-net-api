@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.serviceImpl;
+package ningenme.net.api.util.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.util.domain.entity.NingenmeNetUser;
@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
-public class ComproCategoryUserDetailsServiceImpl implements UserDetailsService {
+public class NingenmeNetUserDetailsServiceImpl implements UserDetailsService {
 
   private final NingenmeNetUserMysqlRepository ningenmeNetUserMysqlRepository;
   @Override

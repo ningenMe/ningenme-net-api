@@ -1,10 +1,10 @@
-package ningenme.net.api.domain.service;
+package ningenme.net.api.category.domain.service;
 
 import ningenme.net.api.category.domain.entity.Task;
 
 import java.util.List;
 
-public interface ComproCategoryTaskService {
+public interface TaskService {
   public List<Task> getList(Integer offset);
   public Task getOne(String taskId);
   public Integer getCount();

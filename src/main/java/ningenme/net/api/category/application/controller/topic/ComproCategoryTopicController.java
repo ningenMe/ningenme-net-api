@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.application.controller.topic.getList.GetListResponse;
 import ningenme.net.api.category.application.controller.topic.getOne.GetOneResponse;
 import ningenme.net.api.category.application.controller.topic.getOneWithTask.GetOneWithTaskResponse;
-import ningenme.net.api.domain.service.ComproCategoryTopicService;
+import ningenme.net.api.category.domain.service.TopicService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class ComproCategoryTopicController {
-    private final ComproCategoryTopicService comproCategoryTopicService;
+    private final TopicService topicService;
 
     @ApiOperation(value = "Topic 単体参照API")
     @ApiResponses(value = {
@@ -31,7 +31,7 @@ public class ComproCategoryTopicController {
                 .ok()
                 .body(
                         GetOneResponse.of(
-                                comproCategoryTopicService.get(topicId)
+                                topicService.get(topicId)
                         )
                 );
     }
@@ -50,7 +50,7 @@ public class ComproCategoryTopicController {
             .ok()
             .body(
                     GetOneWithTaskResponse.of(
-                            comproCategoryTopicService.getWithTask(topicId)
+                            topicService.getWithTask(topicId)
                     )
             );
   }
@@ -67,7 +67,7 @@ public class ComproCategoryTopicController {
                 .ok()
                 .body(
                         GetListResponse.of(
-                                comproCategoryTopicService.get()
+                                topicService.get()
                         )
                 );
     }
