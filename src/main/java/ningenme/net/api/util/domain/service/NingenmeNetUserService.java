@@ -1,7 +1,7 @@
-package ningenme.net.api.domain.service;
+package ningenme.net.api.util.domain.service;
 
 import ningenme.net.api.util.domain.entity.NingenmeNetUser;
 
-public interface ComproCategoryUserService {
+public interface NingenmeNetUserService {
   public void insert(NingenmeNetUser ningenmeNetUser);
 }

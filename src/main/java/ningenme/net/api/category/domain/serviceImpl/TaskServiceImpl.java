@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.serviceImpl;
+package ningenme.net.api.category.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,8 +8,7 @@ import ningenme.net.api.util.domain.exception.CategoryTaskUrlDuplicatedException
 import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicTaskMysqlRepository;
-import ningenme.net.api.domain.service.ComproCategoryTaskService;
-import ningenme.net.api.compro.domain.service.TaskService;
+import ningenme.net.api.category.domain.service.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +17,11 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService {
+public class TaskServiceImpl implements TaskService {
   private final TaskMysqlRepository taskMysqlRepository;
   private final TopicMysqlRepository topicMysqlRepository;
   private final TopicTaskMysqlRepository topicTaskMysqlRepository;
-  private final TaskService taskService;
+  private final ningenme.net.api.compro.domain.service.TaskService taskService;
   @Override
   public List<Task> getList(Integer offset) {
     List<Task> taskList = taskMysqlRepository.getList(offset);

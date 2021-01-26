@@ -1,11 +1,11 @@
-package ningenme.net.api.domain.service;
+package ningenme.net.api.category.domain.service;
 
 import ningenme.net.api.category.domain.entity.Genre;
 import ningenme.net.api.domain.value.Label;
 
 import java.util.List;
 
-public interface ComproCategoryGenreService {
+public interface GenreService {
     public List<Genre> get();
     public Genre get(Label label);
     public Genre getWithTopics(Label label);

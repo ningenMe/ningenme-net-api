@@ -2,9 +2,8 @@ package ningenme.net.api.category.application.controller.genreoneget;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.service.ComproCategoryGenreService;
+import ningenme.net.api.category.domain.service.GenreService;
 import ningenme.net.api.domain.value.Label;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class GenreOneGetController {
-  private final ComproCategoryGenreService comproCategoryGenreService;
+  private final GenreService genreService;
 
   @ApiOperation(value = "Genre 単体参照API")
   @ApiResponses(value = {
@@ -25,6 +24,6 @@ public class GenreOneGetController {
   public GenreOneGetResponse get(
           @ApiParam("ラベル") @PathVariable String label
   ) {
-    return GenreOneGetResponse.of(comproCategoryGenreService.get(Label.of(label)));
+    return GenreOneGetResponse.of(genreService.get(Label.of(label)));
   }
 }

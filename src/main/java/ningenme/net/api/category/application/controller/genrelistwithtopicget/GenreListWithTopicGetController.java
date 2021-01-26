@@ -1,7 +1,7 @@
 package ningenme.net.api.category.application.controller.genrelistwithtopicget;
 
 import io.swagger.annotations.*;
-import ningenme.net.api.domain.service.ComproCategoryGenreService;
+import ningenme.net.api.category.domain.service.GenreService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 public class GenreListWithTopicGetController {
-  private final ComproCategoryGenreService comproCategoryGenreService;
+  private final GenreService genreService;
 
   @ApiOperation(value = "ComproCategoryGenreWithTopic 複数参照API")
   @ApiResponses(value = {
@@ -21,6 +21,6 @@ public class GenreListWithTopicGetController {
   })
   @GetMapping("/v1/compro/category/genres/topics")
   public GenreListWithTopicGetResponse get() {
-    return GenreListWithTopicGetResponse.of(comproCategoryGenreService.getWithTopic());
+    return GenreListWithTopicGetResponse.of(genreService.getWithTopic());
   }
 }

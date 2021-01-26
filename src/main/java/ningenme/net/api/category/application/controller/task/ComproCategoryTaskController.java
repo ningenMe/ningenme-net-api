@@ -9,7 +9,7 @@ import ningenme.net.api.category.application.controller.task.getList.GetListResp
 import ningenme.net.api.category.application.controller.task.getOne.GetOneResponse;
 import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.util.application.OkResponse;
-import ningenme.net.api.domain.service.ComproCategoryTaskService;
+import ningenme.net.api.category.domain.service.TaskService;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.Url;
@@ -27,7 +27,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ComproCategoryTaskController {
 
-    private final ComproCategoryTaskService comproCategoryTaskService;
+    private final TaskService taskService;
 
     @ApiOperation(value = "Task 複数参照API")
     @ApiResponses(value = {
@@ -38,7 +38,7 @@ public class ComproCategoryTaskController {
     public ResponseEntity<GetListResponse> getList(
             @ApiParam(value = "offset") @RequestParam(name = "offset", defaultValue = "0") Integer offset
     ) {
-        List<Task> taskList = comproCategoryTaskService.getList(offset);
+        List<Task> taskList = taskService.getList(offset);
         return ResponseEntity.ok().body(
                 GetListResponse.of(taskList));
     }
@@ -52,7 +52,7 @@ public class ComproCategoryTaskController {
     public ResponseEntity<GetOneResponse> getOne(
             @ApiParam(value = "taskId") @PathVariable(name = "taskId") String taskId
     ) {
-        return ResponseEntity.ok().body(GetOneResponse.of(comproCategoryTaskService.getOne(taskId)));
+        return ResponseEntity.ok().body(GetOneResponse.of(taskService.getOne(taskId)));
     }
 
     @ApiOperation(value = "ComproCategoryTaskCount 参照API")
@@ -63,7 +63,7 @@ public class ComproCategoryTaskController {
     @GetMapping("/v1/compro/category/tasks/count")
     public ResponseEntity<GetCountResponse> getCount(
     ) {
-        return ResponseEntity.ok().body(GetCountResponse.of(comproCategoryTaskService.getCount()));
+        return ResponseEntity.ok().body(GetCountResponse.of(taskService.getCount()));
     }
 
     @ApiOperation(value = "Task 投稿API")
@@ -84,7 +84,7 @@ public class ComproCategoryTaskController {
                 request.getTopicIdList(),
                 null
         );
-        comproCategoryTaskService.post(task);
+        taskService.post(task);
         return OkResponse.of(LogCode.API_INFO_202);
     }
 
@@ -107,7 +107,7 @@ public class ComproCategoryTaskController {
                 request.getTopicIdList(),
                 null
         );
-        comproCategoryTaskService.put(task);
+        taskService.put(task);
         return OkResponse.of(LogCode.API_INFO_202);
     }
 

@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.serviceImpl;
+package ningenme.net.api.category.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.entity.Genre;
@@ -6,7 +6,7 @@ import ningenme.net.api.category.domain.entity.Topic;
 import ningenme.net.api.category.domain.repository.GenreMysqlRepository;
 import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
-import ningenme.net.api.domain.service.ComproCategoryGenreService;
+import ningenme.net.api.category.domain.service.GenreService;
 import ningenme.net.api.domain.value.Label;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ComproCategoryGenreServiceImpl implements ComproCategoryGenreService {
+public class GenreServiceImpl implements GenreService {
 
   private final GenreMysqlRepository genreMysqlRepository;
   private final TopicMysqlRepository topicMysqlRepository;
