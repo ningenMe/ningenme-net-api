@@ -2,7 +2,7 @@ package ningenme.net.api.compro.infrastructure.atcoder;
 
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
-import ningenme.net.api.compro.domain.exception.ScrapeException;
+import ningenme.net.api.util.domain.exception.ScrapeException;
 import ningenme.net.api.compro.domain.repository.AtcoderUserAtcoderRepository;
 import ningenme.net.api.domain.value.AtcoderId;
 import org.apache.commons.lang3.math.NumberUtils;

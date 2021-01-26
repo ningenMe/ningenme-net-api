@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.category.domain.entity.Genre;
 import ningenme.net.api.category.infrastructure.mysql.dto.GenreMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.GenreMysqlMapper;
-import ningenme.net.api.domain.exception.SelectMysqlException;
+import ningenme.net.api.util.domain.exception.SelectMysqlException;
 import ningenme.net.api.category.domain.repository.GenreMysqlRepository;
 import ningenme.net.api.domain.value.Label;
 import ningenme.net.api.domain.value.LogCode;

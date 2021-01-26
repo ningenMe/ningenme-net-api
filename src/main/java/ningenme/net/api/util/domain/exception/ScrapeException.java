@@ -1,4 +1,4 @@
-package ningenme.net.api.compro.domain.exception;
+package ningenme.net.api.util.domain.exception;
 
 public class ScrapeException extends RuntimeException {
   public ScrapeException(Exception ex) {
