@@ -11,6 +11,9 @@ webアプリのapiを統合して管理している
 |contest-record |https://contest-record.ningenme.net |https://github.com/ningenMe/contest-record-front |
 |compro-solver  |submissionの連携をしている |https://github.com/ningenMe/compro-solver|
 
+## api swagger
+https://ningenme.github.io/api-document/#/
+
 ## architecture
 |            |                |  
 |----------- |--------------- |  
@@ -18,9 +21,5 @@ webアプリのapiを統合して管理している
 |ci/cd       | github actions |  
 |application | Spring Boot    |  
 
-## api swagger
-https://ningenme.github.io/api-document/#/
-
 ## appendix
-API使いたい方はご連絡ください  
-前リポジトリ https://github.com/ningenMe/ningenme-net-back
+API使いたい方はご連絡ください [@ningenMe](https://twitter.com/ningenMe)  

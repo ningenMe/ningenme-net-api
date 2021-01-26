@@ -1,4 +1,4 @@
-package ningenme.net.api.infrastructure.client;
+package ningenme.net.api.compro.infrastructure.atcoder;
 
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Repository
 @Slf4j
-public class AtcoderUserClientRepositoryImpl implements AtcoderUserClientRepository {
+public class AtcoderUserAtcoderRepositoryImpl implements AtcoderUserClientRepository {
   private final static String URL_RANKING_PAGE = "https://atcoder.jp/ranking";
   @Override
   public List<AtcoderUser> get(Integer pageNum) {

@@ -1,4 +1,4 @@
-package ningenme.net.api.infrastructure.client;
+package ningenme.net.api.compro.infrastructure.yukicoder;
 
 import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ComproYukicoderTaskClientRepositoryImpl implements ComproYukicoderTaskClientRepository {
+public class TaskYukicoderRepositoryImpl implements ComproYukicoderTaskClientRepository {
 
   @Override
   public Task get(Url url) {

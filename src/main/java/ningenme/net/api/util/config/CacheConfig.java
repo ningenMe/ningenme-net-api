@@ -1,4 +1,4 @@
-package ningenme.net.api.config;
+package ningenme.net.api.util.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;

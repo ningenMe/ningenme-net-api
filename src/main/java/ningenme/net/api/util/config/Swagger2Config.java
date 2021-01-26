@@ -1,4 +1,4 @@
-package ningenme.net.api.config;
+package ningenme.net.api.util.config;
 
 import com.google.common.collect.Sets;
 import org.springframework.beans.factory.annotation.Value;

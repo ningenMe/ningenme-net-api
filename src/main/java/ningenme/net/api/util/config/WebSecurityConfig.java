@@ -1,7 +1,7 @@
-package ningenme.net.api.config;
+package ningenme.net.api.util.config;
 
-import ningenme.net.api.aspect.NingenmeNetApiAuthenticationFilter;
-import ningenme.net.api.aspect.NingenmeNetApiAuthorizationFilter;
+import ningenme.net.api.util.aspect.NingenmeNetApiAuthenticationFilter;
+import ningenme.net.api.util.aspect.NingenmeNetApiAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

@@ -1,4 +1,4 @@
-package ningenme.net.api.infrastructure.client.dto;
+package ningenme.net.api.compro.infrastructure.atcoder.dto;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 @Data
-public class AtcoderUserHistoryClientDto {
+public class AtcoderUserHistoryAtcoderDto {
   @SerializedName("IsRated")
   Boolean isRated;
   @SerializedName("Place")
