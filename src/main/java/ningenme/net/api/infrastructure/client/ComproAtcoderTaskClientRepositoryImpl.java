@@ -1,8 +1,8 @@
 package ningenme.net.api.infrastructure.client;
 
 import ningenme.net.api.domain.value.ComproSite;
-import ningenme.net.api.domain.entity.ComproTask;
-import ningenme.net.api.domain.exception.ScrapeException;
+import ningenme.net.api.compro.domain.entity.Task;
+import ningenme.net.api.compro.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproAtcoderTaskClientRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
@@ -20,7 +20,7 @@ public class ComproAtcoderTaskClientRepositoryImpl implements ComproAtcoderTaskC
   private static final Pattern TASK_SCORE_REGEX_PATTERN = Pattern.compile(".*配点 : .*");
 
   @Override
-  public ComproTask get(Url url) {
+  public Task get(Url url) {
     try {
       Document document = Jsoup.connect(url.getValue()).get();
       Elements taskNameElements  = document.select("title");
@@ -28,7 +28,7 @@ public class ComproAtcoderTaskClientRepositoryImpl implements ComproAtcoderTaskC
 
       String taskName   = taskNameElements.text();
       String taskScore = taskScoreElements.text();
-      return ComproTask.builder()
+      return Task.builder()
               .taskUniqueId(TaskUniqueId.of())
               .taskName(taskName)
               .url(url)

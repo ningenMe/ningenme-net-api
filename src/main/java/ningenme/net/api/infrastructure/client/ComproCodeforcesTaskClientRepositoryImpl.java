@@ -1,8 +1,8 @@
 package ningenme.net.api.infrastructure.client;
 
 import ningenme.net.api.domain.value.ComproSite;
-import ningenme.net.api.domain.entity.ComproTask;
-import ningenme.net.api.domain.exception.ScrapeException;
+import ningenme.net.api.compro.domain.entity.Task;
+import ningenme.net.api.compro.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.ComproCodeforcesTaskClientRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
@@ -16,13 +16,13 @@ import org.springframework.stereotype.Repository;
 public class ComproCodeforcesTaskClientRepositoryImpl implements ComproCodeforcesTaskClientRepository {
 
   @Override
-  public ComproTask get(Url url) {
+  public Task get(Url url) {
     try {
       Document document = Jsoup.connect(url.getValue()).get();
       Elements taskNameElements  = document.select("[class=header]").select("[class=title]");
 
       String taskName   = taskNameElements.text();
-      return ComproTask.builder()
+      return Task.builder()
               .taskUniqueId(TaskUniqueId.of())
               .taskName(taskName)
               .url(url)

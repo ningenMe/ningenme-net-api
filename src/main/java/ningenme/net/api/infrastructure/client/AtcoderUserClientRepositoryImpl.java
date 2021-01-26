@@ -1,8 +1,8 @@
 package ningenme.net.api.infrastructure.client;
 
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.exception.ScrapeException;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.exception.ScrapeException;
 import ningenme.net.api.domain.repository.AtcoderUserClientRepository;
 import ningenme.net.api.domain.value.AtcoderId;
 import org.apache.commons.lang3.math.NumberUtils;

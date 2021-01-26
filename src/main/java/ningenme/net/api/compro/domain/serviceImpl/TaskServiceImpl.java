@@ -1,0 +1,41 @@
+package ningenme.net.api.compro.domain.serviceImpl;
+
+import lombok.RequiredArgsConstructor;
+import ningenme.net.api.domain.value.ComproSite;
+import ningenme.net.api.compro.domain.entity.Task;
+import ningenme.net.api.domain.repository.*;
+import ningenme.net.api.compro.domain.service.TaskService;
+import ningenme.net.api.domain.value.Url;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class TaskServiceImpl implements TaskService {
+
+  private final ComproAtcoderTaskClientRepository    comproAtcoderTaskClientRepository;
+  private final ComproCodeforcesTaskClientRepository comproCodeforcesTaskClientRepository;
+  private final ComproYukicoderTaskClientRepository  comproYukicoderTaskClientRepository;
+  private final ComproAojTaskClientRepository        comproAojTaskClientRepository;
+  private final ComproAojBetaTaskClientRepository    comproAojBetaTaskClientRepository;
+
+  @Override
+  public Task get(Url url) {
+    ComproSite comproSite = ComproSite.of(url);
+    if(comproSite.equals(ComproSite.ATCODER)) {
+      return comproAtcoderTaskClientRepository.get(url);
+    }
+    if(comproSite.equals(ComproSite.CODEFORCES)) {
+      return comproCodeforcesTaskClientRepository.get(url);
+    }
+    if(comproSite.equals(ComproSite.YUKICODER)) {
+      return comproYukicoderTaskClientRepository.get(url);
+    }
+    if(comproSite.equals(ComproSite.AOJ)) {
+      return comproAojTaskClientRepository.get(url);
+    }
+    if(comproSite.equals(ComproSite.AOJ_BETA)) {
+      return comproAojBetaTaskClientRepository.get(url);
+    }
+    return null;
+  }
+}

@@ -4,13 +4,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.entity.ComproCategoryTopic;
-import ningenme.net.api.domain.entity.ComproTask;
+import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicTaskRepository;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
-import ningenme.net.api.domain.service.ComproTaskService;
+import ningenme.net.api.compro.domain.service.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   private final ComproCategoryTaskRepository      comproCategoryTaskRepository;
   private final ComproCategoryTopicRepository     comproCategoryTopicRepository;
   private final ComproCategoryTopicTaskRepository comproCategoryTopicTaskRepository;
-  private final ComproTaskService                 comproTaskService;
+  private final TaskService taskService;
   @Override
   public List<ComproCategoryTask> getList(Integer offset) {
     List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getList(offset);
@@ -56,14 +56,14 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
 
     //名前がデフォルトならデータ取得
     if(Objects.equals(comproCategoryTask.getTaskName(),".")) {
-      ComproTask comproTask = comproTaskService.get(comproCategoryTask.getUrl());
+      Task task = taskService.get(comproCategoryTask.getUrl());
 
-      if (Objects.nonNull(comproTask)) {
+      if (Objects.nonNull(task)) {
         comproCategoryTask = ComproCategoryTask.of(
                 comproCategoryTask.getTaskId(),
-                comproTask.getTaskName(),
-                comproTask.getUrl(),
-                comproTask.getTaskScore(),
+                task.getTaskName(),
+                task.getUrl(),
+                task.getTaskScore(),
                 comproCategoryTask.getEstimation(),
                 comproCategoryTask.getTopicIdList(),
                 comproCategoryTask.getCreatedTime()
