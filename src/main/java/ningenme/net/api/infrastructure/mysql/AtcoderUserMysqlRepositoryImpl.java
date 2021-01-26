@@ -1,7 +1,7 @@
 package ningenme.net.api.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.NoResourceException;
 import ningenme.net.api.domain.exception.SelectMysqlException;

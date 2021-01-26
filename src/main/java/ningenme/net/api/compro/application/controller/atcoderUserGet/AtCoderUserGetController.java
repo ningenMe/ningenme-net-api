@@ -2,7 +2,7 @@ package ningenme.net.api.compro.application.controller.atcoderUserGet;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.service.AtcoderUserService;
+import ningenme.net.api.compro.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.value.AtcoderId;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = {"compro-user"})
 @RestController
 @RequiredArgsConstructor
-public class ComproAtCoderUserGetController {
+public class AtCoderUserGetController {
 
   private final AtcoderUserService atcoderUserService;
 
@@ -21,11 +21,11 @@ public class ComproAtCoderUserGetController {
           @ApiResponse(code = 500, message = "Internal Server Error")
   })
   @GetMapping("/v1/compro/sites/AtCoder/users/{atcoder_id}")
-  public ComproAtcoderUserGetResponse get(
+  public AtcoderUserGetResponse get(
           @ApiParam(name = "atcoder_id",value = "") @PathVariable(value = "atcoder_id", required = true) String atcoderId
   )
   {
-    return ComproAtcoderUserGetResponse.of(atcoderUserService.getOne(AtcoderId.of(atcoderId)));
+    return AtcoderUserGetResponse.of(atcoderUserService.getOne(AtcoderId.of(atcoderId)));
   }
 
 }

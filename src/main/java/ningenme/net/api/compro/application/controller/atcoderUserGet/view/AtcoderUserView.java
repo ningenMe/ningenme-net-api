@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

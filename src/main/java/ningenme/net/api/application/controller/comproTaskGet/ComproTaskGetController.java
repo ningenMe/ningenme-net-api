@@ -3,7 +3,7 @@ package ningenme.net.api.application.controller.comproTaskGet;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.service.ComproTaskService;
+import ningenme.net.api.compro.domain.service.TaskService;
 import ningenme.net.api.domain.value.Url;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ComproTaskGetController {
 
-  private final ComproTaskService comproTaskService;
+  private final TaskService taskService;
 
   @ApiOperation(value = "問題のurlを渡すと情報を返してくれるAPI")
   @ApiResponses(value = {
@@ -29,7 +29,7 @@ public class ComproTaskGetController {
   ) {
     log.info("url={}",url.getValue());
     return ResponseEntity.ok().body(ComproTaskGetResponse.of(
-            comproTaskService.get(url)
+            taskService.get(url)
     ));
   }
 

@@ -1,7 +1,7 @@
-package ningenme.net.api.domain.service;
+package ningenme.net.api.compro.domain.service;
 
-import ningenme.net.api.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.entity.AtcoderUserHistory;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.domain.value.BingoType;
 

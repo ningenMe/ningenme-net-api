@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.exception;
+package ningenme.net.api.compro.domain.exception;
 
 public class ClientException extends RuntimeException {
   public ClientException(Exception ex) {

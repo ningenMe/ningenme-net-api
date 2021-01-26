@@ -3,7 +3,7 @@ package ningenme.net.api.compro.application.controller.atcoderUserBingoGet.view;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.AtcoderUserHistory;
+import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

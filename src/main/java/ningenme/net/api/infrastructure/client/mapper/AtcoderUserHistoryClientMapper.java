@@ -2,7 +2,7 @@ package ningenme.net.api.infrastructure.client.mapper;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import ningenme.net.api.domain.exception.ClientException;
+import ningenme.net.api.compro.domain.exception.ClientException;
 import ningenme.net.api.infrastructure.client.dto.AtcoderUserHistoryClientDto;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

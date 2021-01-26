@@ -1,17 +1,15 @@
-package ningenme.net.api.domain.serviceImpl;
+package ningenme.net.api.compro.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.entity.AtcoderUserHistory;
-import ningenme.net.api.domain.entity.ComproContest;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.repository.*;
-import ningenme.net.api.domain.service.AtcoderUserService;
+import ningenme.net.api.compro.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.value.*;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service

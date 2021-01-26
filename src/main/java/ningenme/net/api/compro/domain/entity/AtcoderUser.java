@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.compro.domain.entity;
 
 import lombok.*;
 import ningenme.net.api.domain.value.*;

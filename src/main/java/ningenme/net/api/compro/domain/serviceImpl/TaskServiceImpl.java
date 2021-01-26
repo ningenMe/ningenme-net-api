@@ -1,16 +1,16 @@
-package ningenme.net.api.domain.serviceImpl;
+package ningenme.net.api.compro.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.domain.value.ComproSite;
-import ningenme.net.api.domain.entity.ComproTask;
+import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.domain.repository.*;
-import ningenme.net.api.domain.service.ComproTaskService;
+import ningenme.net.api.compro.domain.service.TaskService;
 import ningenme.net.api.domain.value.Url;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class ComproTaskServiceImpl implements ComproTaskService {
+public class TaskServiceImpl implements TaskService {
 
   private final ComproAtcoderTaskClientRepository    comproAtcoderTaskClientRepository;
   private final ComproCodeforcesTaskClientRepository comproCodeforcesTaskClientRepository;
@@ -19,7 +19,7 @@ public class ComproTaskServiceImpl implements ComproTaskService {
   private final ComproAojBetaTaskClientRepository    comproAojBetaTaskClientRepository;
 
   @Override
-  public ComproTask get(Url url) {
+  public Task get(Url url) {
     ComproSite comproSite = ComproSite.of(url);
     if(comproSite.equals(ComproSite.ATCODER)) {
       return comproAtcoderTaskClientRepository.get(url);

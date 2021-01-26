@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.compro.domain.entity;
 
 import lombok.*;
 import ningenme.net.api.domain.value.ComproSite;
@@ -8,7 +8,7 @@ import ningenme.net.api.domain.value.Url;
 
 @Getter
 @Builder
-public class ComproTask {
+public class Task {
   @NonNull
   private final TaskUniqueId taskUniqueId;
   @NonNull

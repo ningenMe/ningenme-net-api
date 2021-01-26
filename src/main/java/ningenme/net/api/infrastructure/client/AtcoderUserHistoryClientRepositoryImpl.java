@@ -1,7 +1,7 @@
 package ningenme.net.api.infrastructure.client;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.AtcoderUserHistory;
+import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.repository.AtcoderUserHistoryClientRepository;
 import ningenme.net.api.domain.value.*;
 import ningenme.net.api.infrastructure.client.dto.AtcoderUserHistoryClientDto;

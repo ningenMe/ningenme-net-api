@@ -2,8 +2,7 @@ package ningenme.net.api.infrastructure.mysql.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.AtcoderUser;
+import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.value.*;
 
 import java.sql.Timestamp;

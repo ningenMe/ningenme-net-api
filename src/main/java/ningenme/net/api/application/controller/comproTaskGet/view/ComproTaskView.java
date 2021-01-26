@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproTask;
+import ningenme.net.api.compro.domain.entity.Task;
 
 /**
  * レスポンス時のDTO, プリミティブ型のメンバのみで構成する
@@ -19,13 +19,13 @@ public class ComproTaskView {
   private final String url;
   private final String site;
 
-  public static ComproTaskView of(ComproTask comproTask) {
+  public static ComproTaskView of(Task task) {
     return new ComproTaskView(
-            comproTask.getTaskUniqueId().getValue().toString(),
-            comproTask.getTaskName(),
-            comproTask.getTaskScore().getValue(),
-            comproTask.getUrl().getValue(),
-            comproTask.getComproSite().getSiteId()
+            task.getTaskUniqueId().getValue().toString(),
+            task.getTaskName(),
+            task.getTaskScore().getValue(),
+            task.getUrl().getValue(),
+            task.getComproSite().getSiteId()
     );
   }
 }

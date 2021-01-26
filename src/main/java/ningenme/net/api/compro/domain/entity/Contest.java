@@ -1,11 +1,11 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.compro.domain.entity;
 
 import lombok.*;
 import ningenme.net.api.domain.value.*;
 
 @Getter
 @Builder
-public class ComproContest {
+public class Contest {
   @NonNull
   private final ComproSite comproSite;
   @NonNull
