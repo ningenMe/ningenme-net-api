@@ -1,4 +1,4 @@
-package ningenme.net.api.aspect;
+package ningenme.net.api.util.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
