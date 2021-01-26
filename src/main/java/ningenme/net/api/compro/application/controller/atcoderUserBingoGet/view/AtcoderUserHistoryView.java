@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproAtCoderUserBingoGet.view;
+package ningenme.net.api.compro.application.controller.atcoderUserBingoGet.view;
 
 import lombok.AccessLevel;
 import lombok.Getter;

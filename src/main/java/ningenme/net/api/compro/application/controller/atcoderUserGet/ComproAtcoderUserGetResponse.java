@@ -1,10 +1,10 @@
-package ningenme.net.api.application.controller.comproAtCoderUserGet;
+package ningenme.net.api.compro.application.controller.atcoderUserGet;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.application.controller.comproAtCoderUserGet.view.AtcoderUserView;
+import ningenme.net.api.compro.application.controller.atcoderUserGet.view.AtcoderUserView;
 import ningenme.net.api.domain.entity.AtcoderUser;
 
 @Getter

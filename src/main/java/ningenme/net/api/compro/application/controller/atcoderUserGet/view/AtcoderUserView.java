@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproAtCoderUserGet.view;
+package ningenme.net.api.compro.application.controller.atcoderUserGet.view;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;

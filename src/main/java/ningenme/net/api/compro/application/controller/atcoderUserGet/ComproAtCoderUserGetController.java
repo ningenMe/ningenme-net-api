@@ -1,4 +1,4 @@
-package ningenme.net.api.application.controller.comproAtCoderUserGet;
+package ningenme.net.api.compro.application.controller.atcoderUserGet;
 
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
