@@ -1,8 +1,8 @@
 package ningenme.net.api.util.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.exception.InsertMysqlException;
-import ningenme.net.api.domain.exception.SelectMysqlException;
+import ningenme.net.api.util.domain.exception.InsertMysqlException;
+import ningenme.net.api.util.domain.exception.SelectMysqlException;
 import ningenme.net.api.util.domain.repository.BatchMysqlRepository;
 import ningenme.net.api.util.infrastructure.mysql.mapper.BatchMysqlMapper;
 import org.mybatis.spring.SqlSessionTemplate;

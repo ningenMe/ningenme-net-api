@@ -1,10 +1,10 @@
 package ningenme.net.api.util.aspect;
 
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
-import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
-import ningenme.net.api.domain.exception.NoResourceException;
-import ningenme.net.api.domain.exception.SelectMysqlException;
+import ningenme.net.api.util.domain.exception.CategoryTaskUrlDuplicatedException;
+import ningenme.net.api.util.domain.exception.InsertComproCategoryUserException;
+import ningenme.net.api.util.domain.exception.NoResourceException;
+import ningenme.net.api.util.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.util.application.ErrorResponse;
 import org.springframework.http.HttpStatus;
@@ -125,7 +125,7 @@ public class NingenmeNetApiControllerAdvice {
    * @param ex exception
    * @return エラーレスポンス
    */
-  @ExceptionHandler({ComproCategoryTaskUrlDuplicatedException.class})
+  @ExceptionHandler({CategoryTaskUrlDuplicatedException.class})
   public ResponseEntity<ErrorResponse> ComproCategoryTaskUrlDuplicatedExceptionHandle(Exception ex) {
     return commonHandle(HttpStatus.BAD_REQUEST,LogCode.API_INFO_406);
   }

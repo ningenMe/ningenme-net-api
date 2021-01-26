@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.category.domain.entity.Topic;
-import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
+import ningenme.net.api.util.domain.exception.CategoryTaskUrlDuplicatedException;
 import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicTaskMysqlRepository;
@@ -50,7 +50,7 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
     Integer alreadyPostedCount = taskMysqlRepository.getCountByUrl(comproCategoryTask.getUrl());
     //urlで既出判定を行う
     if(alreadyPostedCount > 0) {
-      throw new ComproCategoryTaskUrlDuplicatedException(new Exception());
+      throw new CategoryTaskUrlDuplicatedException(new Exception());
     }
 
     //名前がデフォルトならデータ取得
