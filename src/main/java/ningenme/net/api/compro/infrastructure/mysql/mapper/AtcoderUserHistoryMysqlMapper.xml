@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.compro.infrastructure.mysql.mapper.AtcoderUserHistoryMysqlMapper">
+    <insert id="put">
+        INSERT IGNORE INTO atcoder_user_histories
+        (atcoder_id, contest_id, is_rated, place, old_rating, new_rating, performance) VALUES
+        (#{atcoderId}, #{contestId}, #{isRated}, #{place}, #{oldRating}, #{newRating}, #{performance});
+    </insert>
+
+    <select id="select" resultType="ningenme.net.api.compro.infrastructure.mysql.dto.AtcoderUserHistoryMysqlDto">
+        SELECT * FROM atcoder_user_histories WHERE atcoder_id = #{atcoderId} AND deleted_time IS NULL;
+    </select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.category.infrastructure.mysql.mapper.GenreMysqlMapper">
+    <resultMap id="ComproCategoryGenreDto" type="ningenme.net.api.category.infrastructure.mysql.dto.GenreMysqlDto">
+        <id property="genreId"      column="genre_id"/>
+        <id property="genreName"    column="genre_name"/>
+        <id property="label"        column="label"/>
+        <id property="genreOrder"   column="genre_order"/>
+    </resultMap>
+    <select id="select" resultMap="ComproCategoryGenreDto" parameterType="String">
+        SELECT * FROM compro_category_genres
+        <where>
+            <if test="label != null">
+                AND label = #{label}
+            </if>
+            <if test="true">
+                AND deleted_time IS NULL
+            </if>
+        </where>
+        ORDER BY genre_order ASC
+    </select>
+</mapper>

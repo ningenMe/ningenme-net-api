@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.util.infrastructure.mysql.mapper.BatchMysqlMapper">
+    <resultMap id="BatchMysqlDto" type="ningenme.net.api.util.infrastructure.mysql.dto.BatchMysqlDto">
+        <id property="name"      column="name"/>
+        <id property="info"      column="info"/>
+    </resultMap>
+    <update id="update">
+        UPDATE batch SET
+        info = #{info}
+        WHERE name = #{name}
+    </update>
+    <select id="select" resultMap="BatchMysqlDto" parameterType="String">
+        SELECT * FROM batch WHERE name = #{name}
+    </select>
+</mapper>
