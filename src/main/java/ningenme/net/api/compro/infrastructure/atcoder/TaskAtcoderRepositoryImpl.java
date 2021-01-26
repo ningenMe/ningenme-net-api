@@ -3,7 +3,7 @@ package ningenme.net.api.compro.infrastructure.atcoder;
 import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.compro.domain.exception.ScrapeException;
-import ningenme.net.api.domain.repository.ComproAtcoderTaskClientRepository;
+import ningenme.net.api.compro.domain.repository.TaskAtcoderRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.regex.Pattern;
 
 @Repository
-public class TaskAtcoderRepositoryImpl implements ComproAtcoderTaskClientRepository {
+public class TaskAtcoderRepositoryImpl implements TaskAtcoderRepository {
 
   private static final Pattern TASK_SCORE_REGEX_PATTERN = Pattern.compile(".*配点 : .*");
 

@@ -6,7 +6,7 @@ import ningenme.net.api.category.domain.entity.Genre;
 import ningenme.net.api.category.infrastructure.mysql.dto.GenreMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.GenreMysqlMapper;
 import ningenme.net.api.domain.exception.SelectMysqlException;
-import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
+import ningenme.net.api.category.domain.repository.GenreMysqlRepository;
 import ningenme.net.api.domain.value.Label;
 import ningenme.net.api.domain.value.LogCode;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Repository
 @RequiredArgsConstructor
 @Slf4j
-public class GenreMysqlRepositoryImpl implements ComproCategoryGenreRepository {
+public class GenreMysqlMysqlRepositoryImpl implements GenreMysqlRepository {
 
     private final SqlSessionTemplate sqlSessionTemplate;
 

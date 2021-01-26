@@ -1,11 +1,11 @@
-package ningenme.net.api.domain.repository;
+package ningenme.net.api.category.domain.repository;
 
 import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.domain.value.Url;
 
 import java.util.List;
 
-public interface ComproCategoryTaskRepository {
+public interface TaskMysqlRepository {
   public List<Task> getList(Integer offset);
   public List<Task> getListByTopicId(String topicId);
   public Task getOne(String taskId);

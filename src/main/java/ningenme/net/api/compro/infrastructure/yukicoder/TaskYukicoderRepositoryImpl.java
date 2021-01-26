@@ -3,7 +3,7 @@ package ningenme.net.api.compro.infrastructure.yukicoder;
 import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.compro.domain.exception.ScrapeException;
-import ningenme.net.api.domain.repository.ComproYukicoderTaskClientRepository;
+import ningenme.net.api.compro.domain.repository.TaskYukicoderRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TaskYukicoderRepositoryImpl implements ComproYukicoderTaskClientRepository {
+public class TaskYukicoderRepositoryImpl implements TaskYukicoderRepository {
 
   @Override
   public Task get(Url url) {

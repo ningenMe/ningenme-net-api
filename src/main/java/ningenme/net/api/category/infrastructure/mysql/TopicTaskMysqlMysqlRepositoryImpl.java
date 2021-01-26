@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TopicTaskMysqlMapper;
 import ningenme.net.api.category.domain.entity.TopicTask;
-import ningenme.net.api.domain.repository.ComproCategoryTopicTaskRepository;
+import ningenme.net.api.category.domain.repository.TopicTaskMysqlRepository;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.category.infrastructure.mysql.dto.TopicTaskMysqlDto;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 @Slf4j
-public class TopicTaskMysqlRepositoryImpl implements ComproCategoryTopicTaskRepository {
+public class TopicTaskMysqlMysqlRepositoryImpl implements TopicTaskMysqlRepository {
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override

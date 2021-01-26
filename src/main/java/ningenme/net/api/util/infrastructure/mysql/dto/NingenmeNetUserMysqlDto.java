@@ -8,7 +8,7 @@ import ningenme.net.api.domain.value.Password;
 import java.sql.Timestamp;
 
 @RequiredArgsConstructor
-public class UserMysqlDto {
+public class NingenmeNetUserMysqlDto {
   private final String email;
   private final String password;
   private final Timestamp createdTime;

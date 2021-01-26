@@ -4,9 +4,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
-import ningenme.net.api.domain.repository.*;
+import ningenme.net.api.compro.domain.repository.AtcoderUserAtcoderRepository;
+import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryAtcoderRepository;
+import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryMysqlRepository;
+import ningenme.net.api.compro.domain.repository.AtcoderUserMysqlRepository;
 import ningenme.net.api.compro.domain.service.AtcoderUserService;
 import ningenme.net.api.domain.value.*;
+import ningenme.net.api.util.domain.repository.BatchMysqlRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -16,9 +20,9 @@ import java.util.*;
 @RequiredArgsConstructor
 public class AtcoderUserServiceImpl implements AtcoderUserService {
   private final BatchMysqlRepository batchMysqlRepository;
-  private final AtcoderUserClientRepository atcoderUserClientRepository;
+  private final AtcoderUserAtcoderRepository atcoderUserAtcoderRepository;
   private final AtcoderUserMysqlRepository atcoderUserMysqlRepository;
-  private final AtcoderUserHistoryClientRepository atcoderUserHistoryClientRepository;
+  private final AtcoderUserHistoryAtcoderRepository atcoderUserHistoryAtcoderRepository;
   private final AtcoderUserHistoryMysqlRepository atcoderUserHistoryMysqlRepository;
 
   private final static String ALL_ATCODER_USER_LIST_PAGE = "all_atcoder_user_list_page";
@@ -29,13 +33,13 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
   @Override
   public void putId() {
     //最大ページ数をatcoder側から取得
-    Integer allPageNum = atcoderUserClientRepository.getAllPageNum();
+    Integer allPageNum = atcoderUserAtcoderRepository.getAllPageNum();
     //最大ページ数を更新
     batchMysqlRepository.put(ALL_ATCODER_USER_LIST_PAGE, allPageNum.toString());
     //現在ページ数をdbから取得
     Integer currentPageNum = Integer.valueOf(batchMysqlRepository.get(CURRENT_ATCODER_USER_LIST_PAGE));
     //現在ページ数のユーザリストを取得
-    List<AtcoderUser> atcoderUserList = atcoderUserClientRepository.get(currentPageNum);
+    List<AtcoderUser> atcoderUserList = atcoderUserAtcoderRepository.get(currentPageNum);
     //ユーザIDを更新
     for (AtcoderUser atcoderUser: atcoderUserList) {atcoderUserMysqlRepository.putId(atcoderUser);}
     //現在ページ数を加算
@@ -51,7 +55,7 @@ public class AtcoderUserServiceImpl implements AtcoderUserService {
     AtcoderUser atcoderUser = atcoderUserMysqlRepository.getOldestOne();
     log.info("code={},message={}", LogCode.API_INFO_207.getCode(),LogCode.API_INFO_207.getMessage()+atcoderUser.getAtcoderId().getValue());
     //atcoderIdをもとに、最新データを本家から取得
-    List<AtcoderUserHistory> atcoderUserHistoryList = atcoderUserHistoryClientRepository.get(atcoderUser.getAtcoderId());
+    List<AtcoderUserHistory> atcoderUserHistoryList = atcoderUserHistoryAtcoderRepository.get(atcoderUser.getAtcoderId());
     //リストが空の場合削除して終了 多分このパターンはない
     //TODO 「最終参加が1年前」とかの基準でユーザのデータを削除して良さそう。そうすると大体のパターンで退会ユーザを弾ける
     if(atcoderUserHistoryList.isEmpty()) {

@@ -1,10 +1,10 @@
-package ningenme.net.api.domain.repository;
+package ningenme.net.api.compro.domain.repository;
 
 import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.value.AtcoderId;
 
 import java.util.List;
 
-public interface AtcoderUserHistoryClientRepository {
+public interface AtcoderUserHistoryAtcoderRepository {
   public List<AtcoderUserHistory> get(AtcoderId atcoderId);
 }
