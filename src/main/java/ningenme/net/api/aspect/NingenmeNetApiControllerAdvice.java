@@ -6,7 +6,7 @@ import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
 import ningenme.net.api.domain.exception.NoResourceException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.application.controller.util.ErrorResponse;
+import ningenme.net.api.category.application.controller.util.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
