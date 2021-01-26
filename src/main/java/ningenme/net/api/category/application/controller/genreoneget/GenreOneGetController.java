@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GenreOneGetController {
   private final ComproCategoryGenreService comproCategoryGenreService;
 
-  @ApiOperation(value = "ComproCategoryGenre 単体参照API")
+  @ApiOperation(value = "Genre 単体参照API")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 400, message = "Bad Request"),

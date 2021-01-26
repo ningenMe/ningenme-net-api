@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.category.domain.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
@@ -15,7 +15,7 @@ import java.util.Objects;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class ComproCategoryGenre {
+public class Genre {
 
   @NonNull
   @ApiModelProperty(position = 0)
@@ -31,24 +31,24 @@ public class ComproCategoryGenre {
   private final CategoryOrder genreOrder;
 
   @ApiModelProperty(value = "配下のtopicのリスト",position = 4)
-  private List<ComproCategoryTopic> comproCategoryTopicList;
+  private List<Topic> topicList;
 
-  public static ComproCategoryGenre of(
+  public static Genre of(
           String genreId,
           String genreName,
           Label label,
           CategoryOrder genreOrder
   ) {
-    return new ComproCategoryGenre(genreId,genreName,label,genreOrder);
+    return new Genre(genreId,genreName,label,genreOrder);
   }
-  public void setComproCategoryTopicList(List<ComproCategoryTopic> masterComproCategoryTopicList) {
-    List<ComproCategoryTopic> tmpComproCategoryTopicList = new ArrayList<>();
-    for (ComproCategoryTopic comproCategoryTopic:masterComproCategoryTopicList) {
-      if(Objects.equals(genreId,comproCategoryTopic.getGenreId())) {
-        tmpComproCategoryTopicList.add(comproCategoryTopic);
+  public void setTopicList(List<Topic> masterTopicList) {
+    List<Topic> tmpTopicList = new ArrayList<>();
+    for (Topic topic : masterTopicList) {
+      if(Objects.equals(genreId, topic.getGenreId())) {
+        tmpTopicList.add(topic);
       }
     }
-    tmpComproCategoryTopicList.sort(Comparator.comparing(ComproCategoryTopic::getTopicOrder));
-    comproCategoryTopicList = tmpComproCategoryTopicList;
+    tmpTopicList.sort(Comparator.comparing(Topic::getTopicOrder));
+    topicList = tmpTopicList;
   }
 }

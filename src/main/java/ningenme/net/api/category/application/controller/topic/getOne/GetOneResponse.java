@@ -4,14 +4,14 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
+import ningenme.net.api.category.domain.entity.Topic;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @ApiModel(value = "ComproCategoryTopicGetOne")
 public class GetOneResponse {
   private final ComproCategoryTopicResponseDto comproCategoryTopic;
-  public static GetOneResponse of(ComproCategoryTopic argComproCategoryTopic) {
-    return new GetOneResponse(ComproCategoryTopicResponseDto.of(argComproCategoryTopic));
+  public static GetOneResponse of(Topic argTopic) {
+    return new GetOneResponse(ComproCategoryTopicResponseDto.of(argTopic));
   }
 }

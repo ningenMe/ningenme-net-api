@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ComproCategoryTopicController {
     private final ComproCategoryTopicService comproCategoryTopicService;
 
-    @ApiOperation(value = "ComproCategoryTopic 単体参照API")
+    @ApiOperation(value = "Topic 単体参照API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Bad Request"),
@@ -55,7 +55,7 @@ public class ComproCategoryTopicController {
             );
   }
 
-  @ApiOperation(value = "ComproCategoryTopic 複数参照API")
+  @ApiOperation(value = "Topic 複数参照API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 400, message = "Bad Request"),

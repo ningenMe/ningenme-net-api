@@ -24,7 +24,7 @@ public class UserPostController {
 
   private final ComproCategoryUserService comproCategoryUserService;
 
-  @ApiOperation(value = "ComproCategoryUser 投稿API")
+  @ApiOperation(value = "NingenmeNetUser 投稿API")
   @ApiResponses(value = {
           @ApiResponse(code = 200, message = "OK"),
           @ApiResponse(code = 500, message = "Internal Server Error")
@@ -35,7 +35,7 @@ public class UserPostController {
           @ApiParam(required = true, value="パスワード") @RequestParam("rawPassword") @NonNull RawPassword rawPassword
   ) {
     //そもそも自分しかユーザーは作れないんだな
-    //comproCategoryUserService.insert(ComproCategoryUser.of(email,Password.of( rawPassword, passwordEncoder)));
+    //comproCategoryUserService.insert(NingenmeNetUser.of(email,Password.of( rawPassword, passwordEncoder)));
     return OkResponse.of(LogCode.API_INFO_201);
   }
 }

@@ -1,13 +1,13 @@
 package ningenme.net.api.domain.service;
 
-import ningenme.net.api.domain.entity.ComproCategoryTask;
+import ningenme.net.api.category.domain.entity.Task;
 
 import java.util.List;
 
 public interface ComproCategoryTaskService {
-  public List<ComproCategoryTask> getList(Integer offset);
-  public ComproCategoryTask getOne(String taskId);
+  public List<Task> getList(Integer offset);
+  public Task getOne(String taskId);
   public Integer getCount();
-  public void post(ComproCategoryTask comproCategoryTask);
-  public void put(ComproCategoryTask comproCategoryTask);
+  public void post(Task task);
+  public void put(Task task);
 }

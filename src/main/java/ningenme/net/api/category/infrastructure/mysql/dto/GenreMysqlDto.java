@@ -1,7 +1,7 @@
 package ningenme.net.api.category.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
+import ningenme.net.api.category.domain.entity.Genre;
 import ningenme.net.api.domain.value.CategoryOrder;
 import ningenme.net.api.domain.value.Label;
 
@@ -11,8 +11,8 @@ public class GenreMysqlDto {
   private final String genreName;
   private final String label;
   private final Integer genreOrder;
-  public ComproCategoryGenre convertComproCategoryGenre() {
-    return ComproCategoryGenre.of(
+  public Genre convertComproCategoryGenre() {
+    return Genre.of(
             genreId,
             genreName,
             Label.of(label),

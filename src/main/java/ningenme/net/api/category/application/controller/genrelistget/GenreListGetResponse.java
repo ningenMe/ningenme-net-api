@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.application.controller.genrelistget.view.GenreView;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
+import ningenme.net.api.category.domain.entity.Genre;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 @ApiModel(value = "ComproCategoryGenreGetList")
 public class GenreListGetResponse {
   private final List<GenreView> genres;
-  public static GenreListGetResponse of(@NonNull List<ComproCategoryGenre> comproCategoryGenres) {
+  public static GenreListGetResponse of(@NonNull List<Genre> genres) {
     return new GenreListGetResponse(
-            comproCategoryGenres
+            genres
                     .stream()
                     .map(
                             comproCategoryGenre -> GenreView.of(comproCategoryGenre)

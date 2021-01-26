@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
+import ningenme.net.api.category.domain.entity.Genre;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,13 +21,13 @@ public class GenreView {
   private final String label;
   private final Integer genreOrder;
   private final List<TopicView> topics;
-  public static GenreView of(ComproCategoryGenre comproCategoryGenre) {
+  public static GenreView of(Genre genre) {
     return new GenreView(
-            comproCategoryGenre.getGenreId(),
-            comproCategoryGenre.getGenreName(),
-            comproCategoryGenre.getLabel().getValue(),
-            comproCategoryGenre.getGenreOrder().getValue(),
-            comproCategoryGenre.getComproCategoryTopicList()
+            genre.getGenreId(),
+            genre.getGenreName(),
+            genre.getLabel().getValue(),
+            genre.getGenreOrder().getValue(),
+            genre.getTopicList()
                     .stream()
                     .map(comproCategoryTopic -> TopicView.of(comproCategoryTopic))
                     .collect(Collectors.toList())

@@ -2,9 +2,9 @@ package ningenme.net.api.category.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ningenme.net.api.category.domain.entity.Topic;
 import ningenme.net.api.category.infrastructure.mysql.dto.TopicMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TopicMysqlMapper;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
 import ningenme.net.api.domain.value.LogCode;
@@ -25,7 +25,7 @@ public class TopicMysqlRepositoryImpl implements ComproCategoryTopicRepository {
 
     @Override
     @Cacheable("comproCategoryTopic")
-    public List<ComproCategoryTopic> get() {
+    public List<Topic> get() {
 
         try {
             List<TopicMysqlDto> topicMysqlDtoList
@@ -45,7 +45,7 @@ public class TopicMysqlRepositoryImpl implements ComproCategoryTopicRepository {
     }
 
     @Override
-    public ComproCategoryTopic get(String topicId) throws IllegalArgumentException {
+    public Topic get(String topicId) throws IllegalArgumentException {
         List<TopicMysqlDto> topicMysqlDtoList = new ArrayList<>();
         try {
             topicMysqlDtoList

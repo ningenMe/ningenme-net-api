@@ -3,7 +3,7 @@ package ningenme.net.api.category.infrastructure.mysql;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TopicTaskMysqlMapper;
-import ningenme.net.api.domain.entity.ComproCategoryTopicTask;
+import ningenme.net.api.category.domain.entity.TopicTask;
 import ningenme.net.api.domain.repository.ComproCategoryTopicTaskRepository;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.category.infrastructure.mysql.dto.TopicTaskMysqlDto;
@@ -19,14 +19,14 @@ public class TopicTaskMysqlRepositoryImpl implements ComproCategoryTopicTaskRepo
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override
-  public void postList(List<ComproCategoryTopicTask> comproCategoryTopicTaskList) {
-    for (ComproCategoryTopicTask comproCategoryTopicTask: comproCategoryTopicTaskList) {
+  public void postList(List<TopicTask> topicTaskList) {
+    for (TopicTask topicTask : topicTaskList) {
       try {
         sqlSessionTemplate.getMapper(TopicTaskMysqlMapper.class).insert(
                 TopicTaskMysqlDto
                         .builder()
-                        .topicId(comproCategoryTopicTask.getTopicId())
-                        .taskId(comproCategoryTopicTask.getTaskId())
+                        .topicId(topicTask.getTopicId())
+                        .taskId(topicTask.getTaskId())
                         .build()
         );
       }

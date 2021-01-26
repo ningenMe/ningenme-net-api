@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
+import ningenme.net.api.category.domain.entity.Topic;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 @ApiModel(value = "ComproCategoryTopicGetList")
 public class GetListResponse {
   private final List<ComproCategoryTopicResponseDto> comproCategoryTopicList;
-  public static GetListResponse of(@NonNull List<ComproCategoryTopic> argComproCategoryTopicList) {
+  public static GetListResponse of(@NonNull List<Topic> argTopicList) {
     return new GetListResponse(
-            argComproCategoryTopicList
+            argTopicList
                     .stream()
                     .map(
                             comproCategoryTopic -> ComproCategoryTopicResponseDto.of(comproCategoryTopic)

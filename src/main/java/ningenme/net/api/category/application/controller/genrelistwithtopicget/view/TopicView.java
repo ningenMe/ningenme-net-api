@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
+import ningenme.net.api.category.domain.entity.Topic;
 
 /**
  * レスポンス時のDTO, プリミティブ型のメンバのみで構成する
@@ -16,11 +16,11 @@ public class TopicView {
   private final String topicId;
   private final String topicName;
   private final Integer topicOrder;
-  public static TopicView of(ComproCategoryTopic comproCategoryTopic) {
+  public static TopicView of(Topic topic) {
     return new TopicView(
-            comproCategoryTopic.getTopicId(),
-            comproCategoryTopic.getTopicName(),
-            comproCategoryTopic.getTopicOrder().getValue()
+            topic.getTopicId(),
+            topic.getTopicName(),
+            topic.getTopicOrder().getValue()
     );
   }
 }
