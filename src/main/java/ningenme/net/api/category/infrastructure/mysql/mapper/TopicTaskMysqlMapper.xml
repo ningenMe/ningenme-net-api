@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ningenme.net.api.category.infrastructure.mysql.mapper.TopicTaskMysqlMapper">
+    <insert id="insert">
+        INSERT INTO compro_category_topics_tasks (topic_id, task_id) VALUES ( #{topicId}, #{taskId} );
+    </insert>
+    <delete id="deleteByTaskId" parameterType="String">
+        DELETE FROM compro_category_topics_tasks WHERE task_id = #{taskId}
+    </delete>
+</mapper>
