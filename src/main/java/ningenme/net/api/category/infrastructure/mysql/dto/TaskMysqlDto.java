@@ -2,8 +2,8 @@ package ningenme.net.api.category.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.entity.Task;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.compro.domain.value.TaskScore;
+import ningenme.net.api.util.domain.value.Url;
 
 import java.sql.Timestamp;
 

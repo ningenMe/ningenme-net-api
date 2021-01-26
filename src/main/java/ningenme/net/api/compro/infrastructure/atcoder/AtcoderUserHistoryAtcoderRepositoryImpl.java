@@ -2,10 +2,10 @@ package ningenme.net.api.compro.infrastructure.atcoder;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
+import ningenme.net.api.compro.domain.value.*;
 import ningenme.net.api.compro.infrastructure.atcoder.dto.AtcoderUserHistoryAtcoderDto;
 import ningenme.net.api.compro.infrastructure.atcoder.mapper.AtcoderUserHistoryAtcoderMapper;
 import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryAtcoderRepository;
-import ningenme.net.api.domain.value.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

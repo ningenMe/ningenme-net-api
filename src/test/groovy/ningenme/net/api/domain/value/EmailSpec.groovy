@@ -1,5 +1,6 @@
 package ningenme.net.api.domain.value
 
+import ningenme.net.api.util.domain.value.Email
 import spock.lang.Specification
 import spock.lang.Unroll
 

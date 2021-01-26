@@ -1,10 +1,10 @@
 package ningenme.net.api.compro.domain.entity;
 
 import lombok.*;
-import ningenme.net.api.domain.value.ComproSite;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.TaskUniqueId;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.compro.domain.value.ComproSite;
+import ningenme.net.api.compro.domain.value.TaskScore;
+import ningenme.net.api.category.domain.value.TaskUniqueId;
+import ningenme.net.api.util.domain.value.Url;
 
 @Getter
 @Builder

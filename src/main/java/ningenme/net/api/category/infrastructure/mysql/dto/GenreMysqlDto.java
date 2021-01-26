@@ -2,8 +2,8 @@ package ningenme.net.api.category.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.entity.Genre;
-import ningenme.net.api.domain.value.CategoryOrder;
-import ningenme.net.api.domain.value.Label;
+import ningenme.net.api.category.domain.value.CategoryOrder;
+import ningenme.net.api.category.domain.value.Label;
 
 @RequiredArgsConstructor
 public class GenreMysqlDto {

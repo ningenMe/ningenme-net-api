@@ -3,7 +3,7 @@ package ningenme.net.api.compro.application.controller.atcoderuserget;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.compro.domain.service.AtcoderUserService;
-import ningenme.net.api.domain.value.AtcoderId;
+import ningenme.net.api.compro.domain.value.AtcoderId;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

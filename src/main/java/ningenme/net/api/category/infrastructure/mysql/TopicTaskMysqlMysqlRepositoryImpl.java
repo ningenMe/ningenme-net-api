@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TopicTaskMysqlMapper;
 import ningenme.net.api.category.domain.entity.TopicTask;
 import ningenme.net.api.category.domain.repository.TopicTaskMysqlRepository;
-import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.util.domain.value.LogCode;
 import ningenme.net.api.category.infrastructure.mysql.dto.TopicTaskMysqlDto;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;

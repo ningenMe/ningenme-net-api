@@ -10,9 +10,9 @@ import ningenme.net.api.category.application.controller.task.getOne.GetOneRespon
 import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.util.application.OkResponse;
 import ningenme.net.api.category.domain.service.TaskService;
-import ningenme.net.api.domain.value.LogCode;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.util.domain.value.LogCode;
+import ningenme.net.api.compro.domain.value.TaskScore;
+import ningenme.net.api.util.domain.value.Url;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

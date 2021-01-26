@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.value;
+package ningenme.net.api.compro.domain.value;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class Performance {
+public class Place {
   private final Integer value;
-  public static Performance of(Integer performance) {
-    return new Performance(performance);
+  public static Place of(Integer place) {
+    return new Place(place);
   }
 }

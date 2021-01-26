@@ -1,7 +1,8 @@
-package ningenme.net.api.domain.value;
+package ningenme.net.api.compro.domain.value;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import ningenme.net.api.util.domain.value.Url;
 
 @Getter
 @RequiredArgsConstructor

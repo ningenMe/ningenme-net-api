@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.value;
+package ningenme.net.api.util.domain.value;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;

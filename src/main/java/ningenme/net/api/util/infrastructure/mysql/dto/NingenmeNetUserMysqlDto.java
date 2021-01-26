@@ -2,8 +2,8 @@ package ningenme.net.api.util.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.util.domain.entity.NingenmeNetUser;
-import ningenme.net.api.domain.value.Email;
-import ningenme.net.api.domain.value.Password;
+import ningenme.net.api.util.domain.value.Email;
+import ningenme.net.api.util.domain.value.Password;
 
 import java.sql.Timestamp;
 

@@ -3,7 +3,7 @@ package ningenme.net.api.category.application.controller.genreoneget;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.service.GenreService;
-import ningenme.net.api.domain.value.Label;
+import ningenme.net.api.category.domain.value.Label;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

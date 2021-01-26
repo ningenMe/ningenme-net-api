@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.value.CategoryOrder;
+import ningenme.net.api.category.domain.value.CategoryOrder;
 
 import java.util.List;
 

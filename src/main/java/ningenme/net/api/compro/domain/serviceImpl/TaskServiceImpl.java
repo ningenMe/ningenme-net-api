@@ -2,10 +2,10 @@ package ningenme.net.api.compro.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.compro.domain.repository.*;
-import ningenme.net.api.domain.value.ComproSite;
+import ningenme.net.api.compro.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.compro.domain.service.TaskService;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.util.domain.value.Url;
 import org.springframework.stereotype.Service;
 
 @Service

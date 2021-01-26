@@ -7,7 +7,7 @@ import ningenme.net.api.util.domain.exception.InsertMysqlException;
 import ningenme.net.api.util.domain.exception.NoResourceException;
 import ningenme.net.api.util.domain.exception.SelectMysqlException;
 import ningenme.net.api.compro.domain.repository.AtcoderUserMysqlRepository;
-import ningenme.net.api.domain.value.AtcoderId;
+import ningenme.net.api.compro.domain.value.AtcoderId;
 import ningenme.net.api.compro.infrastructure.mysql.dto.AtcoderUserMysqlDto;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.value;
+package ningenme.net.api.compro.domain.value;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;

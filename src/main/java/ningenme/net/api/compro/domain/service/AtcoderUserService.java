@@ -2,8 +2,8 @@ package ningenme.net.api.compro.domain.service;
 
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
-import ningenme.net.api.domain.value.AtcoderId;
-import ningenme.net.api.domain.value.BingoType;
+import ningenme.net.api.compro.domain.value.AtcoderId;
+import ningenme.net.api.compro.domain.value.BingoType;
 
 import java.util.List;
 
