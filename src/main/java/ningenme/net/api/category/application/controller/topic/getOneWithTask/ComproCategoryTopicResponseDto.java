@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
+import ningenme.net.api.category.domain.entity.Topic;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,14 +22,14 @@ public class ComproCategoryTopicResponseDto {
   private final String genreId;
   private final String genreName;
   private final List<ComproCategoryTaskResponseDto> comproCategoryTaskList;
-  public static ComproCategoryTopicResponseDto of(ComproCategoryTopic comproCategoryTopic) {
+  public static ComproCategoryTopicResponseDto of(Topic topic) {
     return new ComproCategoryTopicResponseDto(
-            comproCategoryTopic.getTopicId(),
-            comproCategoryTopic.getTopicName(),
-            comproCategoryTopic.getTopicOrder().getValue(),
-            comproCategoryTopic.getGenreId(),
-            comproCategoryTopic.getGenreName(),
-            comproCategoryTopic.getComproCategoryTaskList()
+            topic.getTopicId(),
+            topic.getTopicName(),
+            topic.getTopicOrder().getValue(),
+            topic.getGenreId(),
+            topic.getGenreName(),
+            topic.getTaskList()
                     .stream()
                     .map(comproCategoryTask -> ComproCategoryTaskResponseDto.of(comproCategoryTask))
                     .collect(Collectors.toList())

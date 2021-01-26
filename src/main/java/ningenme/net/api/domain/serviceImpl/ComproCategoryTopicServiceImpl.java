@@ -1,9 +1,9 @@
 package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
+import ningenme.net.api.category.domain.entity.Genre;
+import ningenme.net.api.category.domain.entity.Task;
+import ningenme.net.api.category.domain.entity.Topic;
 import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
@@ -21,30 +21,30 @@ public class ComproCategoryTopicServiceImpl implements ComproCategoryTopicServic
   private final ComproCategoryTaskRepository  comproCategoryTaskRepository;
 
   @Override
-  public List<ComproCategoryTopic> get() {
-    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
-    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
-    for (ComproCategoryTopic comproCategoryTopic:comproCategoryTopicList) {
-      comproCategoryTopic.setGenreName(comproCategoryGenreList);
+  public List<Topic> get() {
+    List<Topic> topicList = comproCategoryTopicRepository.get();
+    List<Genre> genreList = comproCategoryGenreRepository.get();
+    for (Topic topic : topicList) {
+      topic.setGenreName(genreList);
     }
-    return comproCategoryTopicList;
+    return topicList;
   }
 
   @Override
-  public ComproCategoryTopic get(String topicId) {
-    ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
-    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
-    comproCategoryTopic.setGenreName(comproCategoryGenreList);
-    return comproCategoryTopic;
+  public Topic get(String topicId) {
+    Topic topic = comproCategoryTopicRepository.get(topicId);
+    List<Genre> genreList = comproCategoryGenreRepository.get();
+    topic.setGenreName(genreList);
+    return topic;
   }
 
   @Override
-  public ComproCategoryTopic getWithTask(String topicId) {
-    ComproCategoryTopic comproCategoryTopic = comproCategoryTopicRepository.get(topicId);
-    List<ComproCategoryGenre> comproCategoryGenreList = comproCategoryGenreRepository.get();
-    List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getListByTopicId(topicId);
-    comproCategoryTopic.setGenreName(comproCategoryGenreList);
-    comproCategoryTopic.setComproCategoryTaskList(comproCategoryTaskList);
-    return comproCategoryTopic;
+  public Topic getWithTask(String topicId) {
+    Topic topic = comproCategoryTopicRepository.get(topicId);
+    List<Genre> genreList = comproCategoryGenreRepository.get();
+    List<Task> taskList = comproCategoryTaskRepository.getListByTopicId(topicId);
+    topic.setGenreName(genreList);
+    topic.setTaskList(taskList);
+    return topic;
   }
 }

@@ -1,7 +1,7 @@
 package ningenme.net.api.category.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
+import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.Url;
 
@@ -19,8 +19,8 @@ public class TaskMysqlDto {
   private final Timestamp createdTime;
   private final Timestamp updatedTime;
   private final Timestamp deletedTime;
-  public ComproCategoryTask convertComproCategoryTask() {
-    return ComproCategoryTask.of(
+  public Task convertComproCategoryTask() {
+    return Task.of(
             taskId,
             taskName,
             Url.of(url),
@@ -30,15 +30,15 @@ public class TaskMysqlDto {
             createdTime
     );
   }
-  public static TaskMysqlDto of(ComproCategoryTask comproCategoryTask) {
+  public static TaskMysqlDto of(Task task) {
     return new TaskMysqlDto(
-            comproCategoryTask.getTaskId(),
-            comproCategoryTask.getTaskName(),
-            comproCategoryTask.getUrl().getValue(),
-            comproCategoryTask.getScore().getValue(),
-            comproCategoryTask.getEstimation().getValue(),
+            task.getTaskId(),
+            task.getTaskName(),
+            task.getUrl().getValue(),
+            task.getScore().getValue(),
+            task.getEstimation().getValue(),
             null,
-            String.join(",", comproCategoryTask.getTopicIdList()),
+            String.join(",", task.getTopicIdList()),
             null,
             null,
             null

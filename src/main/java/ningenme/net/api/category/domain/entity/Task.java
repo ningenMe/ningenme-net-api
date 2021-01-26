@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.category.domain.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
@@ -16,7 +16,7 @@ import java.util.Objects;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class ComproCategoryTask {
+public class Task {
   @NonNull
   @ApiModelProperty(position = 0)
   private final String taskId;
@@ -45,9 +45,9 @@ public class ComproCategoryTask {
   private final Timestamp createdTime;
 
   @ApiModelProperty(value = "親のtopicのリスト", position = 7)
-  private List<ComproCategoryTopic> comproCategoryTopicList;
+  private List<Topic> topicList;
 
-  public static ComproCategoryTask of(
+  public static Task of(
           String taskId,
           String taskName,
           Url url,
@@ -56,10 +56,10 @@ public class ComproCategoryTask {
           List<String> topicIdList,
           Timestamp createdTime
   ) {
-    return new ComproCategoryTask(taskId, taskName, url, score, estimation, topicIdList, createdTime);
+    return new Task(taskId, taskName, url, score, estimation, topicIdList, createdTime);
   }
 
-  public static ComproCategoryTask of(
+  public static Task of(
           String taskId,
           String taskName,
           Url url,
@@ -68,31 +68,31 @@ public class ComproCategoryTask {
           String topicIdListString,
           Timestamp createdTime
   ) {
-    return new ComproCategoryTask(taskId,taskName,url,score,estimation,
+    return new Task(taskId,taskName,url,score,estimation,
             Arrays.asList(topicIdListString.split(",")),
             createdTime);
   }
 
-  public void setTopicList(List<ComproCategoryTopic> masterComproCategoryTopicList) {
+  public void setTopicList(List<Topic> masterTopicList) {
     //TODO 計算量が悪い そのうちlogに直しましょう
-    List<ComproCategoryTopic> tmpComproCategoryTopicList = new ArrayList<>();
+    List<Topic> tmpTopicList = new ArrayList<>();
     for (String topicId: topicIdList) {
-      for (ComproCategoryTopic comproCategoryTopic: masterComproCategoryTopicList) {
+      for (Topic topic : masterTopicList) {
 
-        if (Objects.equals(topicId,comproCategoryTopic.getTopicId())) {
-          tmpComproCategoryTopicList.add(comproCategoryTopic);
+        if (Objects.equals(topicId, topic.getTopicId())) {
+          tmpTopicList.add(topic);
           break;
         }
       }
     }
-    comproCategoryTopicList = tmpComproCategoryTopicList;
+    topicList = tmpTopicList;
   }
 
-  public List<ComproCategoryTopicTask> getComproCategoryTopicTaskList() {
-    List<ComproCategoryTopicTask> comproCategoryTopicTaskList = new ArrayList<>();
+  public List<TopicTask> getComproCategoryTopicTaskList() {
+    List<TopicTask> topicTaskList = new ArrayList<>();
     for (String topicId: topicIdList) {
-      comproCategoryTopicTaskList.add(ComproCategoryTopicTask.of(topicId,taskId));
+      topicTaskList.add(TopicTask.of(topicId,taskId));
     }
-    return comproCategoryTopicTaskList;
+    return topicTaskList;
   }
 }

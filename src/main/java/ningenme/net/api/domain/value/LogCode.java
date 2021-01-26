@@ -14,7 +14,7 @@ public enum LogCode {
    * 200番台 正常だけど一応ログ残したいやつ
    */
   API_INFO_501("API_INFO_501","No Handle Error"),
-  API_INFO_502("API_INFO_502","Insert Compro Category User Error"),
+  API_INFO_502("API_INFO_502","Insert Compro Category NingenmeNetUser Error"),
   API_INFO_503("API_INFO_503","Select Mysql Error"),
   API_INFO_401("API_INFO_401","Invalid Args Parameter"),
   API_INFO_402("API_INFO_402","No Such Uri"),
@@ -23,13 +23,13 @@ public enum LogCode {
   API_INFO_405("API_INFO_405","Authenticaiton Failed"),
   API_INFO_406("API_INFO_406","Url Dupulicated"),
   API_INFO_407("API_INFO_407","No Resource"),
-  API_INFO_201("API_INFO_201","New Compro Category User Was Created"),
+  API_INFO_201("API_INFO_201","New Compro Category NingenmeNetUser Was Created"),
   API_INFO_202("API_INFO_202","OK"),
   API_INFO_203("API_INFO_203","Login OK"),
-  API_INFO_204("API_INFO_204","No ComproCategoryGenre Cached"),
-  API_INFO_205("API_INFO_205","No ComproCategoryTopic Cached"),
+  API_INFO_204("API_INFO_204","No Genre Cached"),
+  API_INFO_205("API_INFO_205","No Topic Cached"),
   API_INFO_206("API_INFO_206","Failed Insert Relation Between Topic And Task"),
-  API_INFO_207("API_INFO_207","Atcoder User History Update, atcoderId=");
+  API_INFO_207("API_INFO_207","Atcoder NingenmeNetUser History Update, atcoderId=");
   private final String code;
   private final String message;
 }

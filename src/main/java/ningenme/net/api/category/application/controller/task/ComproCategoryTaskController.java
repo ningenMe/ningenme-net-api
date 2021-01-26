@@ -7,8 +7,8 @@ import ningenme.net.api.category.application.controller.task.post.PostRequest;
 import ningenme.net.api.category.application.controller.task.getCount.GetCountResponse;
 import ningenme.net.api.category.application.controller.task.getList.GetListResponse;
 import ningenme.net.api.category.application.controller.task.getOne.GetOneResponse;
+import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.util.application.OkResponse;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.service.ComproCategoryTaskService;
 import ningenme.net.api.domain.value.LogCode;
 import ningenme.net.api.domain.value.TaskScore;
@@ -29,7 +29,7 @@ public class ComproCategoryTaskController {
 
     private final ComproCategoryTaskService comproCategoryTaskService;
 
-    @ApiOperation(value = "ComproCategoryTask 複数参照API")
+    @ApiOperation(value = "Task 複数参照API")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "OK"),
         @ApiResponse(code = 500, message = "Internal Server Error")
@@ -38,12 +38,12 @@ public class ComproCategoryTaskController {
     public ResponseEntity<GetListResponse> getList(
             @ApiParam(value = "offset") @RequestParam(name = "offset", defaultValue = "0") Integer offset
     ) {
-        List<ComproCategoryTask> comproCategoryTaskList = comproCategoryTaskService.getList(offset);
+        List<Task> taskList = comproCategoryTaskService.getList(offset);
         return ResponseEntity.ok().body(
-                GetListResponse.of(comproCategoryTaskList));
+                GetListResponse.of(taskList));
     }
 
-    @ApiOperation(value = "ComproCategoryTask 単体参照API")
+    @ApiOperation(value = "Task 単体参照API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 500, message = "Internal Server Error")
@@ -66,7 +66,7 @@ public class ComproCategoryTaskController {
         return ResponseEntity.ok().body(GetCountResponse.of(comproCategoryTaskService.getCount()));
     }
 
-    @ApiOperation(value = "ComproCategoryTask 投稿API")
+    @ApiOperation(value = "Task 投稿API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 500, message = "Internal Server Error")
@@ -75,7 +75,7 @@ public class ComproCategoryTaskController {
     public OkResponse post (
             @Validated @RequestBody PostRequest request
             ) {
-        ComproCategoryTask comproCategoryTask = ComproCategoryTask.of(
+        Task task = Task.of(
                 UUID.randomUUID().toString(),
                 Optional.ofNullable(request.getTaskName()).orElse("."),
                 Url.of(request.getUrl()),
@@ -84,11 +84,11 @@ public class ComproCategoryTaskController {
                 request.getTopicIdList(),
                 null
         );
-        comproCategoryTaskService.post(comproCategoryTask);
+        comproCategoryTaskService.post(task);
         return OkResponse.of(LogCode.API_INFO_202);
     }
 
-    @ApiOperation(value = "ComproCategoryTask 更新API")
+    @ApiOperation(value = "Task 更新API")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 500, message = "Internal Server Error")
@@ -98,7 +98,7 @@ public class ComproCategoryTaskController {
             @ApiParam(value = "taskId") @PathVariable(name = "taskId") String taskId,
             @Validated @RequestBody PutRequest request
     ) {
-        ComproCategoryTask comproCategoryTask = ComproCategoryTask.of(
+        Task task = Task.of(
                 taskId,
                 request.getTaskName(),
                 Url.of(request.getUrl()),
@@ -107,7 +107,7 @@ public class ComproCategoryTaskController {
                 request.getTopicIdList(),
                 null
         );
-        comproCategoryTaskService.put(comproCategoryTask);
+        comproCategoryTaskService.put(task);
         return OkResponse.of(LogCode.API_INFO_202);
     }
 

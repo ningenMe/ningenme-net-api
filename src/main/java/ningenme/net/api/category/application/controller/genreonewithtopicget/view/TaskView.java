@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
+import ningenme.net.api.category.domain.entity.Task;
 
 /**
  * レスポンス時のDTO, プリミティブ型のメンバのみで構成する
@@ -19,13 +19,13 @@ public class TaskView {
   private final Integer score;
   private final Integer estimation;
 
-  public static TaskView of(ComproCategoryTask comproCategoryTask) {
+  public static TaskView of(Task task) {
     return new TaskView(
-            comproCategoryTask.getTaskId(),
-            comproCategoryTask.getTaskName(),
-            comproCategoryTask.getUrl().getValue(),
-            comproCategoryTask.getScore().getValue(),
-            comproCategoryTask.getEstimation().getValue()
+            task.getTaskId(),
+            task.getTaskName(),
+            task.getUrl().getValue(),
+            task.getScore().getValue(),
+            task.getEstimation().getValue()
     );
   }
 }

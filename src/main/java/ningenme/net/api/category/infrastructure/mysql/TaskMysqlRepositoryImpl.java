@@ -1,9 +1,9 @@
 package ningenme.net.api.category.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
+import ningenme.net.api.category.domain.entity.Task;
 import ningenme.net.api.category.infrastructure.mysql.dto.TaskMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TaskMysqlMapper;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
@@ -20,7 +20,7 @@ public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override
-  public List<ComproCategoryTask> getList(Integer offset) {
+  public List<Task> getList(Integer offset) {
     try{
       List<TaskMysqlDto> taskMysqlDtoList = sqlSessionTemplate.getMapper(TaskMysqlMapper.class).selectList(offset);
       return taskMysqlDtoList
@@ -34,7 +34,7 @@ public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
   }
 
   @Override
-  public ComproCategoryTask getOne(String taskId) {
+  public Task getOne(String taskId) {
     try {
       return sqlSessionTemplate.getMapper(TaskMysqlMapper.class).selectOne(taskId).convertComproCategoryTask();
     }
@@ -44,7 +44,7 @@ public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
   }
 
   @Override
-  public List<ComproCategoryTask> getListByTopicId(String topicId) {
+  public List<Task> getListByTopicId(String topicId) {
     try{
       List<TaskMysqlDto> taskMysqlDtoList
               = sqlSessionTemplate
@@ -72,10 +72,10 @@ public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
   }
 
   @Override
-  public void put(ComproCategoryTask comproCategoryTask) {
+  public void put(Task task) {
     try {
       sqlSessionTemplate.getMapper(TaskMysqlMapper.class).update(
-              TaskMysqlDto.of(comproCategoryTask)
+              TaskMysqlDto.of(task)
       );
     }
     catch (Exception ex) {
@@ -84,10 +84,10 @@ public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
   }
 
   @Override
-  public void post(ComproCategoryTask comproCategoryTask) {
+  public void post(Task task) {
     try {
       sqlSessionTemplate.getMapper(TaskMysqlMapper.class).insert(
-              TaskMysqlDto.of(comproCategoryTask)
+              TaskMysqlDto.of(task)
       );
     }
     catch (Exception ex) {

@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.entity;
+package ningenme.net.api.category.domain.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AccessLevel;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class ComproCategoryTopic {
+public class Topic {
   @NonNull
   @ApiModelProperty(position = 0)
   private final String topicId;
@@ -27,25 +27,25 @@ public class ComproCategoryTopic {
   @ApiModelProperty(position = 4)
   private String genreName;
   @ApiModelProperty(position = 5)
-  private List<ComproCategoryTask> comproCategoryTaskList;
+  private List<Task> taskList;
 
-  public static ComproCategoryTopic of(
+  public static Topic of(
           String topicId,
           String topicName,
           CategoryOrder topicOrder,
           String genreId
   ) {
-    return new ComproCategoryTopic(topicId, topicName,topicOrder,genreId);
+    return new Topic(topicId, topicName,topicOrder,genreId);
   }
-  public void setGenreName(List<ComproCategoryGenre> comproCategoryGenreList) {
-    for (ComproCategoryGenre comproCategoryGenre: comproCategoryGenreList) {
-      if(comproCategoryGenre.getGenreId().equals(genreId)) {
-        genreName = comproCategoryGenre.getGenreName();
+  public void setGenreName(List<Genre> genreList) {
+    for (Genre genre : genreList) {
+      if(genre.getGenreId().equals(genreId)) {
+        genreName = genre.getGenreName();
         return;
       }
     }
   }
-  public void setComproCategoryTaskList(List<ComproCategoryTask> comproCategoryTaskList) {
-    this.comproCategoryTaskList = comproCategoryTaskList;
+  public void setTaskList(List<Task> taskList) {
+    this.taskList = taskList;
   }
 }

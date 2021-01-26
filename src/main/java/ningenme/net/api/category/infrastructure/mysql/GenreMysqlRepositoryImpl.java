@@ -2,9 +2,9 @@ package ningenme.net.api.category.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import ningenme.net.api.category.domain.entity.Genre;
 import ningenme.net.api.category.infrastructure.mysql.dto.GenreMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.GenreMysqlMapper;
-import ningenme.net.api.domain.entity.ComproCategoryGenre;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryGenreRepository;
 import ningenme.net.api.domain.value.Label;
@@ -26,7 +26,7 @@ public class GenreMysqlRepositoryImpl implements ComproCategoryGenreRepository {
 
     @Override
     @Cacheable("comproCategoryGenre")
-    public List<ComproCategoryGenre> get() {
+    public List<Genre> get() {
 
         try {
             List<GenreMysqlDto> comproCategoryGenreList = sqlSessionTemplate.getMapper(GenreMysqlMapper.class).select(null);
@@ -43,7 +43,7 @@ public class GenreMysqlRepositoryImpl implements ComproCategoryGenreRepository {
     }
 
     @Override
-    public ComproCategoryGenre get(Label label) throws IllegalArgumentException {
+    public Genre get(Label label) throws IllegalArgumentException {
         List<GenreMysqlDto> comproCategoryGenreList = new ArrayList<>();
         try {
             comproCategoryGenreList = sqlSessionTemplate.getMapper(GenreMysqlMapper.class).select(label.getValue());

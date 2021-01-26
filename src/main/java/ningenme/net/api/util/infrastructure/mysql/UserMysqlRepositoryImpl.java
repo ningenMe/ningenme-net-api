@@ -1,8 +1,8 @@
 package ningenme.net.api.util.infrastructure.mysql;
 
 import lombok.RequiredArgsConstructor;
+import ningenme.net.api.util.domain.entity.NingenmeNetUser;
 import ningenme.net.api.util.infrastructure.mysql.dto.UserMysqlDto;
-import ningenme.net.api.domain.entity.ComproCategoryUser;
 import ningenme.net.api.domain.exception.InsertComproCategoryUserException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
 import ningenme.net.api.domain.repository.ComproCategoryUserRepository;
@@ -17,11 +17,11 @@ public class UserMysqlRepositoryImpl implements ComproCategoryUserRepository {
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override
-  public void insert(ComproCategoryUser comproCategoryUser) {
+  public void insert(NingenmeNetUser ningenmeNetUser) {
     try{
       sqlSessionTemplate.getMapper(UserMysqlMapper.class).insert(
-              comproCategoryUser.getEmail().toString(),
-              comproCategoryUser.getPassword().toString()
+              ningenmeNetUser.getEmail().toString(),
+              ningenmeNetUser.getPassword().toString()
       );
     }
     catch (Exception ex) {
@@ -30,7 +30,7 @@ public class UserMysqlRepositoryImpl implements ComproCategoryUserRepository {
   }
 
   @Override
-  public ComproCategoryUser get(Email email) {
+  public NingenmeNetUser get(Email email) {
     try{
       UserMysqlDto userMysqlDto = sqlSessionTemplate.getMapper(UserMysqlMapper.class).select(email.toString());
       return userMysqlDto.convertComproCategoryUser();

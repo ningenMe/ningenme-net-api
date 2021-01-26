@@ -2,9 +2,8 @@ package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.entity.ComproCategoryTask;
-import ningenme.net.api.domain.entity.ComproCategoryTopic;
-import ningenme.net.api.compro.domain.entity.Task;
+import ningenme.net.api.category.domain.entity.Task;
+import ningenme.net.api.category.domain.entity.Topic;
 import ningenme.net.api.domain.exception.ComproCategoryTaskUrlDuplicatedException;
 import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
 import ningenme.net.api.domain.repository.ComproCategoryTopicRepository;
@@ -25,20 +24,20 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   private final ComproCategoryTopicTaskRepository comproCategoryTopicTaskRepository;
   private final TaskService taskService;
   @Override
-  public List<ComproCategoryTask> getList(Integer offset) {
-    List<ComproCategoryTask>  comproCategoryTaskList  = comproCategoryTaskRepository.getList(offset);
-    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
-    for (ComproCategoryTask comproCategoryTask:comproCategoryTaskList) {
-      comproCategoryTask.setTopicList(comproCategoryTopicList);
+  public List<Task> getList(Integer offset) {
+    List<Task> taskList = comproCategoryTaskRepository.getList(offset);
+    List<Topic> topicList = comproCategoryTopicRepository.get();
+    for (Task task : taskList) {
+      task.setTopicList(topicList);
     }
-    return comproCategoryTaskList;
+    return taskList;
   }
   @Override
-  public ComproCategoryTask getOne(String taskId) {
-    ComproCategoryTask comproCategoryTask = comproCategoryTaskRepository.getOne(taskId);
-    List<ComproCategoryTopic> comproCategoryTopicList = comproCategoryTopicRepository.get();
-    comproCategoryTask.setTopicList(comproCategoryTopicList);
-    return comproCategoryTask;
+  public Task getOne(String taskId) {
+    Task task = comproCategoryTaskRepository.getOne(taskId);
+    List<Topic> topicList = comproCategoryTopicRepository.get();
+    task.setTopicList(topicList);
+    return task;
   }
   @Override
   public Integer getCount() {
@@ -46,7 +45,7 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   }
 
   @Override
-  public void post(ComproCategoryTask comproCategoryTask) {
+  public void post(Task comproCategoryTask) {
 
     Integer alreadyPostedCount = comproCategoryTaskRepository.getCountByUrl(comproCategoryTask.getUrl());
     //urlで既出判定を行う
@@ -56,10 +55,10 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
 
     //名前がデフォルトならデータ取得
     if(Objects.equals(comproCategoryTask.getTaskName(),".")) {
-      Task task = taskService.get(comproCategoryTask.getUrl());
+      ningenme.net.api.compro.domain.entity.Task task = taskService.get(comproCategoryTask.getUrl());
 
       if (Objects.nonNull(task)) {
-        comproCategoryTask = ComproCategoryTask.of(
+        comproCategoryTask = Task.of(
                 comproCategoryTask.getTaskId(),
                 task.getTaskName(),
                 task.getUrl(),
@@ -78,15 +77,15 @@ public class ComproCategoryTaskServiceImpl implements ComproCategoryTaskService 
   }
 
   @Override
-  public void put(ComproCategoryTask comproCategoryTask) {
+  public void put(Task task) {
 
     //未投稿データの場合ここでexceptionを吐く
-    ComproCategoryTask alreadyPostedComproCategoryTask = comproCategoryTaskRepository.getOne(comproCategoryTask.getTaskId());
+    Task alreadyPostedTask = comproCategoryTaskRepository.getOne(task.getTaskId());
 
-    log.info("taskId={}, url={} , name={}",comproCategoryTask.getTaskId(), comproCategoryTask.getUrl().getValue(),comproCategoryTask.getTaskName());
-    comproCategoryTaskRepository.put(comproCategoryTask);
-    comproCategoryTopicTaskRepository.deleteByTaskId(comproCategoryTask.getTaskId());
-    comproCategoryTopicTaskRepository.postList(comproCategoryTask.getComproCategoryTopicTaskList());
+    log.info("taskId={}, url={} , name={}", task.getTaskId(), task.getUrl().getValue(), task.getTaskName());
+    comproCategoryTaskRepository.put(task);
+    comproCategoryTopicTaskRepository.deleteByTaskId(task.getTaskId());
+    comproCategoryTopicTaskRepository.postList(task.getComproCategoryTopicTaskList());
   }
 
 }
