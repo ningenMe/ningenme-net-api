@@ -6,7 +6,7 @@ import ningenme.net.api.category.infrastructure.mysql.dto.TaskMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TaskMysqlMapper;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
-import ningenme.net.api.domain.repository.ComproCategoryTaskRepository;
+import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.domain.value.Url;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
-public class TaskMysqlRepositoryImpl implements ComproCategoryTaskRepository {
+public class TaskMysqlMysqlRepositoryImpl implements TaskMysqlRepository {
   private final SqlSessionTemplate sqlSessionTemplate;
 
   @Override

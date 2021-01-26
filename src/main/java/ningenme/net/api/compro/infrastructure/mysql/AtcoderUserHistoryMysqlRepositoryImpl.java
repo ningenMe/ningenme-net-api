@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import ningenme.net.api.compro.domain.entity.AtcoderUserHistory;
 import ningenme.net.api.domain.exception.InsertMysqlException;
 import ningenme.net.api.domain.exception.SelectMysqlException;
-import ningenme.net.api.domain.repository.AtcoderUserHistoryMysqlRepository;
+import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryMysqlRepository;
 import ningenme.net.api.domain.value.AtcoderId;
 import ningenme.net.api.domain.value.ContestId;
 import ningenme.net.api.domain.value.Performance;

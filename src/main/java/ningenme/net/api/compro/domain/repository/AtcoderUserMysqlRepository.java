@@ -1,4 +1,4 @@
-package ningenme.net.api.domain.repository;
+package ningenme.net.api.compro.domain.repository;
 
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.domain.value.AtcoderId;

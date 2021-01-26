@@ -3,7 +3,7 @@ package ningenme.net.api.compro.infrastructure.atcoder;
 import lombok.extern.slf4j.Slf4j;
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
 import ningenme.net.api.compro.domain.exception.ScrapeException;
-import ningenme.net.api.domain.repository.AtcoderUserClientRepository;
+import ningenme.net.api.compro.domain.repository.AtcoderUserAtcoderRepository;
 import ningenme.net.api.domain.value.AtcoderId;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.jsoup.Jsoup;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Repository
 @Slf4j
-public class AtcoderUserAtcoderRepositoryImpl implements AtcoderUserClientRepository {
+public class AtcoderUserAtcoderRepositoryImpl implements AtcoderUserAtcoderRepository {
   private final static String URL_RANKING_PAGE = "https://atcoder.jp/ranking";
   @Override
   public List<AtcoderUser> get(Integer pageNum) {

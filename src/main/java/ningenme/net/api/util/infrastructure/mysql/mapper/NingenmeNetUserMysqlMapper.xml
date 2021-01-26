@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="ningenme.net.api.util.infrastructure.mysql.mapper.UserMysqlMapper">
-    <resultMap id="ComproCategoryUserDto" type="ningenme.net.api.util.infrastructure.mysql.dto.UserMysqlDto">
+<mapper namespace="ningenme.net.api.util.infrastructure.mysql.mapper.NingenmeNetUserMysqlMapper">
+    <resultMap id="ComproCategoryUserDto" type="ningenme.net.api.util.infrastructure.mysql.dto.NingenmeNetUserMysqlDto">
         <id property="email" column="email"/>
         <id property="password" column="password"/>
         <id property="createdTime" column="created_time"/>

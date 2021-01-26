@@ -2,7 +2,7 @@ package ningenme.net.api.domain.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.util.domain.entity.NingenmeNetUser;
-import ningenme.net.api.domain.repository.ComproCategoryUserRepository;
+import ningenme.net.api.util.domain.repository.NingenmeNetUserMysqlRepository;
 import ningenme.net.api.domain.value.Email;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,10 +16,10 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ComproCategoryUserDetailsServiceImpl implements UserDetailsService {
 
-  private final ComproCategoryUserRepository comproCategoryUserRepository;
+  private final NingenmeNetUserMysqlRepository ningenmeNetUserMysqlRepository;
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    NingenmeNetUser ningenmeNetUser = comproCategoryUserRepository.get(Email.of(username));
+    NingenmeNetUser ningenmeNetUser = ningenmeNetUserMysqlRepository.get(Email.of(username));
 
     if(Objects.isNull(ningenmeNetUser)) {
       throw new UsernameNotFoundException("NingenmeNetUser Not Found");

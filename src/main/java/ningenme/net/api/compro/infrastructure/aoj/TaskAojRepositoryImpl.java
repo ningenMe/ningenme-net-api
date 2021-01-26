@@ -3,7 +3,7 @@ package ningenme.net.api.compro.infrastructure.aoj;
 import ningenme.net.api.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.compro.domain.exception.ScrapeException;
-import ningenme.net.api.domain.repository.ComproAojTaskClientRepository;
+import ningenme.net.api.compro.domain.repository.TaskAojRepository;
 import ningenme.net.api.domain.value.TaskScore;
 import ningenme.net.api.domain.value.TaskUniqueId;
 import ningenme.net.api.domain.value.Url;
@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TaskAojRepositoryImpl implements ComproAojTaskClientRepository {
+public class TaskAojRepositoryImpl implements TaskAojRepository {
 
   @Override
   public Task get(Url url) {
