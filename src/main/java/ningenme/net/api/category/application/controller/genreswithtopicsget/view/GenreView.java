@@ -1,6 +1,5 @@
-package ningenme.net.api.category.application.controller.genreonewithtopicget.view;
+package ningenme.net.api.category.application.controller.genreswithtopicsget.view;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
  */
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetOneWithTopicComproCategoryGenreResponseDto")
 public class GenreView {
   private final String genreId;
   private final String genreName;
@@ -27,10 +25,7 @@ public class GenreView {
             genre.getGenreName(),
             genre.getLabel().getValue(),
             genre.getGenreOrder().getValue(),
-            genre.getTopicList()
-                    .stream()
-                    .map(comproCategoryTopic -> TopicView.of(comproCategoryTopic))
-                    .collect(Collectors.toList())
+            genre.getTopicList().stream().map(TopicView::of).collect(Collectors.toList())
     );
   }
 }

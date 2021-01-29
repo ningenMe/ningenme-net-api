@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Affiliation {
   private final String value;
-  public static Affiliation of(String value) {
+
+  public static Affiliation of(final String value) {
     return new Affiliation(value);
   }
 }

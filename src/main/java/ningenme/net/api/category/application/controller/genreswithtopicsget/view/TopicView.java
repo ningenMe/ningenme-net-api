@@ -1,6 +1,5 @@
-package ningenme.net.api.category.application.controller.genrelistwithtopicget.view;
+package ningenme.net.api.category.application.controller.genreswithtopicsget.view;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +10,6 @@ import ningenme.net.api.category.domain.entity.Topic;
  */
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetOneWithTopicComproCategoryTopicResponseDto")
 public class TopicView {
   private final String topicId;
   private final String topicName;

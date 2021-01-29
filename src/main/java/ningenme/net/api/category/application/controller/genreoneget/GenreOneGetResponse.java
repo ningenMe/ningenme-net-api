@@ -10,7 +10,7 @@ import ningenme.net.api.category.domain.entity.Genre;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetOne")
+@ApiModel(value = "GenreOne-Get")
 public class GenreOneGetResponse {
   private final GenreView genre;
   public static GenreOneGetResponse of(@NonNull Genre genre) {

@@ -8,7 +8,7 @@ import ningenme.net.api.util.domain.exception.CategoryTaskUrlDuplicatedException
 import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicTaskMysqlRepository;
-import ningenme.net.api.category.domain.service.TaskService;
+import ningenme.net.api.category.domain.service.ProblemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class TaskServiceImpl implements TaskService {
+public class ProblemServiceImpl implements ProblemService {
   private final TaskMysqlRepository taskMysqlRepository;
   private final TopicMysqlRepository topicMysqlRepository;
   private final TopicTaskMysqlRepository topicTaskMysqlRepository;

@@ -1,17 +1,15 @@
-package ningenme.net.api.category.application.controller.genreonewithtopicget.view;
+package ningenme.net.api.category.application.controller.genreonewithtopicsget.view;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.entity.Task;
 
 /**
- * レスポンス時のDTO, プリミティブ型のメンバのみで構成する
+ * レスポンス時のDTO, プリミティブ型のメンバのみで構成する.
  */
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetOneWithTopicComproCategoryTaskResponseDto")
 public class TaskView {
   private final String taskId;
   private final String taskName;
