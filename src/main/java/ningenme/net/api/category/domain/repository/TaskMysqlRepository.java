@@ -1,7 +1,7 @@
 package ningenme.net.api.category.domain.repository;
 
 import ningenme.net.api.category.domain.entity.Task;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.util.domain.value.Url;
 
 import java.util.List;
 

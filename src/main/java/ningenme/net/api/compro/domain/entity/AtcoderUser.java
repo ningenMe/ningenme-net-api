@@ -1,7 +1,8 @@
 package ningenme.net.api.compro.domain.entity;
 
 import lombok.*;
-import ningenme.net.api.domain.value.*;
+import ningenme.net.api.compro.domain.value.*;
+import ningenme.net.api.util.domain.value.UpdatedTime;
 
 @Getter
 @Builder

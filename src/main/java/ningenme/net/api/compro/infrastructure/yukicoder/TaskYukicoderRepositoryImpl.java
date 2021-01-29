@@ -1,12 +1,12 @@
 package ningenme.net.api.compro.infrastructure.yukicoder;
 
-import ningenme.net.api.domain.value.ComproSite;
+import ningenme.net.api.compro.domain.value.ComproSite;
 import ningenme.net.api.compro.domain.entity.Task;
 import ningenme.net.api.util.domain.exception.ScrapeException;
 import ningenme.net.api.compro.domain.repository.TaskYukicoderRepository;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.TaskUniqueId;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.compro.domain.value.TaskScore;
+import ningenme.net.api.category.domain.value.TaskUniqueId;
+import ningenme.net.api.util.domain.value.Url;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;

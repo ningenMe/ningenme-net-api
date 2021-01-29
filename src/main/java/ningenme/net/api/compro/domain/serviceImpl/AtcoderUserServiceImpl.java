@@ -9,8 +9,9 @@ import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryAtcoderReposi
 import ningenme.net.api.compro.domain.repository.AtcoderUserHistoryMysqlRepository;
 import ningenme.net.api.compro.domain.repository.AtcoderUserMysqlRepository;
 import ningenme.net.api.compro.domain.service.AtcoderUserService;
-import ningenme.net.api.domain.value.*;
+import ningenme.net.api.compro.domain.value.*;
 import ningenme.net.api.util.domain.repository.BatchMysqlRepository;
+import ningenme.net.api.util.domain.value.LogCode;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

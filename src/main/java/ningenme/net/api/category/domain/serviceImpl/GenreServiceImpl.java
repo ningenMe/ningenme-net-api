@@ -7,7 +7,7 @@ import ningenme.net.api.category.domain.repository.GenreMysqlRepository;
 import ningenme.net.api.category.domain.repository.TaskMysqlRepository;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
 import ningenme.net.api.category.domain.service.GenreService;
-import ningenme.net.api.domain.value.Label;
+import ningenme.net.api.category.domain.value.Label;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

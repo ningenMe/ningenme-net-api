@@ -7,7 +7,7 @@ import ningenme.net.api.category.infrastructure.mysql.dto.TopicMysqlDto;
 import ningenme.net.api.category.infrastructure.mysql.mapper.TopicMysqlMapper;
 import ningenme.net.api.util.domain.exception.SelectMysqlException;
 import ningenme.net.api.category.domain.repository.TopicMysqlRepository;
-import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.util.domain.value.LogCode;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;

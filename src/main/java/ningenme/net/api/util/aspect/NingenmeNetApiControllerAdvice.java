@@ -5,7 +5,7 @@ import ningenme.net.api.util.domain.exception.CategoryTaskUrlDuplicatedException
 import ningenme.net.api.util.domain.exception.InsertComproCategoryUserException;
 import ningenme.net.api.util.domain.exception.NoResourceException;
 import ningenme.net.api.util.domain.exception.SelectMysqlException;
-import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.util.domain.value.LogCode;
 import ningenme.net.api.util.application.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -3,7 +3,8 @@ package ningenme.net.api.compro.domain.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
-import ningenme.net.api.domain.value.*;
+import ningenme.net.api.compro.domain.value.*;
+import ningenme.net.api.util.domain.value.Url;
 
 @Getter
 @Builder

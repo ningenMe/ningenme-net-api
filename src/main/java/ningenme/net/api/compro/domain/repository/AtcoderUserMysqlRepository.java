@@ -1,7 +1,7 @@
 package ningenme.net.api.compro.domain.repository;
 
 import ningenme.net.api.compro.domain.entity.AtcoderUser;
-import ningenme.net.api.domain.value.AtcoderId;
+import ningenme.net.api.compro.domain.value.AtcoderId;
 
 public interface AtcoderUserMysqlRepository {
   public void put(AtcoderUser atcoderUser);

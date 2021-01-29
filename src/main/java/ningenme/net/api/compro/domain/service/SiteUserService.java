@@ -1,8 +1,6 @@
 package ningenme.net.api.compro.domain.service;
 
-import ningenme.net.api.domain.value.ComproSite;
-
-import java.util.List;
+import ningenme.net.api.compro.domain.value.ComproSite;
 
 public interface SiteUserService {
   public void putId(ComproSite comproSite);

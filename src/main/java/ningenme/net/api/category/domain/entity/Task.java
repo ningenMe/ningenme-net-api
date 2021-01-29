@@ -5,8 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.value.TaskScore;
-import ningenme.net.api.domain.value.Url;
+import ningenme.net.api.compro.domain.value.TaskScore;
+import ningenme.net.api.util.domain.value.Url;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

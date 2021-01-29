@@ -2,7 +2,7 @@ package ningenme.net.api.category.infrastructure.mysql.dto;
 
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.category.domain.entity.Topic;
-import ningenme.net.api.domain.value.CategoryOrder;
+import ningenme.net.api.category.domain.value.CategoryOrder;
 
 @RequiredArgsConstructor
 public class TopicMysqlDto {

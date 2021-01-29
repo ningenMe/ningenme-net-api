@@ -3,7 +3,7 @@ package ningenme.net.api.util.application;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.util.domain.value.LogCode;
 import org.springframework.http.HttpStatus;
 
 @Getter

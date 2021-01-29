@@ -1,7 +1,7 @@
 package ningenme.net.api.category.domain.service;
 
 import ningenme.net.api.category.domain.entity.Genre;
-import ningenme.net.api.domain.value.Label;
+import ningenme.net.api.category.domain.value.Label;
 
 import java.util.List;
 

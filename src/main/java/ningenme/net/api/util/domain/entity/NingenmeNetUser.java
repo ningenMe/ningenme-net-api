@@ -4,8 +4,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import ningenme.net.api.domain.value.Email;
-import ningenme.net.api.domain.value.Password;
+import ningenme.net.api.util.domain.value.Email;
+import ningenme.net.api.util.domain.value.Password;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

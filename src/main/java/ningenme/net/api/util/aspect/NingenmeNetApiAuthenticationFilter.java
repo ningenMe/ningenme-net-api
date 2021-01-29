@@ -2,7 +2,7 @@ package ningenme.net.api.util.aspect;
 
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
-import ningenme.net.api.domain.value.LogCode;
+import ningenme.net.api.util.domain.value.LogCode;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

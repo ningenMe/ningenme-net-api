@@ -3,7 +3,7 @@ package ningenme.net.api.util.domain.serviceImpl;
 import lombok.RequiredArgsConstructor;
 import ningenme.net.api.util.domain.entity.NingenmeNetUser;
 import ningenme.net.api.util.domain.repository.NingenmeNetUserMysqlRepository;
-import ningenme.net.api.domain.value.Email;
+import ningenme.net.api.util.domain.value.Email;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

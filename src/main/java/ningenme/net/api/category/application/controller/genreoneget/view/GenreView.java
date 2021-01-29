@@ -11,7 +11,6 @@ import ningenme.net.api.category.domain.entity.Genre;
  */
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@ApiModel(value = "ComproCategoryGenreGetOneComproCategoryGenreResponseDto")
 public class GenreView {
   private final String genreId;
   private final String genreName;
